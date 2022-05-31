@@ -1194,5 +1194,40 @@ quadrodisgestaor9 <- quadrodisgestaor9%>%
              Ruim = percent(sum(`IRuim`, na.rm = T)/length(`IRuim`)),
              Péssima = percent(sum(`IPéssima`, na.rm = T)/length(`IPéssima`)))
 
+# Salas de Aula
+
+consulta_discenter <- consulta_aluno %>% filter(!is.na(`Salas de aula`))
+
+consulta_discenter$"1Ótima" <- NA
+consulta_discenter$"1Ótima" <- ifelse(str_detect(consulta_discenter$`Salas de aula`, 
+                                                 "Ótima"), 1, 0)
+consulta_discenter$"1Boa" <- NA
+consulta_discenter$"1Boa" <- ifelse(str_detect(consulta_discenter$`Salas de aula`, 
+                                               "Boa"), 1, 0)
+
+consulta_discenter$"1Não utilizei o local/serviço este ano." <- NA
+consulta_discenter$"1Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_discenter$`Salas de aula`, 
+                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_discenter$"1Ruim" <- NA
+consulta_discenter$"1Ruim" <- ifelse(str_detect(consulta_discenter$`Salas de aula`, 
+                                                "Ruim"), 1, 0)
+
+consulta_discenter$"1Péssima" <- NA
+consulta_discenter$"1Péssima" <- ifelse(str_detect(consulta_discenter$`Salas de aula`, 
+                                                   "Péssima"), 1, 0)
+
+
+quadrodisgestaor10 <- consulta_discenter %>% 
+  mutate(Classe = "Salas de aula")
+
+quadrodisgestaor10 <- quadrodisgestaor10%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`1Ótima`, na.rm = T)/length(`1Ótima`)),
+             Boa = percent(sum(`1Boa`, na.rm = T)/length(`1Boa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`1Não utilizei o local/serviço este ano.`, na.rm = T)/length(`1Não utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`1Ruim`, na.rm = T)/length(`1Ruim`)),
+             Péssima = percent(sum(`1Péssima`, na.rm = T)/length(`1Péssima`)))
+
 rm(list=ls())
 consulta_aluno   <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/Rpibic/AlunosConsulta.xlsx")
