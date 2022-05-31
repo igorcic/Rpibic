@@ -1,5 +1,5 @@
 ##################################################
-###### Consulta ‡ Comunidade AcadÍmica 2021 ######
+###### Consulta √† Comunidade Acad√™mica 2021 ######
 ##################################################
 
 setwd("C:/Users/igorB/Desktop/ArquivosPesquisaUNB")
@@ -17,7 +17,7 @@ library('readr')
 
 
 
-# LocalizaÁ„o do arquivo xlsx para leitura dos dados
+# Localiza√ß√£o do arquivo xlsx para leitura dos dados
 
 consulta_tecnico <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/TecnicoConsulta.xlsx")
 consulta_docente <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/DocenteConsulta.xlsx")
@@ -50,15 +50,15 @@ rm(quadro1_al, quadro1_do, quadro1_te)
 
 # QUADROTEMPO ----------------------------------------------------------------
 
-quadro_do <- consulta_docente %>% filter(!is.na(`H· quanto tempo vocÍ trabalha na UnB?`)) %>% 
-  rename(Tempo = "H· quanto tempo vocÍ trabalha na UnB?") %>% 
+quadro_do <- consulta_docente %>% filter(!is.na(`H√° quanto tempo voc√™ trabalha na UnB?`)) %>% 
+  rename(Tempo = "H√° quanto tempo voc√™ trabalha na UnB?") %>% 
   select(Tempo) %>% 
   mutate(Classe = "Docentes") 
 
-quadro_te <- consulta_tecnico %>% filter(!is.na(`H· quanto tempo vocÍ trabalha na UnB?`)) %>% 
-  rename(Tempo = `H· quanto tempo vocÍ trabalha na UnB?`) %>% 
+quadro_te <- consulta_tecnico %>% filter(!is.na(`H√° quanto tempo voc√™ trabalha na UnB?`)) %>% 
+  rename(Tempo = `H√° quanto tempo voc√™ trabalha na UnB?`) %>% 
   select(Tempo) %>% 
-  mutate(Classe = "TÈcnicos") 
+  mutate(Classe = "T√©cnicos") 
 
 quadrotempo <- rbind(quadro_do, quadro_te) %>% 
   drop_na(Tempo) %>% 
@@ -74,19 +74,19 @@ quadrotempo <- rbind(quadrotempo, (c("Total", "100%", "100%")))
 # FIGURAPDA ----------------------------------------------------------------
 
 figuracpa_al <- consulta_aluno %>% 
-  rename("Categoria" = `VocÍ j· ouviu falar da Comiss„o PrÛpria de AvaliaÁ„o (CPA) da UnB?`) %>% 
+  rename("Categoria" = `Voc√™ j√° ouviu falar da Comiss√£o Pr√≥pria de Avalia√ß√£o (CPA) da UnB?`) %>% 
   select(Categoria) %>% 
   filter(!is.na(Categoria)) %>% 
   mutate(Classe = "Discentes")
 
 figuracpa_do <- consulta_docente %>% 
-  rename("Categoria" = `VocÍ j· ouviu falar da Comiss„o PrÛpria de AvaliaÁ„o (CPA) da UnB?`) %>% 
+  rename("Categoria" = `Voc√™ j√° ouviu falar da Comiss√£o Pr√≥pria de Avalia√ß√£o (CPA) da UnB?`) %>% 
   select(Categoria) %>% 
   filter(!is.na(Categoria)) %>% 
   mutate(Classe = "Docentes")
 
 figuracpa_te <- consulta_tecnico %>%
-  rename("Categoria" = `VocÍ j· ouviu falar da Comiss„o PrÛpria de AvaliaÁ„o (CPA) da UnB?`) %>% 
+  rename("Categoria" = `Voc√™ j√° ouviu falar da Comiss√£o Pr√≥pria de Avalia√ß√£o (CPA) da UnB?`) %>% 
   select(Categoria) %>% 
   filter(!is.na(Categoria)) %>% 
   mutate(Classe = "Tecnicos")
@@ -113,19 +113,19 @@ rm(figuracpa_al, figuracpa_do, figuracpa_te)
 # FIGURAPDI ----------------------------------------------------------------
 
 figura1_di <- consulta_aluno %>% 
-  rename("Categoria" = `VocÍ j· ouviu falar do Plano de Desenvolvimento Institucional (PDI) da UnB?`) %>% 
+  rename("Categoria" = `Voc√™ j√° ouviu falar do Plano de Desenvolvimento Institucional (PDI) da UnB?`) %>% 
   select(Categoria) %>% 
   filter(!is.na(Categoria)) %>% 
   mutate(Classe = "Discentes")
 
 figura1_do <- consulta_docente %>% 
-  rename("Categoria" = `VocÍ j· ouviu falar do Plano de Desenvolvimento Institucional (PDI) da UnB?`) %>% 
+  rename("Categoria" = `Voc√™ j√° ouviu falar do Plano de Desenvolvimento Institucional (PDI) da UnB?`) %>% 
   select(Categoria) %>% 
   filter(!is.na(Categoria)) %>% 
   mutate(Classe = "Docentes")
 
 figura1_te <- consulta_tecnico %>%
-  rename("Categoria" = `VocÍ j· ouviu falar do Plano de Desenvolvimento Institucional (PDI) da UnB?`) %>% 
+  rename("Categoria" = `Voc√™ j√° ouviu falar do Plano de Desenvolvimento Institucional (PDI) da UnB?`) %>% 
   select(Categoria) %>% 
   filter(!is.na(Categoria)) %>% 
   mutate(Classe = "Tecnicos")
@@ -149,30 +149,30 @@ figurapdi<- figura1
 
 # pergunta 1
 
-consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`))
+consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`))
 
 consulta_docenteg$"1" <- NA
-consulta_docenteg$"1" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_docenteg$"1" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                            "1"), 1, 0)
 consulta_docenteg$"2" <- NA
-consulta_docenteg$"2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_docenteg$"2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                            "2"), 1, 0)
 consulta_docenteg$"3" <- NA
-consulta_docenteg$"3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_docenteg$"3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                            "3"), 1, 0)
 consulta_docenteg$"4" <- NA
-consulta_docenteg$"4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_docenteg$"4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                            "4"), 1, 0)
 consulta_docenteg$"5" <- NA
-consulta_docenteg$"5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_docenteg$"5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                            "5"), 1, 0)
-consulta_docenteg$"N„o sei responder" <- NA
-consulta_docenteg$"N„o sei responder" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
-                                                           "N„o sei responder"), 1, 0)
+consulta_docenteg$"N√£o sei responder" <- NA
+consulta_docenteg$"N√£o sei responder" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
+                                                           "N√£o sei responder"), 1, 0)
 
 quadrodocgestao <- consulta_docenteg %>% 
-  select("1":"N„o sei responder") %>% 
-  mutate(Classe = "A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o")
+  select("1":"N√£o sei responder") %>% 
+  mutate(Classe = "A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o")
 
 
 quadrodocgestao <- quadrodocgestao%>% 
@@ -182,34 +182,34 @@ quadrodocgestao <- quadrodocgestao%>%
             "3" = percent(sum(`3`, na.rm = T)/length(`3`)),
             "4" = percent(sum(`4`, na.rm = T)/length(`4`)),
             "5" = percent(sum(`5`, na.rm = T)/length(`5`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder`, na.rm = T)/length(`N„o sei responder`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder`, na.rm = T)/length(`N√£o sei responder`)))
 
 # Pergunta 2
 
-consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`))
+consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`))
 
 consulta_docenteg$"1.2" <- NA
-consulta_docenteg$"1.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_docenteg$"1.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "1"), 1, 0)
 consulta_docenteg$"2.2" <- NA
-consulta_docenteg$"2.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_docenteg$"2.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "2"), 1, 0)
 consulta_docenteg$"3.2" <- NA
-consulta_docenteg$"3.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_docenteg$"3.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "3"), 1, 0)
 consulta_docenteg$"4.2" <- NA
-consulta_docenteg$"4.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_docenteg$"4.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "4"), 1, 0)
 consulta_docenteg$"5.2" <- NA
-consulta_docenteg$"5.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_docenteg$"5.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "5"), 1, 0)
-consulta_docenteg$"N„o sei responder.2" <- NA
-consulta_docenteg$"N„o sei responder.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
-                                                             "N„o sei responder"), 1, 0)
+consulta_docenteg$"N√£o sei responder.2" <- NA
+consulta_docenteg$"N√£o sei responder.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+                                                             "N√£o sei responder"), 1, 0)
 
 quadrodocgestao2 <- consulta_docenteg %>% 
-  select("1.2":"N„o sei responder.2") %>% 
-  mutate(Classe = "As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ")
+  select("1.2":"N√£o sei responder.2") %>% 
+  mutate(Classe = "As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ")
 
 quadrodocgestao2 <- quadrodocgestao2%>% 
   group_by(Classe) %>% 
@@ -218,37 +218,37 @@ quadrodocgestao2 <- quadrodocgestao2%>%
             "3" = percent(sum(`3.2`, na.rm = T)/length(`3.2`)),
             "4" = percent(sum(`4.2`, na.rm = T)/length(`4.2`)),
             "5" = percent(sum(`5.2`, na.rm = T)/length(`5.2`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder.2`, na.rm = T)/length(`N„o sei responder.2`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder.2`, na.rm = T)/length(`N√£o sei responder.2`)))
 
 quadrodocgestaototal <- rbind(quadrodocgestao, quadrodocgestao2)
 
 
 # Pergunta 3
 
-consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`))
+consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`))
 
 consulta_docenteg$"1.3" <- NA
-consulta_docenteg$"1.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_docenteg$"1.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                              "1"), 1, 0)
 consulta_docenteg$"2.3" <- NA
-consulta_docenteg$"2.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_docenteg$"2.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                              "2"), 1, 0)
 consulta_docenteg$"3.3" <- NA
-consulta_docenteg$"3.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_docenteg$"3.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                              "3"), 1, 0)
 consulta_docenteg$"4.3" <- NA
-consulta_docenteg$"4.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_docenteg$"4.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                              "4"), 1, 0)
 consulta_docenteg$"5.3" <- NA
-consulta_docenteg$"5.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_docenteg$"5.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                              "5"), 1, 0)
-consulta_docenteg$"N„o sei responder3" <- NA
-consulta_docenteg$"N„o sei responder3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
-                                                            "N„o sei responder"), 1, 0)
+consulta_docenteg$"N√£o sei responder3" <- NA
+consulta_docenteg$"N√£o sei responder3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
+                                                            "N√£o sei responder"), 1, 0)
 
 quadrodocgestao3 <- consulta_docenteg %>% 
-  select("1.3":"N„o sei responder3") %>% 
-  mutate(Classe = "Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes")
+  select("1.3":"N√£o sei responder3") %>% 
+  mutate(Classe = "Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes")
 
 quadrodocgestao3 <- quadrodocgestao3%>% 
   group_by(Classe) %>% 
@@ -257,7 +257,7 @@ quadrodocgestao3 <- quadrodocgestao3%>%
             "3" = percent(sum(`3.3`, na.rm = T)/length(`3.3`)),
             "4" = percent(sum(`4.3`, na.rm = T)/length(`4.3`)),
             "5" = percent(sum(`5.3`, na.rm = T)/length(`5.3`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder3`, na.rm = T)/length(`N„o sei responder3`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder3`, na.rm = T)/length(`N√£o sei responder3`)))
 
 
 quadrodocgestaototal2 <- rbind(quadrodocgestaototal, quadrodocgestao3)
@@ -266,30 +266,30 @@ quadrodocgestaototal2 <- rbind(quadrodocgestaototal, quadrodocgestao3)
 # Pergunta 4
 
 
-consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`))
+consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`))
 
 consulta_docenteg$"1.4" <- NA
-consulta_docenteg$"1.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_docenteg$"1.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                              "1"), 1, 0)
 consulta_docenteg$"2.4" <- NA
-consulta_docenteg$"2.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_docenteg$"2.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                              "2"), 1, 0)
 consulta_docenteg$"3.4" <- NA
-consulta_docenteg$"3.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_docenteg$"3.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                              "3"), 1, 0)
 consulta_docenteg$"4.4" <- NA
-consulta_docenteg$"4.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_docenteg$"4.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                              "4"), 1, 0)
 consulta_docenteg$"5.4" <- NA
-consulta_docenteg$"5.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_docenteg$"5.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                              "5"), 1, 0)
-consulta_docenteg$"N„o sei responder4" <- NA
-consulta_docenteg$"N„o sei responder4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
-                                                            "N„o sei responder"), 1, 0)
+consulta_docenteg$"N√£o sei responder4" <- NA
+consulta_docenteg$"N√£o sei responder4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
+                                                            "N√£o sei responder"), 1, 0)
 
 quadrodocgestao4 <- consulta_docenteg %>% 
-  select("1.4":"N„o sei responder4") %>% 
-  mutate(Classe = "Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.")
+  select("1.4":"N√£o sei responder4") %>% 
+  mutate(Classe = "Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.")
 
 quadrodocgestao4 <- quadrodocgestao4%>% 
   group_by(Classe) %>% 
@@ -298,7 +298,7 @@ quadrodocgestao4 <- quadrodocgestao4%>%
             "3" = percent(sum(`3.4`, na.rm = T)/length(`3.4`)),
             "4" = percent(sum(`4.4`, na.rm = T)/length(`4.4`)),
             "5" = percent(sum(`5.4`, na.rm = T)/length(`5.4`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder4`, na.rm = T)/length(`N„o sei responder4`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder4`, na.rm = T)/length(`N√£o sei responder4`)))
 
 
 quadrodocgestaototal3 <- rbind(quadrodocgestaototal2, quadrodocgestao4)
@@ -307,30 +307,30 @@ quadrodocgestaototal3 <- rbind(quadrodocgestaototal2, quadrodocgestao4)
 # pergunta 5
 
 
-consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`))
+consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`))
 
 consulta_docenteg$"1.5" <- NA
-consulta_docenteg$"1.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_docenteg$"1.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                              "1"), 1, 0)
 consulta_docenteg$"2.5" <- NA
-consulta_docenteg$"2.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_docenteg$"2.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                              "2"), 1, 0)
 consulta_docenteg$"3.5" <- NA
-consulta_docenteg$"3.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_docenteg$"3.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                              "3"), 1, 0)
 consulta_docenteg$"4.5" <- NA
-consulta_docenteg$"4.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_docenteg$"4.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                              "4"), 1, 0)
 consulta_docenteg$"5.5" <- NA
-consulta_docenteg$"5.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_docenteg$"5.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                              "5"), 1, 0)
-consulta_docenteg$"N„o sei responder5" <- NA
-consulta_docenteg$"N„o sei responder5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
-                                                            "N„o sei responder"), 1, 0)
+consulta_docenteg$"N√£o sei responder5" <- NA
+consulta_docenteg$"N√£o sei responder5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
+                                                            "N√£o sei responder"), 1, 0)
 
 quadrodocgestao5 <- consulta_docenteg %>% 
-  select("1.5":"N„o sei responder5") %>% 
-  mutate(Classe = "Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.")
+  select("1.5":"N√£o sei responder5") %>% 
+  mutate(Classe = "Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.")
 
 quadrodocgestao5 <- quadrodocgestao5%>% 
   group_by(Classe) %>% 
@@ -339,7 +339,7 @@ quadrodocgestao5 <- quadrodocgestao5%>%
             "3" = percent(sum(`3.5`, na.rm = T)/length(`3.5`)),
             "4" = percent(sum(`4.5`, na.rm = T)/length(`4.5`)),
             "5" = percent(sum(`5.5`, na.rm = T)/length(`5.5`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder5`, na.rm = T)/length(`N„o sei responder5`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder5`, na.rm = T)/length(`N√£o sei responder5`)))
 
 quadrodocgestaototal4 <- rbind(quadrodocgestaototal3, quadrodocgestao5)
 
@@ -350,31 +350,31 @@ quadrodocgestaototal4 <- rbind(quadrodocgestaototal3, quadrodocgestao5)
 # pergunta 1
 
 
-consulta_discenteg <- consulta_aluno %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`))
+consulta_discenteg <- consulta_aluno %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`))
 
 consulta_discenteg$"1" <- NA
-consulta_discenteg$"1" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_discenteg$"1" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                             "1"), 1, 0)
 consulta_discenteg$"2" <- NA
-consulta_discenteg$"2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_discenteg$"2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                             "2"), 1, 0)
 consulta_discenteg$"3" <- NA
-consulta_discenteg$"3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_discenteg$"3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                             "3"), 1, 0)
 consulta_discenteg$"4" <- NA
-consulta_discenteg$"4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_discenteg$"4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                             "4"), 1, 0)
 consulta_discenteg$"5" <- NA
-consulta_discenteg$"5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_discenteg$"5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                             "5"), 1, 0)
-consulta_discenteg$"N„o sei responder" <- NA
-consulta_discenteg$"N„o sei responder" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
-                                                            "N„o sei responder"), 1, 0)
+consulta_discenteg$"N√£o sei responder" <- NA
+consulta_discenteg$"N√£o sei responder" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
+                                                            "N√£o sei responder"), 1, 0)
 
 
 quadrodisgestao <- consulta_discenteg %>% 
-  select("1":"N„o sei responder") %>% 
-  mutate(Classe = "A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o")
+  select("1":"N√£o sei responder") %>% 
+  mutate(Classe = "A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o")
 
 quadrodisgestao <- quadrodisgestao%>% 
   group_by(Classe) %>% 
@@ -383,34 +383,34 @@ quadrodisgestao <- quadrodisgestao%>%
             "3" = percent(sum(`3`, na.rm = T)/length(`3`)),
             "4" = percent(sum(`4`, na.rm = T)/length(`4`)),
             "5" = percent(sum(`5`, na.rm = T)/length(`5`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder`, na.rm = T)/length(`N„o sei responder`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder`, na.rm = T)/length(`N√£o sei responder`)))
 
 # Pergunta 2
 
-consulta_discenteg <- consulta_aluno %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`))
+consulta_discenteg <- consulta_aluno %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`))
 
 consulta_discenteg$"1.2" <- NA
-consulta_discenteg$"1.2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_discenteg$"1.2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                               "1"), 1, 0)
 consulta_discenteg$"2.2" <- NA
-consulta_discenteg$"2.2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_discenteg$"2.2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                               "2"), 1, 0)
 consulta_discenteg$"3.2" <- NA
-consulta_discenteg$"3.2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_discenteg$"3.2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                               "3"), 1, 0)
 consulta_discenteg$"4.2" <- NA
-consulta_discenteg$"4.2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_discenteg$"4.2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                               "4"), 1, 0)
 consulta_discenteg$"5.2" <- NA
-consulta_discenteg$"5.2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_discenteg$"5.2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                               "5"), 1, 0)
-consulta_discenteg$"N„o sei responder.2" <- NA
-consulta_discenteg$"N„o sei responder.2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
-                                                              "N„o sei responder"), 1, 0)
+consulta_discenteg$"N√£o sei responder.2" <- NA
+consulta_discenteg$"N√£o sei responder.2" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+                                                              "N√£o sei responder"), 1, 0)
 
 quadrodisgestao2 <- consulta_discenteg %>% 
-  select("1.2":"N„o sei responder.2") %>% 
-  mutate(Classe = "As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ")
+  select("1.2":"N√£o sei responder.2") %>% 
+  mutate(Classe = "As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ")
 
 quadrodisgestao2 <- quadrodisgestao2%>% 
   group_by(Classe) %>% 
@@ -419,37 +419,37 @@ quadrodisgestao2 <- quadrodisgestao2%>%
             "3" = percent(sum(`3.2`, na.rm = T)/length(`3.2`)),
             "4" = percent(sum(`4.2`, na.rm = T)/length(`4.2`)),
             "5" = percent(sum(`5.2`, na.rm = T)/length(`5.2`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder.2`, na.rm = T)/length(`N„o sei responder.2`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder.2`, na.rm = T)/length(`N√£o sei responder.2`)))
 
 quadrodisgestaototal <- rbind(quadrodisgestao, quadrodisgestao2)
 
 
 # Pergunta 3
 
-consulta_discenteg <- consulta_aluno %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`))
+consulta_discenteg <- consulta_aluno %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`))
 
 consulta_discenteg$"1.3" <- NA
-consulta_discenteg$"1.3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_discenteg$"1.3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                               "1"), 1, 0)
 consulta_discenteg$"2.3" <- NA
-consulta_discenteg$"2.3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_discenteg$"2.3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                               "2"), 1, 0)
 consulta_discenteg$"3.3" <- NA
-consulta_discenteg$"3.3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_discenteg$"3.3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                               "3"), 1, 0)
 consulta_discenteg$"4.3" <- NA
-consulta_discenteg$"4.3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_discenteg$"4.3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                               "4"), 1, 0)
 consulta_discenteg$"5.3" <- NA
-consulta_discenteg$"5.3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_discenteg$"5.3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                               "5"), 1, 0)
-consulta_discenteg$"N„o sei responder3" <- NA
-consulta_discenteg$"N„o sei responder3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
-                                                             "N„o sei responder"), 1, 0)
+consulta_discenteg$"N√£o sei responder3" <- NA
+consulta_discenteg$"N√£o sei responder3" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
+                                                             "N√£o sei responder"), 1, 0)
 
 quadrodisgestao3 <- consulta_discenteg %>% 
-  select("1.3":"N„o sei responder3") %>% 
-  mutate(Classe = "Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes")
+  select("1.3":"N√£o sei responder3") %>% 
+  mutate(Classe = "Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes")
 quadrodisgestao3 <- quadrodisgestao3%>% 
   group_by(Classe) %>% 
   summarise("1" = percent(sum(`1.3`, na.rm = T)/length(`1.3`)),
@@ -457,7 +457,7 @@ quadrodisgestao3 <- quadrodisgestao3%>%
             "3" = percent(sum(`3.3`, na.rm = T)/length(`3.3`)),
             "4" = percent(sum(`4.3`, na.rm = T)/length(`4.3`)),
             "5" = percent(sum(`5.3`, na.rm = T)/length(`5.3`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder3`, na.rm = T)/length(`N„o sei responder3`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder3`, na.rm = T)/length(`N√£o sei responder3`)))
 
 quadrodisgestaototal2 <- rbind(quadrodisgestaototal, quadrodisgestao3)
 
@@ -465,31 +465,31 @@ quadrodisgestaototal2 <- rbind(quadrodisgestaototal, quadrodisgestao3)
 # Pergunta 4
 
 
-consulta_discenteg <- consulta_aluno %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`))
+consulta_discenteg <- consulta_aluno %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`))
 
 consulta_discenteg$"1.4" <- NA
-consulta_discenteg$"1.4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_discenteg$"1.4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                               "1"), 1, 0)
 consulta_discenteg$"2.4" <- NA
-consulta_discenteg$"2.4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_discenteg$"2.4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                               "2"), 1, 0)
 consulta_discenteg$"3.4" <- NA
-consulta_discenteg$"3.4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_discenteg$"3.4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                               "3"), 1, 0)
 consulta_discenteg$"4.4" <- NA
-consulta_discenteg$"4.4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_discenteg$"4.4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                               "4"), 1, 0)
 consulta_discenteg$"5.4" <- NA
-consulta_discenteg$"5.4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_discenteg$"5.4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                               "5"), 1, 0)
-consulta_discenteg$"N„o sei responder4" <- NA
-consulta_discenteg$"N„o sei responder4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
-                                                             "N„o sei responder"), 1, 0)
+consulta_discenteg$"N√£o sei responder4" <- NA
+consulta_discenteg$"N√£o sei responder4" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
+                                                             "N√£o sei responder"), 1, 0)
 
 
 quadrodisgestao4 <- consulta_discenteg %>% 
-  select("1.4":"N„o sei responder4") %>% 
-  mutate(Classe = "Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.")
+  select("1.4":"N√£o sei responder4") %>% 
+  mutate(Classe = "Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.")
 
 quadrodisgestao4 <- quadrodisgestao4%>% 
   group_by(Classe) %>% 
@@ -498,7 +498,7 @@ quadrodisgestao4 <- quadrodisgestao4%>%
             "3" = percent(sum(`3.4`, na.rm = T)/length(`3.4`)),
             "4" = percent(sum(`4.4`, na.rm = T)/length(`4.4`)),
             "5" = percent(sum(`5.4`, na.rm = T)/length(`5.4`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder4`, na.rm = T)/length(`N„o sei responder4`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder4`, na.rm = T)/length(`N√£o sei responder4`)))
 
 quadrodisgestaototal3 <- rbind(quadrodisgestaototal2, quadrodisgestao4)
 
@@ -506,30 +506,30 @@ quadrodisgestaototal3 <- rbind(quadrodisgestaototal2, quadrodisgestao4)
 # pergunta 5
 
 
-consulta_discenteg<- consulta_aluno %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`))
+consulta_discenteg<- consulta_aluno %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`))
 
 consulta_discenteg$"1.5" <- NA
-consulta_discenteg$"1.5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_discenteg$"1.5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                               "1"), 1, 0)
 consulta_discenteg$"2.5" <- NA
-consulta_discenteg$"2.5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_discenteg$"2.5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                               "2"), 1, 0)
 consulta_discenteg$"3.5" <- NA
-consulta_discenteg$"3.5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_discenteg$"3.5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                               "3"), 1, 0)
 consulta_discenteg$"4.5" <- NA
-consulta_discenteg$"4.5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_discenteg$"4.5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                               "4"), 1, 0)
 consulta_discenteg$"5.5" <- NA
-consulta_discenteg$"5.5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_discenteg$"5.5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                               "5"), 1, 0)
-consulta_discenteg$"N„o sei responder5" <- NA
-consulta_discenteg$"N„o sei responder5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
-                                                             "N„o sei responder"), 1, 0)
+consulta_discenteg$"N√£o sei responder5" <- NA
+consulta_discenteg$"N√£o sei responder5" <- ifelse(str_detect(consulta_discenteg$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
+                                                             "N√£o sei responder"), 1, 0)
 
 quadrodisgestao5 <- consulta_discenteg %>% 
-  select("1.5":"N„o sei responder5") %>% 
-  mutate(Classe = "Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.")
+  select("1.5":"N√£o sei responder5") %>% 
+  mutate(Classe = "Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.")
 
 quadrodisgestao5 <- quadrodisgestao5%>% 
   group_by(Classe) %>% 
@@ -538,7 +538,7 @@ quadrodisgestao5 <- quadrodisgestao5%>%
             "3" = percent(sum(`3.5`, na.rm = T)/length(`3.5`)),
             "4" = percent(sum(`4.5`, na.rm = T)/length(`4.5`)),
             "5" = percent(sum(`5.5`, na.rm = T)/length(`5.5`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder5`, na.rm = T)/length(`N„o sei responder5`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder5`, na.rm = T)/length(`N√£o sei responder5`)))
 
 quadrodisgestaototal4 <- rbind(quadrodisgestaototal3, quadrodisgestao5)
 
@@ -547,31 +547,31 @@ quadrodisgestaototal4 <- rbind(quadrodisgestaototal3, quadrodisgestao5)
 
 # QuadroTECGESTAOTOTAL5 ----------------------------------------------------------------
 
-consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`))
+consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`))
 
 consulta_tecnicog$"1" <- NA
-consulta_tecnicog$"1" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_tecnicog$"1" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                            "1"), 1, 0)
 consulta_tecnicog$"2" <- NA
-consulta_tecnicog$"2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_tecnicog$"2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                            "2"), 1, 0)
 consulta_tecnicog$"3" <- NA
-consulta_tecnicog$"3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_tecnicog$"3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                            "3"), 1, 0)
 consulta_tecnicog$"4" <- NA
-consulta_tecnicog$"4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_tecnicog$"4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                            "4"), 1, 0)
 consulta_tecnicog$"5" <- NA
-consulta_tecnicog$"5" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
+consulta_tecnicog$"5" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
                                            "5"), 1, 0)
-consulta_tecnicog$"N„o sei responder" <- NA
-consulta_tecnicog$"N„o sei responder" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`, 
-                                                           "N„o sei responder"), 1, 0)
+consulta_tecnicog$"N√£o sei responder" <- NA
+consulta_tecnicog$"N√£o sei responder" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`, 
+                                                           "N√£o sei responder"), 1, 0)
 
 
 quadrotecgestao <- consulta_tecnicog %>% 
-  select("1":"N„o sei responder") %>% 
-  mutate(Classe = "A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o")
+  select("1":"N√£o sei responder") %>% 
+  mutate(Classe = "A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o")
 
 quadrotecgestao <- quadrotecgestao%>% 
   group_by(Classe) %>% 
@@ -580,35 +580,35 @@ quadrotecgestao <- quadrotecgestao%>%
             "3" = percent(sum(`3`, na.rm = T)/length(`3`)),
             "4" = percent(sum(`4`, na.rm = T)/length(`4`)),
             "5" = percent(sum(`5`, na.rm = T)/length(`5`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder`, na.rm = T)/length(`N„o sei responder`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder`, na.rm = T)/length(`N√£o sei responder`)))
 
 
 # Pergunta 2
 
-consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadÍmica È incentivada a participar da definiÁ„o das polÌticas de gest„o]`))
+consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acad√™mica √© incentivada a participar da defini√ß√£o das pol√≠ticas de gest√£o]`))
 
 consulta_tecnicog$"1.2" <- NA
-consulta_tecnicog$"1.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_tecnicog$"1.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "1"), 1, 0)
 consulta_tecnicog$"2.2" <- NA
-consulta_tecnicog$"2.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_tecnicog$"2.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "2"), 1, 0)
 consulta_tecnicog$"3.2" <- NA
-consulta_tecnicog$"3.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_tecnicog$"3.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "3"), 1, 0)
 consulta_tecnicog$"4.2" <- NA
-consulta_tecnicog$"4.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_tecnicog$"4.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "4"), 1, 0)
 consulta_tecnicog$"5.2" <- NA
-consulta_tecnicog$"5.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_tecnicog$"5.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "5"), 1, 0)
-consulta_tecnicog$"N„o sei responder.2" <- NA
-consulta_tecnicog$"N„o sei responder.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
-                                                             "N„o sei responder"), 1, 0)
+consulta_tecnicog$"N√£o sei responder.2" <- NA
+consulta_tecnicog$"N√£o sei responder.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+                                                             "N√£o sei responder"), 1, 0)
 
 quadrotecgestao2 <- consulta_tecnicog %>% 
-  select("1.2":"N„o sei responder.2") %>% 
-  mutate(Classe = "As aÁıes institucionais est„o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ")
+  select("1.2":"N√£o sei responder.2") %>% 
+  mutate(Classe = "As a√ß√µes institucionais est√£o de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ")
 
 quadrotecgestao2 <- quadrotecgestao2%>% 
   group_by(Classe) %>% 
@@ -617,38 +617,38 @@ quadrotecgestao2 <- quadrotecgestao2%>%
             "3" = percent(sum(`3.2`, na.rm = T)/length(`3.2`)),
             "4" = percent(sum(`4.2`, na.rm = T)/length(`4.2`)),
             "5" = percent(sum(`5.2`, na.rm = T)/length(`5.2`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder.2`, na.rm = T)/length(`N„o sei responder.2`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder.2`, na.rm = T)/length(`N√£o sei responder.2`)))
 
 quadrotecgestaototal <- rbind(quadrotecgestao, quadrotecgestao2)
 
 
 # Pergunta 3
 
-consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`))
+consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`))
 
 consulta_tecnicog$"1.3" <- NA
-consulta_tecnicog$"1.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_tecnicog$"1.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                              "1"), 1, 0)
 consulta_tecnicog$"2.3" <- NA
-consulta_tecnicog$"2.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_tecnicog$"2.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                              "2"), 1, 0)
 consulta_tecnicog$"3.3" <- NA
-consulta_tecnicog$"3.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_tecnicog$"3.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                              "3"), 1, 0)
 consulta_tecnicog$"4.3" <- NA
-consulta_tecnicog$"4.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_tecnicog$"4.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                              "4"), 1, 0)
 consulta_tecnicog$"5.3" <- NA
-consulta_tecnicog$"5.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
+consulta_tecnicog$"5.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
                                              "5"), 1, 0)
-consulta_tecnicog$"N„o sei responder3" <- NA
-consulta_tecnicog$"N„o sei responder3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes]`, 
-                                                            "N„o sei responder"), 1, 0)
+consulta_tecnicog$"N√£o sei responder3" <- NA
+consulta_tecnicog$"N√£o sei responder3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes]`, 
+                                                            "N√£o sei responder"), 1, 0)
 
 
 quadrotecgestao3 <- consulta_tecnicog %>% 
-  select("1.3":"N„o sei responder3") %>% 
-  mutate(Classe = "Os meios de comunicaÁ„o da InstituiÁ„o s„o eficazes")
+  select("1.3":"N√£o sei responder3") %>% 
+  mutate(Classe = "Os meios de comunica√ß√£o da Institui√ß√£o s√£o eficazes")
 
 quadrotecgestao3 <- quadrotecgestao3%>% 
   group_by(Classe) %>% 
@@ -657,7 +657,7 @@ quadrotecgestao3 <- quadrotecgestao3%>%
             "3" = percent(sum(`3.3`, na.rm = T)/length(`3.3`)),
             "4" = percent(sum(`4.3`, na.rm = T)/length(`4.3`)),
             "5" = percent(sum(`5.3`, na.rm = T)/length(`5.3`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder3`, na.rm = T)/length(`N„o sei responder3`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder3`, na.rm = T)/length(`N√£o sei responder3`)))
 
 quadrotecgestaototal2 <- rbind(quadrotecgestaototal, quadrotecgestao3)
 
@@ -666,30 +666,30 @@ quadrotecgestaototal2 <- rbind(quadrotecgestaototal, quadrotecgestao3)
 # Pergunta 4
 
 
-consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`))
+consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`))
 
 consulta_tecnicog$"1.4" <- NA
-consulta_tecnicog$"1.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_tecnicog$"1.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                              "1"), 1, 0)
 consulta_tecnicog$"2.4" <- NA
-consulta_tecnicog$"2.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_tecnicog$"2.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                              "2"), 1, 0)
 consulta_tecnicog$"3.4" <- NA
-consulta_tecnicog$"3.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_tecnicog$"3.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                              "3"), 1, 0)
 consulta_tecnicog$"4.4" <- NA
-consulta_tecnicog$"4.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_tecnicog$"4.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                              "4"), 1, 0)
 consulta_tecnicog$"5.4" <- NA
-consulta_tecnicog$"5.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
+consulta_tecnicog$"5.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
                                              "5"), 1, 0)
-consulta_tecnicog$"N„o sei responder4" <- NA
-consulta_tecnicog$"N„o sei responder4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.]`, 
-                                                            "N„o sei responder"), 1, 0)
+consulta_tecnicog$"N√£o sei responder4" <- NA
+consulta_tecnicog$"N√£o sei responder4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.]`, 
+                                                            "N√£o sei responder"), 1, 0)
 
 quadrotecgestao4 <- consulta_tecnicog %>% 
-  select("1.4":"N„o sei responder4") %>% 
-  mutate(Classe = "Os canais de comunicaÁ„o oficiais da UnB s„o confi·veis.")
+  select("1.4":"N√£o sei responder4") %>% 
+  mutate(Classe = "Os canais de comunica√ß√£o oficiais da UnB s√£o confi√°veis.")
 
 quadrotecgestao4 <- quadrotecgestao4%>% 
   group_by(Classe) %>% 
@@ -698,37 +698,37 @@ quadrotecgestao4 <- quadrotecgestao4%>%
             "3" = percent(sum(`3.4`, na.rm = T)/length(`3.4`)),
             "4" = percent(sum(`4.4`, na.rm = T)/length(`4.4`)),
             "5" = percent(sum(`5.4`, na.rm = T)/length(`5.4`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder4`, na.rm = T)/length(`N„o sei responder4`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder4`, na.rm = T)/length(`N√£o sei responder4`)))
 
 quadrotecgestaototal3 <- rbind(quadrotecgestaototal2, quadrotecgestao4)
 
 # pergunta 5
 
 
-consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`))
+consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`))
 
 consulta_tecnicog$"1.5" <- NA
-consulta_tecnicog$"1.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_tecnicog$"1.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                              "1"), 1, 0)
 consulta_tecnicog$"2.5" <- NA
-consulta_tecnicog$"2.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_tecnicog$"2.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                              "2"), 1, 0)
 consulta_tecnicog$"3.5" <- NA
-consulta_tecnicog$"3.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_tecnicog$"3.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                              "3"), 1, 0)
 consulta_tecnicog$"4.5" <- NA
-consulta_tecnicog$"4.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_tecnicog$"4.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                              "4"), 1, 0)
 consulta_tecnicog$"5.5" <- NA
-consulta_tecnicog$"5.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
+consulta_tecnicog$"5.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
                                              "5"), 1, 0)
-consulta_tecnicog$"N„o sei responder5" <- NA
-consulta_tecnicog$"N„o sei responder5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas ‡ Gest„o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.]`, 
-                                                            "N„o sei responder"), 1, 0)
+consulta_tecnicog$"N√£o sei responder5" <- NA
+consulta_tecnicog$"N√£o sei responder5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas √† Gest√£o da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.]`, 
+                                                            "N√£o sei responder"), 1, 0)
 
 quadrotecgestao5 <- consulta_tecnicog %>% 
-  select("1.5":"N„o sei responder5") %>% 
-  mutate(Classe = "Os programas de apoio aos estudantes funcionam de modo satisfatÛrio.")
+  select("1.5":"N√£o sei responder5") %>% 
+  mutate(Classe = "Os programas de apoio aos estudantes funcionam de modo satisfat√≥rio.")
 
 quadrotecgestao5 <- quadrotecgestao5%>% 
   group_by(Classe) %>% 
@@ -737,7 +737,7 @@ quadrotecgestao5 <- quadrotecgestao5%>%
             "3" = percent(sum(`3.5`, na.rm = T)/length(`3.5`)),
             "4" = percent(sum(`4.5`, na.rm = T)/length(`4.5`)),
             "5" = percent(sum(`5.5`, na.rm = T)/length(`5.5`)),
-            "N„o sei responder" = percent(sum(`N„o sei responder5`, na.rm = T)/length(`N„o sei responder5`)))
+            "N√£o sei responder" = percent(sum(`N√£o sei responder5`, na.rm = T)/length(`N√£o sei responder5`)))
 
 quadrotecgestaototal4 <- rbind(quadrotecgestaototal3, quadrotecgestao5)
 
@@ -746,30 +746,30 @@ quadrotecgestaototal4 <- rbind(quadrotecgestaototal3, quadrotecgestao5)
 
 
 # QUADROTURNO ------------------------------------
-consulta_tecnico$Manh„ <- NA
-consulta_tecnico$Manh„ <- ifelse(str_detect(consulta_tecnico$`Qual È o seu turno de trabalho?`, 
-                                            "Manh„"), 1, 0)
+consulta_tecnico$Manh√£ <- NA
+consulta_tecnico$Manh√£ <- ifelse(str_detect(consulta_tecnico$`Qual √© o seu turno de trabalho?`, 
+                                            "Manh√£"), 1, 0)
 
 consulta_tecnico$Tarde <- NA
-consulta_tecnico$Tarde <- ifelse(str_detect(consulta_tecnico$`Qual È o seu turno de trabalho?`, 
+consulta_tecnico$Tarde <- ifelse(str_detect(consulta_tecnico$`Qual √© o seu turno de trabalho?`, 
                                             "Tarde"), 1, 0)
 
 consulta_tecnico$Noturno <- NA
-consulta_tecnico$Noturno <- ifelse(str_detect(consulta_tecnico$`Qual È o seu turno de trabalho?`, 
+consulta_tecnico$Noturno <- ifelse(str_detect(consulta_tecnico$`Qual √© o seu turno de trabalho?`, 
                                               "Noturno"), 1, 0)
 
 consulta_tecnico$Dia <- NA
-consulta_tecnico$Dia <- ifelse(str_detect(consulta_tecnico$`Qual È o seu turno de trabalho?`, 
+consulta_tecnico$Dia <- ifelse(str_detect(consulta_tecnico$`Qual √© o seu turno de trabalho?`, 
                                           "Dia"), 1, 0)
 
 
 quadroturno <- consulta_tecnico %>% 
-  select(Manh„:Dia) %>% 
-  mutate(Classe = "TÈcnicos")
+  select(Manh√£:Dia) %>% 
+  mutate(Classe = "T√©cnicos")
 
 quadroturno <- quadroturno%>% 
   group_by(Classe) %>% 
-  summarise("Manh„" = percent(sum(Manh„, na.rm = T)/length(Manh„)),
+  summarise("Manh√£" = percent(sum(Manh√£, na.rm = T)/length(Manh√£)),
             Tarde = percent(sum(Tarde, na.rm = T)/length(Tarde)),
             Noturno = percent(sum(Noturno, na.rm = T)/length(Noturno)),
             Dia = percent(sum(Dia, na.rm = T)/length(Dia)))
@@ -777,76 +777,76 @@ quadroturno <- quadroturno%>%
 # QUADROMEIOSDIS e QUADROMEIOSDOCTEC ----------------------------------------------------------------
 
 consulta_aluno$SiteOficial <- NA
-consulta_aluno$SiteOficial <- ifelse(str_detect(consulta_aluno$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_aluno$SiteOficial <- ifelse(str_detect(consulta_aluno$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                                 "Site oficial da UnB"), 1, 0)
 
 consulta_aluno$Facebook <- NA
-consulta_aluno$Facebook <- ifelse(str_detect(consulta_aluno$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_aluno$Facebook <- ifelse(str_detect(consulta_aluno$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                              "Perfil oficial do Facebook da UnB"), 1, 0)
 
 consulta_aluno$Instagram <- NA
-consulta_aluno$Instagram <- ifelse(str_detect(consulta_aluno$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_aluno$Instagram <- ifelse(str_detect(consulta_aluno$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                               "Perfil oficial do Instagram da UnB"), 1, 0)
 
 consulta_aluno$Sigaa <- NA
-consulta_aluno$Sigaa <- ifelse(str_detect(consulta_aluno$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_aluno$Sigaa <- ifelse(str_detect(consulta_aluno$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                           "Sigaa"), 1, 0)
 consulta_aluno$Teams <- NA
-consulta_aluno$Teams <- ifelse(str_detect(consulta_aluno$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_aluno$Teams <- ifelse(str_detect(consulta_aluno$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                           "Teams"), 1, 0)
 
 consulta_aluno$Twitter <- NA
-consulta_aluno$Twitter <- ifelse(str_detect(consulta_aluno$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_aluno$Twitter <- ifelse(str_detect(consulta_aluno$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                             "Perfil oficial do Twitter da UnB"), 1, 0)
 
 # docente
 
 consulta_docente$SiteOficial <- NA
-consulta_docente$SiteOficial <- ifelse(str_detect(consulta_docente$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_docente$SiteOficial <- ifelse(str_detect(consulta_docente$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                                   "Site oficial da UnB"), 1, 0)
 
 consulta_docente$Facebook <- NA
-consulta_docente$Facebook <- ifelse(str_detect(consulta_docente$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_docente$Facebook <- ifelse(str_detect(consulta_docente$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                                "Perfil oficial do Facebook da UnB"), 1, 0)
 
 consulta_docente$Instagram <- NA
-consulta_docente$Instagram <- ifelse(str_detect(consulta_docente$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_docente$Instagram <- ifelse(str_detect(consulta_docente$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                                 "Perfil oficial do Instagram da UnB"), 1, 0)
 
 consulta_docente$Sigaa <- NA
-consulta_docente$Sigaa <- ifelse(str_detect(consulta_docente$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_docente$Sigaa <- ifelse(str_detect(consulta_docente$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                             "Sigaa"), 1, 0)
 consulta_docente$Teams <- NA
-consulta_docente$Teams <- ifelse(str_detect(consulta_docente$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_docente$Teams <- ifelse(str_detect(consulta_docente$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                             "Teams"), 1, 0)
 
 consulta_docente$Twitter <- NA
-consulta_docente$Twitter <- ifelse(str_detect(consulta_docente$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_docente$Twitter <- ifelse(str_detect(consulta_docente$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                               "Perfil oficial do Twitter da UnB"), 1, 0)
 
 # tecnico
 
 consulta_tecnico$SiteOficial <- NA
-consulta_tecnico$SiteOficial <- ifelse(str_detect(consulta_tecnico$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_tecnico$SiteOficial <- ifelse(str_detect(consulta_tecnico$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                                   "Site oficial da UnB"), 1, 0)
 
 consulta_tecnico$Facebook <- NA
-consulta_tecnico$Facebook <- ifelse(str_detect(consulta_tecnico$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_tecnico$Facebook <- ifelse(str_detect(consulta_tecnico$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                                "Pefil oficial do Facebook da UnB"), 1, 0)
 
 consulta_tecnico$Instagram <- NA
-consulta_tecnico$Instagram <- ifelse(str_detect(consulta_tecnico$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_tecnico$Instagram <- ifelse(str_detect(consulta_tecnico$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                                 "Pefil oficial  do Instagram da UnB"), 1, 0)
 
 consulta_tecnico$Sigaa <- NA
-consulta_tecnico$Sigaa <- ifelse(str_detect(consulta_tecnico$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_tecnico$Sigaa <- ifelse(str_detect(consulta_tecnico$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                             "Sigaa"), 1, 0)
 consulta_tecnico$Teams <- NA
-consulta_tecnico$Teams <- ifelse(str_detect(consulta_tecnico$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_tecnico$Teams <- ifelse(str_detect(consulta_tecnico$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                             "Teams"), 1, 0)
 
 consulta_tecnico$Twitter <- NA
-consulta_tecnico$Twitter <- ifelse(str_detect(consulta_tecnico$`Quais os meios de comunicaÁ„o da UnB vocÍ utiliza para obter informaÁıes institucionais?`, 
+consulta_tecnico$Twitter <- ifelse(str_detect(consulta_tecnico$`Quais os meios de comunica√ß√£o da UnB voc√™ utiliza para obter informa√ß√µes institucionais?`, 
                                               "Perfil oficial do Twitter da UnB"), 1, 0)
 
 quadro5_di <- consulta_aluno %>% 
@@ -859,7 +859,7 @@ quadro5_do <- consulta_docente %>%
 
 quadro5_te <- consulta_tecnico %>% 
   select(SiteOficial:Twitter) %>% 
-  mutate(Classe = "TÈcnicos")
+  mutate(Classe = "T√©cnicos")
 
 
 quadromeiosdoctecdis <- rbind(quadro5_do, quadro5_te, quadro5_di) %>% 
@@ -879,24 +879,24 @@ quadromeiosdoctecdis <- rbind(quadro5_do, quadro5_te, quadro5_di) %>%
 
 consulta_discenter <- consulta_aluno %>% filter(!is.na(`Rede UnB Wireless`))
 
-consulta_discenter$"”tima" <- NA
-consulta_discenter$"”tima" <- ifelse(str_detect(consulta_discenter$`Rede UnB Wireless`, 
-                                                "”tima"), 1, 0)
+consulta_discenter$"√ìtima" <- NA
+consulta_discenter$"√ìtima" <- ifelse(str_detect(consulta_discenter$`Rede UnB Wireless`, 
+                                                "√ìtima"), 1, 0)
 consulta_discenter$"Boa" <- NA
 consulta_discenter$"Boa" <- ifelse(str_detect(consulta_discenter$`Rede UnB Wireless`, 
                                               "Boa"), 1, 0)
 
-consulta_discenter$"N„o utilizei o local/serviÁo este ano." <- NA
-consulta_discenter$"N„o utilizei o local/serviÁo este ano." <- ifelse(str_detect(consulta_discenter$`Rede UnB Wireless`, 
-                                                                                 "N„o utilizei o local/serviÁo este ano."), 1, 0)
+consulta_discenter$"N√£o utilizei o local/servi√ßo este ano." <- NA
+consulta_discenter$"N√£o utilizei o local/servi√ßo este ano." <- ifelse(str_detect(consulta_discenter$`Rede UnB Wireless`, 
+                                                                                 "N√£o utilizei o local/servi√ßo este ano."), 1, 0)
 
 consulta_discenter$"Ruim" <- NA
 consulta_discenter$"Ruim" <- ifelse(str_detect(consulta_discenter$`Rede UnB Wireless`, 
                                                "Ruim"), 1, 0)
 
-consulta_discenter$"PÈssima" <- NA
-consulta_discenter$"PÈssima" <- ifelse(str_detect(consulta_discenter$`Rede UnB Wireless`, 
-                                                  "PÈssima"), 1, 0)
+consulta_discenter$"P√©ssima" <- NA
+consulta_discenter$"P√©ssima" <- ifelse(str_detect(consulta_discenter$`Rede UnB Wireless`, 
+                                                  "P√©ssima"), 1, 0)
 
 
 quadrodisgestaor <- consulta_discenter %>% 
@@ -904,152 +904,152 @@ quadrodisgestaor <- consulta_discenter %>%
 
 quadrodisgestaor <- quadrodisgestaor%>%
   group_by(Classe) %>% 
-  summarise(”tima = percent(sum(`”tima`, na.rm = T)/length(`”tima`)),
+  summarise(√ìtima = percent(sum(`√ìtima`, na.rm = T)/length(`√ìtima`)),
              Boa = percent(sum(`Boa`, na.rm = T)/length(`Boa`)),
-             "N„o utilizei o local/serviÁo este ano." = percent(sum(`N„o utilizei o local/serviÁo este ano.`, na.rm = T)/length(`N„o utilizei o local/serviÁo este ano.`)),
+             "N√£o utilizei o local/servi√ßo este ano." = percent(sum(`N√£o utilizei o local/servi√ßo este ano.`, na.rm = T)/length(`N√£o utilizei o local/servi√ßo este ano.`)),
              Ruim = percent(sum(`Ruim`, na.rm = T)/length(`Ruim`)),
-             PÈssima = percent(sum(`PÈssima`, na.rm = T)/length(`PÈssima`)))
+             P√©ssima = percent(sum(`P√©ssima`, na.rm = T)/length(`P√©ssima`)))
 
 # Alunos  Acessibilidade fisica
 
-consulta_discenter <- consulta_aluno %>% filter(!is.na(`CondiÁıes de acessibilidade`))
+consulta_discenter <- consulta_aluno %>% filter(!is.na(`Condi√ß√µes de acessibilidade`))
 
-consulta_discenter$"A”tima" <- NA
-consulta_discenter$"A”tima" <- ifelse(str_detect(consulta_discenter$`CondiÁıes de acessibilidade`, 
-                                                 "”tima"), 1, 0)
+consulta_discenter$"A√ìtima" <- NA
+consulta_discenter$"A√ìtima" <- ifelse(str_detect(consulta_discenter$`Condi√ß√µes de acessibilidade`, 
+                                                 "√ìtima"), 1, 0)
 consulta_discenter$"ABoa" <- NA
-consulta_discenter$"ABoa" <- ifelse(str_detect(consulta_discenter$`CondiÁıes de acessibilidade`, 
+consulta_discenter$"ABoa" <- ifelse(str_detect(consulta_discenter$`Condi√ß√µes de acessibilidade`, 
                                                "Boa"), 1, 0)
 
-consulta_discenter$"AN„o utilizei o local/serviÁo este ano." <- NA
-consulta_discenter$"AN„o utilizei o local/serviÁo este ano." <- ifelse(str_detect(consulta_discenter$`CondiÁıes de acessibilidade`, 
-                                                                                  "N„o utilizei o local/serviÁo este ano."), 1, 0)
+consulta_discenter$"AN√£o utilizei o local/servi√ßo este ano." <- NA
+consulta_discenter$"AN√£o utilizei o local/servi√ßo este ano." <- ifelse(str_detect(consulta_discenter$`Condi√ß√µes de acessibilidade`, 
+                                                                                  "N√£o utilizei o local/servi√ßo este ano."), 1, 0)
 
 consulta_discenter$"ARuim" <- NA
-consulta_discenter$"ARuim" <- ifelse(str_detect(consulta_discenter$`CondiÁıes de acessibilidade`, 
+consulta_discenter$"ARuim" <- ifelse(str_detect(consulta_discenter$`Condi√ß√µes de acessibilidade`, 
                                                 "Ruim"), 1, 0)
 
-consulta_discenter$"APÈssima" <- NA
-consulta_discenter$"APÈssima" <- ifelse(str_detect(consulta_discenter$`CondiÁıes de acessibilidade`, 
-                                                   "PÈssima"), 1, 0)
+consulta_discenter$"AP√©ssima" <- NA
+consulta_discenter$"AP√©ssima" <- ifelse(str_detect(consulta_discenter$`Condi√ß√µes de acessibilidade`, 
+                                                   "P√©ssima"), 1, 0)
 
 
 quadrodisgestaor1 <- consulta_discenter %>% 
-  mutate(Classe = "CondiÁıes de acessibilidade")
+  mutate(Classe = "Condi√ß√µes de acessibilidade")
 
 quadrodisgestaor1 <- quadrodisgestaor1%>%
   group_by(Classe) %>% 
-  summarise(”tima = percent(sum(`A”tima`, na.rm = T)/length(`A”tima`)),
+  summarise(√ìtima = percent(sum(`A√ìtima`, na.rm = T)/length(`A√ìtima`)),
              Boa = percent(sum(`ABoa`, na.rm = T)/length(`ABoa`)),
-             "N„o utilizei o local/serviÁo este ano." = percent(sum(`AN„o utilizei o local/serviÁo este ano.`, na.rm = T)/length(`AN„o utilizei o local/serviÁo este ano.`)),
+             "N√£o utilizei o local/servi√ßo este ano." = percent(sum(`AN√£o utilizei o local/servi√ßo este ano.`, na.rm = T)/length(`AN√£o utilizei o local/servi√ßo este ano.`)),
              Ruim = percent(sum(`ARuim`, na.rm = T)/length(`ARuim`)),
-             PÈssima = percent(sum(`APÈssima`, na.rm = T)/length(`APÈssima`)))
+             P√©ssima = percent(sum(`AP√©ssima`, na.rm = T)/length(`AP√©ssima`)))
 
 # Alunos  Auditorio
 
-consulta_discenter <- consulta_aluno %>% filter(!is.na(`CondiÁıes de gerais de auditorio`))
+consulta_discenter <- consulta_aluno %>% filter(!is.na(`Condi√ß√µes de gerais de auditorio`))
 
-consulta_discenter$"B”tima" <- NA
-consulta_discenter$"B”tima" <- ifelse(str_detect(consulta_discenter$`CondiÁıes de gerais de auditorio`, 
-                                                 "”tima"), 1, 0)
+consulta_discenter$"B√ìtima" <- NA
+consulta_discenter$"B√ìtima" <- ifelse(str_detect(consulta_discenter$`Condi√ß√µes de gerais de auditorio`, 
+                                                 "√ìtima"), 1, 0)
 consulta_discenter$"BBoa" <- NA
-consulta_discenter$"BBoa" <- ifelse(str_detect(consulta_discenter$`CondiÁıes de acessibilidade`, 
+consulta_discenter$"BBoa" <- ifelse(str_detect(consulta_discenter$`Condi√ß√µes de acessibilidade`, 
                                                "Boa"), 1, 0)
 
-consulta_discenter$"BN„o utilizei o local/serviÁo este ano." <- NA
-consulta_discenter$"BN„o utilizei o local/serviÁo este ano." <- ifelse(str_detect(consulta_discenter$`CondiÁıes de gerais de auditorio`, 
-                                                                                  "N„o utilizei o local/serviÁo este ano."), 1, 0)
+consulta_discenter$"BN√£o utilizei o local/servi√ßo este ano." <- NA
+consulta_discenter$"BN√£o utilizei o local/servi√ßo este ano." <- ifelse(str_detect(consulta_discenter$`Condi√ß√µes de gerais de auditorio`, 
+                                                                                  "N√£o utilizei o local/servi√ßo este ano."), 1, 0)
 
 consulta_discenter$"BRuim" <- NA
-consulta_discenter$"BRuim" <- ifelse(str_detect(consulta_discenter$`CondiÁıes de gerais de auditorio`, 
+consulta_discenter$"BRuim" <- ifelse(str_detect(consulta_discenter$`Condi√ß√µes de gerais de auditorio`, 
                                                 "Ruim"), 1, 0)
 
-consulta_discenter$"BPÈssima" <- NA
-consulta_discenter$"BPÈssima" <- ifelse(str_detect(consulta_discenter$`CondiÁıes de gerais de auditorio`, 
-                                                   "PÈssima"), 1, 0)
+consulta_discenter$"BP√©ssima" <- NA
+consulta_discenter$"BP√©ssima" <- ifelse(str_detect(consulta_discenter$`Condi√ß√µes de gerais de auditorio`, 
+                                                   "P√©ssima"), 1, 0)
 
 
 quadrodisgestaor2 <- consulta_discenter %>% 
-  mutate(Classe = "CondiÁıes de gerais de auditorio")
+  mutate(Classe = "Condi√ß√µes de gerais de auditorio")
 
 quadrodisgestaor2 <- quadrodisgestaor2%>%
   group_by(Classe) %>% 
-  summarise(”tima = percent(sum(`B”tima`, na.rm = T)/length(`B”tima`)),
+  summarise(√ìtima = percent(sum(`B√ìtima`, na.rm = T)/length(`B√ìtima`)),
              Boa = percent(sum(`BBoa`, na.rm = T)/length(`BBoa`)),
-             "N„o utilizei o local/serviÁo este ano." = percent(sum(`BN„o utilizei o local/serviÁo este ano.`, na.rm = T)/length(`BN„o utilizei o local/serviÁo este ano.`)),
+             "N√£o utilizei o local/servi√ßo este ano." = percent(sum(`BN√£o utilizei o local/servi√ßo este ano.`, na.rm = T)/length(`BN√£o utilizei o local/servi√ßo este ano.`)),
              Ruim = percent(sum(`BRuim`, na.rm = T)/length(`BRuim`)),
-             PÈssima = percent(sum(`BPÈssima`, na.rm = T)/length(`BPÈssima`)))
+             P√©ssima = percent(sum(`BP√©ssima`, na.rm = T)/length(`BP√©ssima`)))
 
-# Alunos  EspaÁo de convivencia
+# Alunos  Espa√ßo de convivencia
 
-consulta_discenter <- consulta_aluno %>% filter(!is.na(`EspaÁo de Convivencia e alimentaÁ„o (exceto RU)`))
+consulta_discenter <- consulta_aluno %>% filter(!is.na(`Espa√ßo de Convivencia e alimenta√ß√£o (exceto RU)`))
 
-consulta_discenter$"C”tima" <- NA
-consulta_discenter$"C”tima" <- ifelse(str_detect(consulta_discenter$`EspaÁo de Convivencia e alimentaÁ„o (exceto RU)`, 
-                                                 "”tima"), 1, 0)
+consulta_discenter$"C√ìtima" <- NA
+consulta_discenter$"C√ìtima" <- ifelse(str_detect(consulta_discenter$`Espa√ßo de Convivencia e alimenta√ß√£o (exceto RU)`, 
+                                                 "√ìtima"), 1, 0)
 consulta_discenter$"CBoa" <- NA
-consulta_discenter$"CBoa" <- ifelse(str_detect(consulta_discenter$`CondiÁıes de acessibilidade`, 
+consulta_discenter$"CBoa" <- ifelse(str_detect(consulta_discenter$`Condi√ß√µes de acessibilidade`, 
                                                "Boa"), 1, 0)
 
-consulta_discenter$"CN„o utilizei o local/serviÁo este ano." <- NA
-consulta_discenter$"CN„o utilizei o local/serviÁo este ano." <- ifelse(str_detect(consulta_discenter$`EspaÁo de Convivencia e alimentaÁ„o (exceto RU)`, 
-                                                                                  "N„o utilizei o local/serviÁo este ano."), 1, 0)
+consulta_discenter$"CN√£o utilizei o local/servi√ßo este ano." <- NA
+consulta_discenter$"CN√£o utilizei o local/servi√ßo este ano." <- ifelse(str_detect(consulta_discenter$`Espa√ßo de Convivencia e alimenta√ß√£o (exceto RU)`, 
+                                                                                  "N√£o utilizei o local/servi√ßo este ano."), 1, 0)
 
 consulta_discenter$"CRuim" <- NA
-consulta_discenter$"CRuim" <- ifelse(str_detect(consulta_discenter$`EspaÁo de Convivencia e alimentaÁ„o (exceto RU)`, 
+consulta_discenter$"CRuim" <- ifelse(str_detect(consulta_discenter$`Espa√ßo de Convivencia e alimenta√ß√£o (exceto RU)`, 
                                                 "Ruim"), 1, 0)
 
-consulta_discenter$"CPÈssima" <- NA
-consulta_discenter$"CPÈssima" <- ifelse(str_detect(consulta_discenter$`EspaÁo de Convivencia e alimentaÁ„o (exceto RU)`, 
-                                                   "PÈssima"), 1, 0)
+consulta_discenter$"CP√©ssima" <- NA
+consulta_discenter$"CP√©ssima" <- ifelse(str_detect(consulta_discenter$`Espa√ßo de Convivencia e alimenta√ß√£o (exceto RU)`, 
+                                                   "P√©ssima"), 1, 0)
 
 
 quadrodisgestaor3 <- consulta_discenter %>% 
-  mutate(Classe = "EspaÁo de Convivencia e alimentaÁ„o (exceto RU)")
+  mutate(Classe = "Espa√ßo de Convivencia e alimenta√ß√£o (exceto RU)")
 
 quadrodisgestaor3 <- quadrodisgestaor3%>%
   group_by(Classe) %>% 
-  summarise(”tima = percent(sum(`C”tima`, na.rm = T)/length(`C”tima`)),
+  summarise(√ìtima = percent(sum(`C√ìtima`, na.rm = T)/length(`C√ìtima`)),
              Boa = percent(sum(`CBoa`, na.rm = T)/length(`CBoa`)),
-             "N„o utilizei o local/serviÁo este ano." = percent(sum(`CN„o utilizei o local/serviÁo este ano.`, na.rm = T)/length(`CN„o utilizei o local/serviÁo este ano.`)),
+             "N√£o utilizei o local/servi√ßo este ano." = percent(sum(`CN√£o utilizei o local/servi√ßo este ano.`, na.rm = T)/length(`CN√£o utilizei o local/servi√ßo este ano.`)),
              Ruim = percent(sum(`CRuim`, na.rm = T)/length(`CRuim`)),
-             PÈssima = percent(sum(`CPÈssima`, na.rm = T)/length(`CPÈssima`)))
+             P√©ssima = percent(sum(`CP√©ssima`, na.rm = T)/length(`CP√©ssima`)))
 
 
 # BCE Estudo
 
-consulta_discenter <- consulta_aluno %>% filter(!is.na(`EspaÁo de Estudo da BCE`))
+consulta_discenter <- consulta_aluno %>% filter(!is.na(`Espa√ßo de Estudo da BCE`))
 
-consulta_discenter$"D”tima" <- NA
-consulta_discenter$"D”tima" <- ifelse(str_detect(consulta_discenter$`EspaÁo de Estudo da BCE`, 
-                                                 "”tima"), 1, 0)
+consulta_discenter$"D√ìtima" <- NA
+consulta_discenter$"D√ìtima" <- ifelse(str_detect(consulta_discenter$`Espa√ßo de Estudo da BCE`, 
+                                                 "√ìtima"), 1, 0)
 consulta_discenter$"DBoa" <- NA
-consulta_discenter$"DBoa" <- ifelse(str_detect(consulta_discenter$`EspaÁo de Estudo da BCE`, 
+consulta_discenter$"DBoa" <- ifelse(str_detect(consulta_discenter$`Espa√ßo de Estudo da BCE`, 
                                                "Boa"), 1, 0)
 
-consulta_discenter$"DN„o utilizei o local/serviÁo este ano." <- NA
-consulta_discenter$"DN„o utilizei o local/serviÁo este ano." <- ifelse(str_detect(consulta_discenter$`EspaÁo de Estudo da BCE`, 
-                                                                                  "N„o utilizei o local/serviÁo este ano."), 1, 0)
+consulta_discenter$"DN√£o utilizei o local/servi√ßo este ano." <- NA
+consulta_discenter$"DN√£o utilizei o local/servi√ßo este ano." <- ifelse(str_detect(consulta_discenter$`Espa√ßo de Estudo da BCE`, 
+                                                                                  "N√£o utilizei o local/servi√ßo este ano."), 1, 0)
 
 consulta_discenter$"DRuim" <- NA
-consulta_discenter$"DRuim" <- ifelse(str_detect(consulta_discenter$`EspaÁo de Estudo da BCE`, 
+consulta_discenter$"DRuim" <- ifelse(str_detect(consulta_discenter$`Espa√ßo de Estudo da BCE`, 
                                                 "Ruim"), 1, 0)
 
-consulta_discenter$"DPÈssima" <- NA
-consulta_discenter$"DPÈssima" <- ifelse(str_detect(consulta_discenter$`EspaÁo de Estudo da BCE`, 
-                                                   "PÈssima"), 1, 0)
+consulta_discenter$"DP√©ssima" <- NA
+consulta_discenter$"DP√©ssima" <- ifelse(str_detect(consulta_discenter$`Espa√ßo de Estudo da BCE`, 
+                                                   "P√©ssima"), 1, 0)
 
 
 quadrodisgestaor4 <- consulta_discenter %>% 
-  mutate(Classe = "EspaÁo de Estudo da BCE")
+  mutate(Classe = "Espa√ßo de Estudo da BCE")
 
 quadrodisgestaor4 <- quadrodisgestaor4%>%
   group_by(Classe) %>% 
-  summarise(”tima = percent(sum(`D”tima`, na.rm = T)/length(`D”tima`)),
+  summarise(√ìtima = percent(sum(`D√ìtima`, na.rm = T)/length(`D√ìtima`)),
              Boa = percent(sum(`DBoa`, na.rm = T)/length(`DBoa`)),
-             "N„o utilizei o local/serviÁo este ano." = percent(sum(`DN„o utilizei o local/serviÁo este ano.`, na.rm = T)/length(`DN„o utilizei o local/serviÁo este ano.`)),
+             "N√£o utilizei o local/servi√ßo este ano." = percent(sum(`DN√£o utilizei o local/servi√ßo este ano.`, na.rm = T)/length(`DN√£o utilizei o local/servi√ßo este ano.`)),
              Ruim = percent(sum(`DRuim`, na.rm = T)/length(`DRuim`)),
-             PÈssima = percent(sum(`DPÈssima`, na.rm = T)/length(`DPÈssima`)))
+             P√©ssima = percent(sum(`DP√©ssima`, na.rm = T)/length(`DP√©ssima`)))
 
 
 
@@ -1057,24 +1057,24 @@ quadrodisgestaor4 <- quadrodisgestaor4%>%
 
 consulta_discenter <- consulta_aluno %>% filter(!is.na(`Estacionamento`))
 
-consulta_discenter$"F”tima" <- NA
-consulta_discenter$"F”tima" <- ifelse(str_detect(consulta_discenter$`Estacionamento`, 
-                                                 "”tima"), 1, 0)
+consulta_discenter$"F√ìtima" <- NA
+consulta_discenter$"F√ìtima" <- ifelse(str_detect(consulta_discenter$`Estacionamento`, 
+                                                 "√ìtima"), 1, 0)
 consulta_discenter$"FDBoa" <- NA
 consulta_discenter$"FBoa" <- ifelse(str_detect(consulta_discenter$`Estacionamento`, 
                                                "Boa"), 1, 0)
 
-consulta_discenter$"FN„o utilizei o local/serviÁo este ano." <- NA
-consulta_discenter$"FN„o utilizei o local/serviÁo este ano." <- ifelse(str_detect(consulta_discenter$`Estacionamento`, 
-                                                                                  "N„o utilizei o local/serviÁo este ano."), 1, 0)
+consulta_discenter$"FN√£o utilizei o local/servi√ßo este ano." <- NA
+consulta_discenter$"FN√£o utilizei o local/servi√ßo este ano." <- ifelse(str_detect(consulta_discenter$`Estacionamento`, 
+                                                                                  "N√£o utilizei o local/servi√ßo este ano."), 1, 0)
 
 consulta_discenter$"FRuim" <- NA
 consulta_discenter$"FRuim" <- ifelse(str_detect(consulta_discenter$`Estacionamento`, 
                                                 "Ruim"), 1, 0)
 
-consulta_discenter$"FPÈssima" <- NA
-consulta_discenter$"FPÈssima" <- ifelse(str_detect(consulta_discenter$`Estacionamento`, 
-                                                   "PÈssima"), 1, 0)
+consulta_discenter$"FP√©ssima" <- NA
+consulta_discenter$"FP√©ssima" <- ifelse(str_detect(consulta_discenter$`Estacionamento`, 
+                                                   "P√©ssima"), 1, 0)
 
 
 quadrodisgestaor6 <- consulta_discenter %>% 
@@ -1082,105 +1082,105 @@ quadrodisgestaor6 <- consulta_discenter %>%
 
 quadrodisgestaor6 <- quadrodisgestaor6%>%
   group_by(Classe) %>% 
-  summarise(”tima = percent(sum(`F”tima`, na.rm = T)/length(`F”tima`)),
+  summarise(√ìtima = percent(sum(`F√ìtima`, na.rm = T)/length(`F√ìtima`)),
              Boa = percent(sum(`FBoa`, na.rm = T)/length(`FBoa`)),
-             "N„o utilizei o local/serviÁo este ano." = percent(sum(`FN„o utilizei o local/serviÁo este ano.`, na.rm = T)/length(`FN„o utilizei o local/serviÁo este ano.`)),
+             "N√£o utilizei o local/servi√ßo este ano." = percent(sum(`FN√£o utilizei o local/servi√ßo este ano.`, na.rm = T)/length(`FN√£o utilizei o local/servi√ßo este ano.`)),
              Ruim = percent(sum(`FRuim`, na.rm = T)/length(`FRuim`)),
-             PÈssima = percent(sum(`FPÈssima`, na.rm = T)/length(`FPÈssima`)))
+             P√©ssima = percent(sum(`FP√©ssima`, na.rm = T)/length(`FP√©ssima`)))
 
 
 # Iluminacao Publica
 
-consulta_discenter <- consulta_aluno %>% filter(!is.na(`IluminaÁ„o p˙blica`))
+consulta_discenter <- consulta_aluno %>% filter(!is.na(`Ilumina√ß√£o p√∫blica`))
 
-consulta_discenter$"G”tima" <- NA
-consulta_discenter$"G”tima" <- ifelse(str_detect(consulta_discenter$`IluminaÁ„o p˙blica`, 
-                                                 "”tima"), 1, 0)
+consulta_discenter$"G√ìtima" <- NA
+consulta_discenter$"G√ìtima" <- ifelse(str_detect(consulta_discenter$`Ilumina√ß√£o p√∫blica`, 
+                                                 "√ìtima"), 1, 0)
 consulta_discenter$"GDBoa" <- NA
-consulta_discenter$"GBoa" <- ifelse(str_detect(consulta_discenter$`IluminaÁ„o p˙blica`, 
+consulta_discenter$"GBoa" <- ifelse(str_detect(consulta_discenter$`Ilumina√ß√£o p√∫blica`, 
                                                "Boa"), 1, 0)
 
-consulta_discenter$"GN„o utilizei o local/serviÁo este ano." <- NA
-consulta_discenter$"GN„o utilizei o local/serviÁo este ano." <- ifelse(str_detect(consulta_discenter$`IluminaÁ„o p˙blica`, 
-                                                                                  "N„o utilizei o local/serviÁo este ano."), 1, 0)
+consulta_discenter$"GN√£o utilizei o local/servi√ßo este ano." <- NA
+consulta_discenter$"GN√£o utilizei o local/servi√ßo este ano." <- ifelse(str_detect(consulta_discenter$`Ilumina√ß√£o p√∫blica`, 
+                                                                                  "N√£o utilizei o local/servi√ßo este ano."), 1, 0)
 
 consulta_discenter$"GRuim" <- NA
-consulta_discenter$"GRuim" <- ifelse(str_detect(consulta_discenter$`IluminaÁ„o p˙blica`, 
+consulta_discenter$"GRuim" <- ifelse(str_detect(consulta_discenter$`Ilumina√ß√£o p√∫blica`, 
                                                 "Ruim"), 1, 0)
 
-consulta_discenter$"GPÈssima" <- NA
-consulta_discenter$"GPÈssima" <- ifelse(str_detect(consulta_discenter$`IluminaÁ„o p˙blica`, 
-                                                   "PÈssima"), 1, 0)
+consulta_discenter$"GP√©ssima" <- NA
+consulta_discenter$"GP√©ssima" <- ifelse(str_detect(consulta_discenter$`Ilumina√ß√£o p√∫blica`, 
+                                                   "P√©ssima"), 1, 0)
 
 
 quadrodisgestaor7 <- consulta_discenter %>% 
-  mutate(Classe = "IluminaÁ„o p˙blica")
+  mutate(Classe = "Ilumina√ß√£o p√∫blica")
 
 quadrodisgestaor7 <- quadrodisgestaor7%>%
   group_by(Classe) %>% 
-  summarise(”tima = percent(sum(`G”tima`, na.rm = T)/length(`G”tima`)),
+  summarise(√ìtima = percent(sum(`G√ìtima`, na.rm = T)/length(`G√ìtima`)),
              Boa = percent(sum(`GBoa`, na.rm = T)/length(`GBoa`)),
-             "N„o utilizei o local/serviÁo este ano." = percent(sum(`GN„o utilizei o local/serviÁo este ano.`, na.rm = T)/length(`GN„o utilizei o local/serviÁo este ano.`)),
+             "N√£o utilizei o local/servi√ßo este ano." = percent(sum(`GN√£o utilizei o local/servi√ßo este ano.`, na.rm = T)/length(`GN√£o utilizei o local/servi√ßo este ano.`)),
              Ruim = percent(sum(`GRuim`, na.rm = T)/length(`GRuim`)),
-             PÈssima = percent(sum(`GPÈssima`, na.rm = T)/length(`GPÈssima`)))
+             P√©ssima = percent(sum(`GP√©ssima`, na.rm = T)/length(`GP√©ssima`)))
 
-# InstalaÁıes sanitarias
+# Instala√ß√µes sanitarias
 
-consulta_discenter <- consulta_aluno %>% filter(!is.na(`InstalaÁıes Sanitarias`))
+consulta_discenter <- consulta_aluno %>% filter(!is.na(`Instala√ß√µes Sanitarias`))
 
-consulta_discenter$"H”tima" <- NA
-consulta_discenter$"H”tima" <- ifelse(str_detect(consulta_discenter$`InstalaÁıes Sanitarias`, 
-                                                 "”tima"), 1, 0)
+consulta_discenter$"H√ìtima" <- NA
+consulta_discenter$"H√ìtima" <- ifelse(str_detect(consulta_discenter$`Instala√ß√µes Sanitarias`, 
+                                                 "√ìtima"), 1, 0)
 consulta_discenter$"HDBoa" <- NA
-consulta_discenter$"HBoa" <- ifelse(str_detect(consulta_discenter$`InstalaÁıes Sanitarias`, 
+consulta_discenter$"HBoa" <- ifelse(str_detect(consulta_discenter$`Instala√ß√µes Sanitarias`, 
                                                "Boa"), 1, 0)
 
-consulta_discenter$"HN„o utilizei o local/serviÁo este ano." <- NA
-consulta_discenter$"HN„o utilizei o local/serviÁo este ano." <- ifelse(str_detect(consulta_discenter$`InstalaÁıes Sanitarias`, 
-                                                                                  "N„o utilizei o local/serviÁo este ano."), 1, 0)
+consulta_discenter$"HN√£o utilizei o local/servi√ßo este ano." <- NA
+consulta_discenter$"HN√£o utilizei o local/servi√ßo este ano." <- ifelse(str_detect(consulta_discenter$`Instala√ß√µes Sanitarias`, 
+                                                                                  "N√£o utilizei o local/servi√ßo este ano."), 1, 0)
 
 consulta_discenter$"HRuim" <- NA
-consulta_discenter$"HRuim" <- ifelse(str_detect(consulta_discenter$`InstalaÁıes Sanitarias`, 
+consulta_discenter$"HRuim" <- ifelse(str_detect(consulta_discenter$`Instala√ß√µes Sanitarias`, 
                                                 "Ruim"), 1, 0)
 
-consulta_discenter$"HPÈssima" <- NA
-consulta_discenter$"HPÈssima" <- ifelse(str_detect(consulta_discenter$`InstalaÁıes Sanitarias`, 
-                                                   "PÈssima"), 1, 0)
+consulta_discenter$"HP√©ssima" <- NA
+consulta_discenter$"HP√©ssima" <- ifelse(str_detect(consulta_discenter$`Instala√ß√µes Sanitarias`, 
+                                                   "P√©ssima"), 1, 0)
 
 
 quadrodisgestaor8 <- consulta_discenter %>% 
-  mutate(Classe = "InstalaÁıes Sanitarias")
+  mutate(Classe = "Instala√ß√µes Sanitarias")
 
 quadrodisgestaor8 <- quadrodisgestaor8%>%
   group_by(Classe) %>% 
-  summarise(”tima = percent(sum(`H”tima`, na.rm = T)/length(`H”tima`)),
+  summarise(√ìtima = percent(sum(`H√ìtima`, na.rm = T)/length(`H√ìtima`)),
              Boa = percent(sum(`HBoa`, na.rm = T)/length(`HBoa`)),
-             "N„o utilizei o local/serviÁo este ano." = percent(sum(`HN„o utilizei o local/serviÁo este ano.`, na.rm = T)/length(`HN„o utilizei o local/serviÁo este ano.`)),
+             "N√£o utilizei o local/servi√ßo este ano." = percent(sum(`HN√£o utilizei o local/servi√ßo este ano.`, na.rm = T)/length(`HN√£o utilizei o local/servi√ßo este ano.`)),
              Ruim = percent(sum(`HRuim`, na.rm = T)/length(`HRuim`)),
-             PÈssima = percent(sum(`HPÈssima`, na.rm = T)/length(`HPÈssima`)))
+             P√©ssima = percent(sum(`HP√©ssima`, na.rm = T)/length(`HP√©ssima`)))
 
 # Ru
 
 consulta_discenter <- consulta_aluno %>% filter(!is.na(`Restaurante Universitario`))
 
-consulta_discenter$"I”tima" <- NA
-consulta_discenter$"I”tima" <- ifelse(str_detect(consulta_discenter$`Restaurante Universitario`, 
-                                                 "”tima"), 1, 0)
+consulta_discenter$"I√ìtima" <- NA
+consulta_discenter$"I√ìtima" <- ifelse(str_detect(consulta_discenter$`Restaurante Universitario`, 
+                                                 "√ìtima"), 1, 0)
 consulta_discenter$"IBoa" <- NA
 consulta_discenter$"IBoa" <- ifelse(str_detect(consulta_discenter$`Restaurante Universitario`, 
                                                "Boa"), 1, 0)
 
-consulta_discenter$"IN„o utilizei o local/serviÁo este ano." <- NA
-consulta_discenter$"IN„o utilizei o local/serviÁo este ano." <- ifelse(str_detect(consulta_discenter$`Restaurante Universitario`, 
-                                                                                  "N„o utilizei o local/serviÁo este ano."), 1, 0)
+consulta_discenter$"IN√£o utilizei o local/servi√ßo este ano." <- NA
+consulta_discenter$"IN√£o utilizei o local/servi√ßo este ano." <- ifelse(str_detect(consulta_discenter$`Restaurante Universitario`, 
+                                                                                  "N√£o utilizei o local/servi√ßo este ano."), 1, 0)
 
 consulta_discenter$"IRuim" <- NA
 consulta_discenter$"IRuim" <- ifelse(str_detect(consulta_discenter$`Restaurante Universitario`, 
                                                 "Ruim"), 1, 0)
 
-consulta_discenter$"IPÈssima" <- NA
-consulta_discenter$"IPÈssima" <- ifelse(str_detect(consulta_discenter$`Restaurante Universitario`, 
-                                                   "PÈssima"), 1, 0)
+consulta_discenter$"IP√©ssima" <- NA
+consulta_discenter$"IP√©ssima" <- ifelse(str_detect(consulta_discenter$`Restaurante Universitario`, 
+                                                   "P√©ssima"), 1, 0)
 
 
 quadrodisgestaor9 <- consulta_discenter %>% 
@@ -1188,11 +1188,11 @@ quadrodisgestaor9 <- consulta_discenter %>%
 
 quadrodisgestaor9 <- quadrodisgestaor9%>%
   group_by(Classe) %>% 
-  summarise(”tima = percent(sum(`I”tima`, na.rm = T)/length(`I”tima`)),
+  summarise(√ìtima = percent(sum(`I√ìtima`, na.rm = T)/length(`I√ìtima`)),
              Boa = percent(sum(`IBoa`, na.rm = T)/length(`IBoa`)),
-             "N„o utilizei o local/serviÁo este ano." = percent(sum(`IN„o utilizei o local/serviÁo este ano.`, na.rm = T)/length(`IN„o utilizei o local/serviÁo este ano.`)),
+             "N√£o utilizei o local/servi√ßo este ano." = percent(sum(`IN√£o utilizei o local/servi√ßo este ano.`, na.rm = T)/length(`IN√£o utilizei o local/servi√ßo este ano.`)),
              Ruim = percent(sum(`IRuim`, na.rm = T)/length(`IRuim`)),
-             PÈssima = percent(sum(`IPÈssima`, na.rm = T)/length(`IPÈssima`)))
+             P√©ssima = percent(sum(`IP√©ssima`, na.rm = T)/length(`IP√©ssima`)))
 
 rm(list=ls())
 consulta_aluno   <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/Rpibic/AlunosConsulta.xlsx")
