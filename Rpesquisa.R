@@ -1370,5 +1370,77 @@ quadrodisgestaor13 <- quadrodisgestaor13%>%
              Ruim = percent(sum(`4Ruim`, na.rm = T)/length(`4Ruim`)),
              Péssima = percent(sum(`4Péssima`, na.rm = T)/length(`4Péssima`)))
 
+
+# Acervo fisico BCE
+
+consulta_discenter <- consulta_aluno %>% filter(!is.na(`Acervo Fisico BCE`))
+
+consulta_discenter$"5Ótima" <- NA
+consulta_discenter$"5Ótima" <- ifelse(str_detect(consulta_discenter$`Acervo Fisico BCE`, 
+                                                 "Ótima"), 1, 0)
+consulta_discenter$"5Boa" <- NA
+consulta_discenter$"5Boa" <- ifelse(str_detect(consulta_discenter$`Acervo Fisico BCE`, 
+                                               "Boa"), 1, 0)
+
+consulta_discenter$"5Não utilizei o local/serviço este ano." <- NA
+consulta_discenter$"5Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_discenter$`Acervo Fisico BCE`, 
+                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_discenter$"5Ruim" <- NA
+consulta_discenter$"5Ruim" <- ifelse(str_detect(consulta_discenter$`Acervo Fisico BCE`, 
+                                                "Ruim"), 1, 0)
+
+consulta_discenter$"5Péssima" <- NA
+consulta_discenter$"5Péssima" <- ifelse(str_detect(consulta_discenter$`Acervo Fisico BCE`, 
+                                                   "Péssima"), 1, 0)
+
+
+quadrodisgestaor14 <- consulta_discenter %>% 
+  mutate(Classe = "Acervo Fisico BCE")
+
+quadrodisgestaor14 <- quadrodisgestaor14%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`5Ótima`, na.rm = T)/length(`5Ótima`)),
+             Boa = percent(sum(`5Boa`, na.rm = T)/length(`5Boa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`5Não utilizei o local/serviço este ano.`, na.rm = T)/length(`5Não utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`5Ruim`, na.rm = T)/length(`5Ruim`)),
+             Péssima = percent(sum(`5Péssima`, na.rm = T)/length(`5Péssima`)))
+
+
+# Acervo Digital BCE
+
+consulta_discenter <- consulta_aluno %>% filter(!is.na(`Acervo Virtual BCE`))
+
+consulta_discenter$"6Ótima" <- NA
+consulta_discenter$"6Ótima" <- ifelse(str_detect(consulta_discenter$`Acervo Virtual BCE`, 
+                                                 "Ótima"), 1, 0)
+consulta_discenter$"6Boa" <- NA
+consulta_discenter$"6Boa" <- ifelse(str_detect(consulta_discenter$`Acervo Virtual BCE`, 
+                                               "Boa"), 1, 0)
+
+consulta_discenter$"6Não utilizei o local/serviço este ano." <- NA
+consulta_discenter$"6Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_discenter$`Acervo Virtual BCE`, 
+                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_discenter$"6Ruim" <- NA
+consulta_discenter$"6Ruim" <- ifelse(str_detect(consulta_discenter$`Acervo Virtual BCE`, 
+                                                "Ruim"), 1, 0)
+
+consulta_discenter$"6Péssima" <- NA
+consulta_discenter$"6Péssima" <- ifelse(str_detect(consulta_discenter$`Acervo Virtual BCE`, 
+                                                   "Péssima"), 1, 0)
+
+
+quadrodisgestaor14 <- consulta_discenter %>% 
+  mutate(Classe = "Acervo Virtual BCE")
+
+quadrodisgestaor14 <- quadrodisgestaor14%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`6Ótima`, na.rm = T)/length(`6Ótima`)),
+             Boa = percent(sum(`6Boa`, na.rm = T)/length(`6Boa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`6Não utilizei o local/serviço este ano.`, na.rm = T)/length(`6Não utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`6Ruim`, na.rm = T)/length(`6Ruim`)),
+             Péssima = percent(sum(`6Péssima`, na.rm = T)/length(`6Péssima`)))
+
 rm(list=ls())
 consulta_aluno   <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/Rpibic/AlunosConsulta.xlsx")
