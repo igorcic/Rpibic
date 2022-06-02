@@ -1550,5 +1550,25 @@ quadrodisgestaor17 <- quadrodisgestaor17%>%
              Ruim = percent(sum(`9Ruim`, na.rm = T)/length(`9Ruim`)),
              Péssima = percent(sum(`9Péssima`, na.rm = T)/length(`9Péssima`)))
 
+quadrodisgestaortotal <- rbind(quadrodisgestaor, quadrodisgestaor1)
+quadrodisgestaortotal1 <- rbind(quadrodisgestaortotal, quadrodisgestaor2)
+quadrodisgestaortotal2 <- rbind(quadrodisgestaortotal1, quadrodisgestaor3)
+quadrodisgestaortotal3 <- rbind(quadrodisgestaortotal2, quadrodisgestaor4)
+quadrodisgestaortotal4 <- rbind(quadrodisgestaortotal3, quadrodisgestaor5)
+quadrodisgestaortotal5 <- rbind(quadrodisgestaortotal4, quadrodisgestaor6)
+quadrodisgestaortotal6 <- rbind(quadrodisgestaortotal5, quadrodisgestaor7)
+quadrodisgestaortotal7 <- rbind(quadrodisgestaortotal6, quadrodisgestaor8)
+quadrodisgestaortotal8 <- rbind(quadrodisgestaortotal7, quadrodisgestaor9)
+quadrodisgestaortotal9 <- rbind(quadrodisgestaortotal8, quadrodisgestaor10)
+quadrodisgestaortotal10 <- rbind(quadrodisgestaortotal9, quadrodisgestaor11)
+quadrodisgestaortotal11 <- rbind(quadrodisgestaortotal10, quadrodisgestaor12)
+quadrodisgestaortotal12 <- rbind(quadrodisgestaortotal11, quadrodisgestaor13)
+quadrodisgestaortotal13 <- rbind(quadrodisgestaortotal12, quadrodisgestaor14)
+quadrodisgestaortotal14 <- rbind(quadrodisgestaortotal13, quadrodisgestaor15)
+quadrodisgestaortotal15 <- rbind(quadrodisgestaortotal14, quadrodisgestaor16)
+quadrodisgestaortotal16 <- rbind(quadrodisgestaortotal15, quadrodisgestaor17)
+
+quadrodisgestaortotal <- rbind(quadrodisgestaor, quadrodisgestaor1)
+
 rm(list=ls())
 consulta_aluno   <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/Rpibic/AlunosConsulta.xlsx")
