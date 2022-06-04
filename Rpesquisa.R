@@ -1794,32 +1794,32 @@ quadrotecgestaor6 <- quadrotecgestaor6%>%
 
 # Iluminacao Publica
 
-consulta_discenter <- consulta_aluno %>% filter(!is.na(`Iluminação pública`))
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Iluminação pública`))
 
-consulta_discenter$"GÓtima" <- NA
-consulta_discenter$"GÓtima" <- ifelse(str_detect(consulta_discenter$`Iluminação pública`, 
+consulta_tecnicor$"GÓtima" <- NA
+consulta_tecnicor$"GÓtima" <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
                                                  "Ótima"), 1, 0)
-consulta_discenter$"GDBoa" <- NA
-consulta_discenter$"GBoa" <- ifelse(str_detect(consulta_discenter$`Iluminação pública`, 
+consulta_tecnicor$"GDBoa" <- NA
+consulta_tecnicor$"GBoa" <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
                                                "Boa"), 1, 0)
 
-consulta_discenter$"GNão utilizei o local/serviço este ano." <- NA
-consulta_discenter$"GNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_discenter$`Iluminação pública`, 
+consulta_tecnicor$"GNão utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"GNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
                                                                                   "Não utilizei o local/serviço este ano."), 1, 0)
 
-consulta_discenter$"GRuim" <- NA
-consulta_discenter$"GRuim" <- ifelse(str_detect(consulta_discenter$`Iluminação pública`, 
+consulta_tecnicor$"GRuim" <- NA
+consulta_tecnicor$"GRuim" <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
                                                 "Ruim"), 1, 0)
 
-consulta_discenter$"GPéssima" <- NA
-consulta_discenter$"GPéssima" <- ifelse(str_detect(consulta_discenter$`Iluminação pública`, 
+consulta_tecnicor$"GPéssima" <- NA
+consulta_tecnicor$"GPéssima" <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
                                                    "Péssima"), 1, 0)
 
 
-quadrodisgestaor7 <- consulta_discenter %>% 
+quadrotecgestaor7 <- consulta_tecnicor %>% 
   mutate(Classe = "Iluminação pública")
 
-quadrodisgestaor7 <- quadrodisgestaor7%>%
+quadrotecgestaor7 <- quadrotecgestaor7%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`GÓtima`, na.rm = T)/length(`GÓtima`)),
              Boa = percent(sum(`GBoa`, na.rm = T)/length(`GBoa`)),
@@ -1829,32 +1829,32 @@ quadrodisgestaor7 <- quadrodisgestaor7%>%
 
 # Instalações sanitarias
 
-consulta_discenter <- consulta_aluno %>% filter(!is.na(`Instalações Sanitarias`))
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Instalações Sanitarias`))
 
-consulta_discenter$"HÓtima" <- NA
-consulta_discenter$"HÓtima" <- ifelse(str_detect(consulta_discenter$`Instalações Sanitarias`, 
+consulta_tecnicor$"HÓtima" <- NA
+consulta_tecnicor$"HÓtima" <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
                                                  "Ótima"), 1, 0)
-consulta_discenter$"HDBoa" <- NA
-consulta_discenter$"HBoa" <- ifelse(str_detect(consulta_discenter$`Instalações Sanitarias`, 
+consulta_tecnicor$"HDBoa" <- NA
+consulta_tecnicor$"HBoa" <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
                                                "Boa"), 1, 0)
 
-consulta_discenter$"HNão utilizei o local/serviço este ano." <- NA
-consulta_discenter$"HNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_discenter$`Instalações Sanitarias`, 
+consulta_tecnicor$"HNão utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"HNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
                                                                                   "Não utilizei o local/serviço este ano."), 1, 0)
 
-consulta_discenter$"HRuim" <- NA
-consulta_discenter$"HRuim" <- ifelse(str_detect(consulta_discenter$`Instalações Sanitarias`, 
+consulta_tecnicor$"HRuim" <- NA
+consulta_tecnicor$"HRuim" <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
                                                 "Ruim"), 1, 0)
 
-consulta_discenter$"HPéssima" <- NA
-consulta_discenter$"HPéssima" <- ifelse(str_detect(consulta_discenter$`Instalações Sanitarias`, 
+consulta_tecnicor$"HPéssima" <- NA
+consulta_tecnicor$"HPéssima" <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
                                                    "Péssima"), 1, 0)
 
 
-quadrodisgestaor8 <- consulta_discenter %>% 
+quadrodisgestaor8 <- consulta_tecnicor %>% 
   mutate(Classe = "Instalações Sanitarias")
 
-quadrodisgestaor8 <- quadrodisgestaor8%>%
+quadrotecgestaor8 <- quadrotecgestaor8%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`HÓtima`, na.rm = T)/length(`HÓtima`)),
              Boa = percent(sum(`HBoa`, na.rm = T)/length(`HBoa`)),
