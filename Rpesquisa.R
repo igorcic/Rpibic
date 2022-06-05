@@ -2242,3 +2242,673 @@ quadrotecgestaortotal <- rbind(quadrotecgestaor, quadrotecgestaor1)
 
 rm(list=ls())
 consulta_aluno   <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/Rpibic/AlunosConsulta.xlsx")
+
+
+
+
+# Infraestrutura ---------- Docenter
+
+# docente  Rede UnB Wireless
+
+
+
+consulta_docenter <- consulta_docente %>% filter(!is.na(`Rede UnB Wireless`))
+
+consulta_docenter$"Ótima" <- NA
+consulta_docenter$"Ótima" <- ifelse(str_detect(consulta_docenter$`Rede UnB Wireless`, 
+                                               "Ótima"), 1, 0)
+consulta_docenter$"Boa" <- NA
+consulta_docenter$"Boa" <- ifelse(str_detect(consulta_docenter$`Rede UnB Wireless`, 
+                                             "Boa"), 1, 0)
+
+consulta_docenter$"Não utilizei o local/serviço este ano." <- NA
+consulta_docenter$"Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_docenter$`Rede UnB Wireless`, 
+                                                                                "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_docenter$"Ruim" <- NA
+consulta_docenter$"Ruim" <- ifelse(str_detect(consulta_docenter$`Rede UnB Wireless`, 
+                                              "Ruim"), 1, 0)
+
+consulta_docenter$"Péssima" <- NA
+consulta_docenter$"Péssima" <- ifelse(str_detect(consulta_docenter$`Rede UnB Wireless`, 
+                                                 "Péssima"), 1, 0)
+
+
+quadrodocgestaor <- consulta_docenter %>% 
+  mutate(Classe = "Rede UnB Wireless")
+
+quadrodocgestaor <- quadrodocgestaor%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`Ótima`, na.rm = T)/length(`Ótima`)),
+             Boa = percent(sum(`Boa`, na.rm = T)/length(`Boa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`Não utilizei o local/serviço este ano.`, na.rm = T)/length(`Não utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`Ruim`, na.rm = T)/length(`Ruim`)),
+             Péssima = percent(sum(`Péssima`, na.rm = T)/length(`Péssima`)))
+
+# docente  Acessibilidade fisica
+
+consulta_docenter<- consulta_docente %>% filter(!is.na(`Condições de acessibilidade`))
+
+consulta_docenter$"AÓtima" <- NA
+consulta_docenter$"AÓtima" <- ifelse(str_detect(consulta_docenter$`Condições de acessibilidade`, 
+                                                "Ótima"), 1, 0)
+consulta_docenter$"ABoa" <- NA
+consulta_docenter$"ABoa" <- ifelse(str_detect(consulta_docenter$`Condições de acessibilidade`, 
+                                              "Boa"), 1, 0)
+
+consulta_docenter$"ANão utilizei o local/serviço este ano." <- NA
+consulta_docenter$"ANão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_docenter$`Condições de acessibilidade`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_docenter$"ARuim" <- NA
+consulta_docenter$"ARuim" <- ifelse(str_detect(consulta_docenter$`Condições de acessibilidade`, 
+                                               "Ruim"), 1, 0)
+
+consulta_docenter$"APéssima" <- NA
+consulta_docenter$"APéssima" <- ifelse(str_detect(consulta_docenter$`Condições de acessibilidade`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrodocgestaor1 <- consulta_docenter %>% 
+  mutate(Classe = "Condições de acessibilidade")
+
+quadrodocgestaor1 <- quadrodocgestaor1%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`AÓtima`, na.rm = T)/length(`AÓtima`)),
+             Boa = percent(sum(`ABoa`, na.rm = T)/length(`ABoa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`ANão utilizei o local/serviço este ano.`, na.rm = T)/length(`ANão utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`ARuim`, na.rm = T)/length(`ARuim`)),
+             Péssima = percent(sum(`APéssima`, na.rm = T)/length(`APéssima`)))
+
+consulta_tecnico <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/TecnicoConsulta.xlsx")
+
+# docente Auditorio
+
+consulta_docenter <- consulta_docente %>% filter(!is.na(`Condições de gerais de auditorio`))
+
+consulta_docenter$"BÓtima" <- NA
+consulta_docenter$"BÓtima" <- ifelse(str_detect(consulta_docenter$`Condições de gerais de auditorio`, 
+                                                "Ótima"), 1, 0)
+consulta_docenter$"BBoa" <- NA
+consulta_docenter$"BBoa" <- ifelse(str_detect(consulta_docenter$`Condições de acessibilidade`, 
+                                              "Boa"), 1, 0)
+
+consulta_docenter$"BNão utilizei o local/serviço este ano." <- NA
+consulta_docenter$"BNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_docenter$`Condições de gerais de auditorio`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_docenter$"BRuim" <- NA
+consulta_docenter$"BRuim" <- ifelse(str_detect(consulta_docenter$`Condições de gerais de auditorio`, 
+                                               "Ruim"), 1, 0)
+
+consulta_docenter$"BPéssima" <- NA
+consulta_docenter$"BPéssima" <- ifelse(str_detect(consulta_docenter$`Condições de gerais de auditorio`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrodocgestaor2 <- consulta_docenter %>% 
+  mutate(Classe = "Condições de gerais de auditorio")
+
+quadrodocgestaor2 <- quadrodocgestaor2%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`BÓtima`, na.rm = T)/length(`BÓtima`)),
+             Boa = percent(sum(`BBoa`, na.rm = T)/length(`BBoa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`BNão utilizei o local/serviço este ano.`, na.rm = T)/length(`BNão utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`BRuim`, na.rm = T)/length(`BRuim`)),
+             Péssima = percent(sum(`BPéssima`, na.rm = T)/length(`BPéssima`)))
+
+# Docente  Espaço de convivencia
+
+consulta_docenter <- consulta_docente %>% filter(!is.na(`Espaço de Convivencia e alimentação (exceto RU)`))
+
+consulta_docenter$"CÓtima" <- NA
+consulta_docenter$"CÓtima" <- ifelse(str_detect(consulta_docenter$`Espaço de Convivencia e alimentação (exceto RU)`, 
+                                                "Ótima"), 1, 0)
+consulta_docenter$"CBoa" <- NA
+consulta_docenter$"CBoa" <- ifelse(str_detect(consulta_docenter$`Condições de acessibilidade`, 
+                                              "Boa"), 1, 0)
+
+consulta_docenter$"CNão utilizei o local/serviço este ano." <- NA
+consulta_docenter$"CNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_docenter$`Espaço de Convivencia e alimentação (exceto RU)`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_docenter$"CRuim" <- NA
+consulta_docenter$"CRuim" <- ifelse(str_detect(consulta_docenter$`Espaço de Convivencia e alimentação (exceto RU)`, 
+                                               "Ruim"), 1, 0)
+
+consulta_docenter$"CPéssima" <- NA
+consulta_docenter$"CPéssima" <- ifelse(str_detect(consulta_docenter$`Espaço de Convivencia e alimentação (exceto RU)`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrodocgestaor3 <- consulta_docenter %>% 
+  mutate(Classe = "Espaço de Convivencia e alimentação (exceto RU)")
+
+quadrodocgestaor3 <- quadrodocgestaor3%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`CÓtima`, na.rm = T)/length(`CÓtima`)),
+             Boa = percent(sum(`CBoa`, na.rm = T)/length(`CBoa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`CNão utilizei o local/serviço este ano.`, na.rm = T)/length(`CNão utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`CRuim`, na.rm = T)/length(`CRuim`)),
+             Péssima = percent(sum(`CPéssima`, na.rm = T)/length(`CPéssima`)))
+
+
+# BCE Estudo
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Espaço de Estudo da BCE`))
+
+consulta_tecnicor$"DÓtima" <- NA
+consulta_tecnicor$"DÓtima" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Estudo da BCE`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"DBoa" <- NA
+consulta_tecnicor$"DBoa" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Estudo da BCE`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"DNão utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"DNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Espaço de Estudo da BCE`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"DRuim" <- NA
+consulta_tecnicor$"DRuim" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Estudo da BCE`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"DPéssima" <- NA
+consulta_tecnicor$"DPéssima" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Estudo da BCE`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrotecgestaor4 <- consulta_tecnicor %>% 
+  mutate(Classe = "Espaço de Estudo da BCE")
+
+quadrotecgestaor4 <- quadrotecgestaor4%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`DÓtima`, na.rm = T)/length(`DÓtima`)),
+             Boa = percent(sum(`DBoa`, na.rm = T)/length(`DBoa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`DNão utilizei o local/serviço este ano.`, na.rm = T)/length(`DNão utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`DRuim`, na.rm = T)/length(`DRuim`)),
+             Péssima = percent(sum(`DPéssima`, na.rm = T)/length(`DPéssima`)))
+
+
+
+# Estacionamento
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Estacionamento`))
+
+consulta_tecnicor$"FÓtima" <- NA
+consulta_tecnicor$"FÓtima" <- ifelse(str_detect(consulta_tecnicor$`Estacionamento`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"FDBoa" <- NA
+consulta_tecnicor$"FBoa" <- ifelse(str_detect(consulta_tecnicor$`Estacionamento`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"FNão utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"FNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Estacionamento`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"FRuim" <- NA
+consulta_tecnicor$"FRuim" <- ifelse(str_detect(consulta_tecnicor$`Estacionamento`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"FPéssima" <- NA
+consulta_tecnicor$"FPéssima" <- ifelse(str_detect(consulta_tecnicor$`Estacionamento`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrotecgestaor6 <- consulta_tecnicor %>% 
+  mutate(Classe = "Estacionamento")
+
+quadrotecgestaor6 <- quadrotecgestaor6%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`FÓtima`, na.rm = T)/length(`FÓtima`)),
+             Boa = percent(sum(`FBoa`, na.rm = T)/length(`FBoa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`FNão utilizei o local/serviço este ano.`, na.rm = T)/length(`FNão utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`FRuim`, na.rm = T)/length(`FRuim`)),
+             Péssima = percent(sum(`FPéssima`, na.rm = T)/length(`FPéssima`)))
+
+
+# Iluminacao Publica
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Iluminação pública`))
+
+consulta_tecnicor$"GÓtima" <- NA
+consulta_tecnicor$"GÓtima" <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"GDBoa" <- NA
+consulta_tecnicor$"GBoa" <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"GNão utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"GNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"GRuim" <- NA
+consulta_tecnicor$"GRuim" <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"GPéssima" <- NA
+consulta_tecnicor$"GPéssima" <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrotecgestaor7 <- consulta_tecnicor %>% 
+  mutate(Classe = "Iluminação pública")
+
+quadrotecgestaor7 <- quadrotecgestaor7%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`GÓtima`, na.rm = T)/length(`GÓtima`)),
+             Boa = percent(sum(`GBoa`, na.rm = T)/length(`GBoa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`GNão utilizei o local/serviço este ano.`, na.rm = T)/length(`GNão utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`GRuim`, na.rm = T)/length(`GRuim`)),
+             Péssima = percent(sum(`GPéssima`, na.rm = T)/length(`GPéssima`)))
+
+# Instalações sanitarias
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Instalações Sanitarias`))
+
+consulta_tecnicor$"HÓtima" <- NA
+consulta_tecnicor$"HÓtima" <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"HDBoa" <- NA
+consulta_tecnicor$"HBoa" <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"HNão utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"HNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"HRuim" <- NA
+consulta_tecnicor$"HRuim" <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"HPéssima" <- NA
+consulta_tecnicor$"HPéssima" <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrodisgestaor8 <- consulta_tecnicor %>% 
+  mutate(Classe = "Instalações Sanitarias")
+
+quadrotecgestaor8 <- quadrotecgestaor8%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`HÓtima`, na.rm = T)/length(`HÓtima`)),
+             Boa = percent(sum(`HBoa`, na.rm = T)/length(`HBoa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`HNão utilizei o local/serviço este ano.`, na.rm = T)/length(`HNão utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`HRuim`, na.rm = T)/length(`HRuim`)),
+             Péssima = percent(sum(`HPéssima`, na.rm = T)/length(`HPéssima`)))
+
+# Ru
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Restaurante Universitario`))
+
+consulta_tecnicor$"IÓtima" <- NA
+consulta_tecnicor$"IÓtima" <- ifelse(str_detect(consulta_tecnicor$`Restaurante Universitario`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"IBoa" <- NA
+consulta_tecnicor$"IBoa" <- ifelse(str_detect(consulta_tecnicor$`Restaurante Universitario`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"INão utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"INão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Restaurante Universitario`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"IRuim" <- NA
+consulta_tecnicor$"IRuim" <- ifelse(str_detect(consulta_tecnicor$`Restaurante Universitario`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"IPéssima" <- NA
+consulta_tecnicor$"IPéssima" <- ifelse(str_detect(consulta_tecnicor$`Restaurante Universitario`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrotecgestaor9 <- consulta_tecnicor %>% 
+  mutate(Classe = "Restaurante Universitario")
+
+quadrotecgestaor9 <- quadrotecgestaor9%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`IÓtima`, na.rm = T)/length(`IÓtima`)),
+             Boa = percent(sum(`IBoa`, na.rm = T)/length(`IBoa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`INão utilizei o local/serviço este ano.`, na.rm = T)/length(`INão utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`IRuim`, na.rm = T)/length(`IRuim`)),
+             Péssima = percent(sum(`IPéssima`, na.rm = T)/length(`IPéssima`)))
+
+# Salas de Aula
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Salas de aula`))
+
+consulta_tecnicor$"1Ótima" <- NA
+consulta_tecnicor$"1Ótima" <- ifelse(str_detect(consulta_tecnicor$`Salas de aula`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"1Boa" <- NA
+consulta_tecnicor$"1Boa" <- ifelse(str_detect(consulta_tecnicor$`Salas de aula`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"1Não utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"1Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Salas de aula`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"1Ruim" <- NA
+consulta_tecnicor$"1Ruim" <- ifelse(str_detect(consulta_tecnicor$`Salas de aula`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"1Péssima" <- NA
+consulta_tecnicor$"1Péssima" <- ifelse(str_detect(consulta_tecnicor$`Salas de aula`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrotecgestaor10 <- consulta_tecnicor %>% 
+  mutate(Classe = "Salas de aula")
+
+quadrotecgestaor10 <- quadrotecgestaor10%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`1Ótima`, na.rm = T)/length(`1Ótima`)),
+             Boa = percent(sum(`1Boa`, na.rm = T)/length(`1Boa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`1Não utilizei o local/serviço este ano.`, na.rm = T)/length(`1Não utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`1Ruim`, na.rm = T)/length(`1Ruim`)),
+             Péssima = percent(sum(`1Péssima`, na.rm = T)/length(`1Péssima`)))
+
+# Sala dos professores
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Sala dos Professores`))
+
+consulta_tecnicor$"2Ótima" <- NA
+consulta_tecnicor$"2Ótima" <- ifelse(str_detect(consulta_tecnicor$`Sala dos Professores`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"2Boa" <- NA
+consulta_tecnicor$"2Boa" <- ifelse(str_detect(consulta_tecnicor$`Sala dos Professores`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"2Não utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"2Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Sala dos Professores`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"2Ruim" <- NA
+consulta_tecnicor$"2Ruim" <- ifelse(str_detect(consulta_tecnicor$`Sala dos Professores`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"2Péssima" <- NA
+consulta_tecnicor$"2Péssima" <- ifelse(str_detect(consulta_tecnicor$`Sala dos Professores`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrotecgestaor11 <- consulta_tecnicor %>% 
+  mutate(Classe = "Sala dos Professores")
+
+quadrotecgestaor11 <- quadrotecgestaor11%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`2Ótima`, na.rm = T)/length(`2Ótima`)),
+             Boa = percent(sum(`2Boa`, na.rm = T)/length(`2Boa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`2Não utilizei o local/serviço este ano.`, na.rm = T)/length(`2Não utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`2Ruim`, na.rm = T)/length(`2Ruim`)),
+             Péssima = percent(sum(`2Péssima`, na.rm = T)/length(`2Péssima`)))
+
+# Segurança Campus
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Segurança do Campus`))
+
+consulta_tecnicor$"3Ótima" <- NA
+consulta_tecnicor$"3Ótima" <- ifelse(str_detect(consulta_tecnicor$`Segurança do Campus`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"3Boa" <- NA
+consulta_tecnicor$"3Boa" <- ifelse(str_detect(consulta_tecnicor$`Segurança do Campus`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"3Não utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"3Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Segurança do Campus`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"3Ruim" <- NA
+consulta_tecnicor$"3Ruim" <- ifelse(str_detect(consulta_tecnicor$`Segurança do Campus`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"3Péssima" <- NA
+consulta_tecnicor$"3Péssima" <- ifelse(str_detect(consulta_tecnicor$`Segurança do Campus`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrotecgestaor12 <- consulta_tecnicor %>% 
+  mutate(Classe = "Segurança do Campus")
+
+quadrotecgestaor12 <- quadrotecgestaor12%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`3Ótima`, na.rm = T)/length(`3Ótima`)),
+             Boa = percent(sum(`3Boa`, na.rm = T)/length(`3Boa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`3Não utilizei o local/serviço este ano.`, na.rm = T)/length(`3Não utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`3Ruim`, na.rm = T)/length(`3Ruim`)),
+             Péssima = percent(sum(`3Péssima`, na.rm = T)/length(`3Péssima`)))
+
+
+
+# Suporte tecnologico
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Suporte tecnologico para administração`))
+
+consulta_tecnicor$"4Ótima" <- NA
+consulta_tecnicor$"4Ótima" <- ifelse(str_detect(consulta_tecnicor$`Suporte tecnologico para administração`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"4Boa" <- NA
+consulta_tecnicor$"4Boa" <- ifelse(str_detect(consulta_tecnicor$`Suporte tecnologico para administração`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"4Não utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"4Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Suporte tecnologico para administração`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"4Ruim" <- NA
+consulta_tecnicor$"4Ruim" <- ifelse(str_detect(consulta_tecnicor$`Suporte tecnologico para administração`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"4Péssima" <- NA
+consulta_tecnicor$"4Péssima" <- ifelse(str_detect(consulta_tecnicor$`Suporte tecnologico para administração`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrotecgestaor13 <- consulta_tecnicor %>% 
+  mutate(Classe = "Suporte tecnologico para administração")
+
+quadrotecgestaor13 <- quadrotecgestaor13%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`4Ótima`, na.rm = T)/length(`4Ótima`)),
+             Boa = percent(sum(`4Boa`, na.rm = T)/length(`4Boa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`4Não utilizei o local/serviço este ano.`, na.rm = T)/length(`4Não utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`4Ruim`, na.rm = T)/length(`4Ruim`)),
+             Péssima = percent(sum(`4Péssima`, na.rm = T)/length(`4Péssima`)))
+
+
+# Acervo fisico BCE
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Acervo Fisico BCE`))
+
+consulta_tecnicor$"5Ótima" <- NA
+consulta_tecnicor$"5Ótima" <- ifelse(str_detect(consulta_tecnicor$`Acervo Fisico BCE`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"5Boa" <- NA
+consulta_tecnicor$"5Boa" <- ifelse(str_detect(consulta_tecnicor$`Acervo Fisico BCE`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"5Não utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"5Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Acervo Fisico BCE`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"5Ruim" <- NA
+consulta_tecnicor$"5Ruim" <- ifelse(str_detect(consulta_tecnicor$`Acervo Fisico BCE`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"5Péssima" <- NA
+consulta_tecnicor$"5Péssima" <- ifelse(str_detect(consulta_tecnicor$`Acervo Fisico BCE`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrotecgestaor14 <- consulta_tecnicor %>% 
+  mutate(Classe = "Acervo Fisico BCE")
+
+quadrotecgestaor14 <- quadrotecgestaor14%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`5Ótima`, na.rm = T)/length(`5Ótima`)),
+             Boa = percent(sum(`5Boa`, na.rm = T)/length(`5Boa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`5Não utilizei o local/serviço este ano.`, na.rm = T)/length(`5Não utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`5Ruim`, na.rm = T)/length(`5Ruim`)),
+             Péssima = percent(sum(`5Péssima`, na.rm = T)/length(`5Péssima`)))
+
+
+# Acervo Digital BCE
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Acervo Virtual BCE`))
+
+consulta_tecnicor$"6Ótima" <- NA
+consulta_tecnicor$"6Ótima" <- ifelse(str_detect(consulta_tecnicor$`Acervo Virtual BCE`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"6Boa" <- NA
+consulta_tecnicor$"6Boa" <- ifelse(str_detect(consulta_tecnicor$`Acervo Virtual BCE`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"6Não utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"6Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Acervo Virtual BCE`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"6Ruim" <- NA
+consulta_tecnicor$"6Ruim" <- ifelse(str_detect(consulta_tecnicor$`Acervo Virtual BCE`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"6Péssima" <- NA
+consulta_tecnicor$"6Péssima" <- ifelse(str_detect(consulta_tecnicor$`Acervo Virtual BCE`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrotecgestaor14 <- consulta_tecnicor %>% 
+  mutate(Classe = "Acervo Virtual BCE")
+
+quadrotecgestaor14 <- quadrotecgestaor14%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`6Ótima`, na.rm = T)/length(`6Ótima`)),
+             Boa = percent(sum(`6Boa`, na.rm = T)/length(`6Boa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`6Não utilizei o local/serviço este ano.`, na.rm = T)/length(`6Não utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`6Ruim`, na.rm = T)/length(`6Ruim`)),
+             Péssima = percent(sum(`6Péssima`, na.rm = T)/length(`6Péssima`)))
+
+
+# Funcionamento Teams
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Funcionamento Teams`))
+
+consulta_tecnicor$"7Ótima" <- NA
+consulta_tecnicor$"7Ótima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento Teams`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"7Boa" <- NA
+consulta_tecnicor$"7Boa" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento Teams`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"7Não utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"7Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Funcionamento Teams`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"7Ruim" <- NA
+consulta_tecnicor$"7Ruim" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento Teams`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"7Péssima" <- NA
+consulta_tecnicor$"7Péssima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento Teams`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrotecgestaor15 <- consulta_tecnicor %>% 
+  mutate(Classe = "Funcionamento Teams")
+
+quadrotecgestaor15 <- quadrotecgestaor15%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`7Ótima`, na.rm = T)/length(`7Ótima`)),
+             Boa = percent(sum(`7Boa`, na.rm = T)/length(`7Boa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`7Não utilizei o local/serviço este ano.`, na.rm = T)/length(`7Não utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`7Ruim`, na.rm = T)/length(`7Ruim`)),
+             Péssima = percent(sum(`7Péssima`, na.rm = T)/length(`7Péssima`)))
+
+
+# Funcionamento Aprender
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Funcionamento da Plataforma Institucional Aprender`))
+
+consulta_tecnicor$"8Ótima" <- NA
+consulta_tecnicor$"8Ótima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"8Boa" <- NA
+consulta_tecnicor$"8Boa" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"8Não utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"8Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"8Ruim" <- NA
+consulta_tecnicor$"8Ruim" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"8Péssima" <- NA
+consulta_tecnicor$"8Péssima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrotecgestaor16 <- consulta_tecnicor %>% 
+  mutate(Classe = "Funcionamento da Plataforma Institucional Aprender")
+
+quadrotecgestaor16 <- quadrotecgestaor16%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`8Ótima`, na.rm = T)/length(`8Ótima`)),
+             Boa = percent(sum(`8Boa`, na.rm = T)/length(`8Boa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`8Não utilizei o local/serviço este ano.`, na.rm = T)/length(`8Não utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`8Ruim`, na.rm = T)/length(`8Ruim`)),
+             Péssima = percent(sum(`8Péssima`, na.rm = T)/length(`8Péssima`)))
+
+
+# Funcionamento SIGAA
+
+consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Funcionamento SIGAA`))
+
+consulta_tecnicor$"9Ótima" <- NA
+consulta_tecnicor$"9Ótima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
+                                                "Ótima"), 1, 0)
+consulta_tecnicor$"9Boa" <- NA
+consulta_tecnicor$"9Boa" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
+                                              "Boa"), 1, 0)
+
+consulta_tecnicor$"9Não utilizei o local/serviço este ano." <- NA
+consulta_tecnicor$"9Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+
+consulta_tecnicor$"9Ruim" <- NA
+consulta_tecnicor$"9Ruim" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
+                                               "Ruim"), 1, 0)
+
+consulta_tecnicor$"9Péssima" <- NA
+consulta_tecnicor$"9Péssima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
+                                                  "Péssima"), 1, 0)
+
+
+quadrotecgestaor17 <- consulta_tecnicor %>% 
+  mutate(Classe = "Funcionamento SIGAA")
+
+quadrotecgestaor17 <- quadrotecgestaor17%>%
+  group_by(Classe) %>% 
+  summarise(Ótima = percent(sum(`9Ótima`, na.rm = T)/length(`9Ótima`)),
+             Boa = percent(sum(`9Boa`, na.rm = T)/length(`9Boa`)),
+             "Não utilizei o local/serviço este ano." = percent(sum(`9Não utilizei o local/serviço este ano.`, na.rm = T)/length(`9Não utilizei o local/serviço este ano.`)),
+             Ruim = percent(sum(`9Ruim`, na.rm = T)/length(`9Ruim`)),
+             Péssima = percent(sum(`9Péssima`, na.rm = T)/length(`9Péssima`)))
+
+quadrotecgestaortotal <- rbind(quadrotecgestaor, quadrotecgestaor1)
+quadrotecgestaortotal1 <- rbind(quadrotecgestaortotal, quadrotecgestaor2)
+quadrotecgestaortotal2 <- rbind(quadrotecgestaortotal1, quadrotecgestaor3)
+quadrotecgestaortotal3 <- rbind(quadrotecgestaortotal2, quadrotecgestaor4)
+quadrotecgestaortotal4 <- rbind(quadrotecgestaortotal3, quadrotecgestaor5)
+quadrotecgestaortotal5 <- rbind(quadrotecgestaortotal4, quadrotecgestaor6)
+quadrotecgestaortotal6 <- rbind(quadrotecgestaortotal5, quadrotecgestaor7)
+quadrotecgestaortotal7 <- rbind(quadrotecgestaortotal6, quadrotecgestaor8)
+quadrotecgestaortotal8 <- rbind(quadrotecgestaortotal7, quadrotecgestaor9)
+quadrotecgestaortotal9 <- rbind(quadrotecgestaortotal8, quadrotecgestaor10)
+quadrotecgestaortotal10 <- rbind(quadrotecgestaortotal9, quadrotecgestaor11)
+quadrotecgestaortotal11 <- rbind(quadrotecgestaortotal10, quadrotecgestaor12)
+quadrotecgestaortotal12 <- rbind(quadrotecgestaortotal11, quadrotecgestaor13)
+quadrotecgestaortotal13 <- rbind(quadrotecgestaortotal12, quadrotecgestaor14)
+quadrotecgestaortotal14 <- rbind(quadrotecgestaortotal13, quadrotecgestaor15)
+quadrotecgestaortotal15 <- rbind(quadrotecgestaortotal14, quadrotecgestaor16)
+quadrotecgestaortotal16 <- rbind(quadrotecgestaortotal15, quadrotecgestaor17)
+
+quadrotecgestaortotal <- rbind(quadrotecgestaor, quadrotecgestaor1)
