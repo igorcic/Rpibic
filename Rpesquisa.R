@@ -2330,7 +2330,7 @@ consulta_docenter$"BÓtima" <- NA
 consulta_docenter$"BÓtima" <- ifelse(str_detect(consulta_docenter$`Condições de gerais de auditorio`, 
                                                 "Ótima"), 1, 0)
 consulta_docenter$"BBoa" <- NA
-consulta_docenter$"BBoa" <- ifelse(str_detect(consulta_docenter$`Condições de acessibilidade`, 
+consulta_docenter$"BBoa" <- ifelse(str_detect(consulta_docenter$`Condições de gerais de auditorio`, 
                                               "Boa"), 1, 0)
 
 consulta_docenter$"BNão utilizei o local/serviço este ano." <- NA
@@ -2365,7 +2365,7 @@ consulta_docenter$"CÓtima" <- NA
 consulta_docenter$"CÓtima" <- ifelse(str_detect(consulta_docenter$`Espaço de Convivencia e alimentação (exceto RU)`, 
                                                 "Ótima"), 1, 0)
 consulta_docenter$"CBoa" <- NA
-consulta_docenter$"CBoa" <- ifelse(str_detect(consulta_docenter$`Condições de acessibilidade`, 
+consulta_docenter$"CBoa" <- ifelse(str_detect(consulta_docenter$`Espaço de Convivencia e alimentação (exceto RU)`, 
                                               "Boa"), 1, 0)
 
 consulta_docenter$"CNão utilizei o local/serviço este ano." <- NA
