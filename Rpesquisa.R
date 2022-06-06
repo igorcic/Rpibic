@@ -2824,32 +2824,32 @@ quadrodocgestaor15 <- quadrodocgestaor15%>%
 
 # Funcionamento Aprender
 
-consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Funcionamento da Plataforma Institucional Aprender`))
+consulta_docenter <- consulta_docente %>% filter(!is.na(`Funcionamento da Plataforma Institucional Aprender`))
 
-consulta_tecnicor$"8Ótima" <- NA
-consulta_tecnicor$"8Ótima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
+consulta_docenter$"8Ótima" <- NA
+consulta_docenter$"8Ótima" <- ifelse(str_detect(consulta_docenter$`Funcionamento da Plataforma Institucional Aprender`, 
                                                 "Ótima"), 1, 0)
-consulta_tecnicor$"8Boa" <- NA
-consulta_tecnicor$"8Boa" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
+consulta_docenter$"8Boa" <- NA
+consulta_docenter$"8Boa" <- ifelse(str_detect(consulta_docenter$`Funcionamento da Plataforma Institucional Aprender`, 
                                               "Boa"), 1, 0)
 
-consulta_tecnicor$"8Não utilizei o local/serviço este ano." <- NA
-consulta_tecnicor$"8Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
+consulta_docenter$"8Não utilizei o local/serviço este ano." <- NA
+consulta_docenter$"8Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_docenter$`Funcionamento da Plataforma Institucional Aprender`, 
                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
 
-consulta_tecnicor$"8Ruim" <- NA
-consulta_tecnicor$"8Ruim" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
+consulta_docenter$"8Ruim" <- NA
+consulta_docenter$"8Ruim" <- ifelse(str_detect(consulta_docenter$`Funcionamento da Plataforma Institucional Aprender`, 
                                                "Ruim"), 1, 0)
 
-consulta_tecnicor$"8Péssima" <- NA
-consulta_tecnicor$"8Péssima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
+consulta_docenter$"8Péssima" <- NA
+consulta_docenter$"8Péssima" <- ifelse(str_detect(consulta_docenter$`Funcionamento da Plataforma Institucional Aprender`, 
                                                   "Péssima"), 1, 0)
 
 
-quadrotecgestaor16 <- consulta_tecnicor %>% 
+quadrodocgestaor16 <- consulta_docenter %>% 
   mutate(Classe = "Funcionamento da Plataforma Institucional Aprender")
 
-quadrotecgestaor16 <- quadrotecgestaor16%>%
+quadrodocgestaor16 <- quadrodocgestaor16%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`8Ótima`, na.rm = T)/length(`8Ótima`)),
              Boa = percent(sum(`8Boa`, na.rm = T)/length(`8Boa`)),
@@ -2860,32 +2860,32 @@ quadrotecgestaor16 <- quadrotecgestaor16%>%
 
 # Funcionamento SIGAA
 
-consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Funcionamento SIGAA`))
+consulta_docenter <- consulta_docente %>% filter(!is.na(`Funcionamento SIGAA`))
 
-consulta_tecnicor$"9Ótima" <- NA
-consulta_tecnicor$"9Ótima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
+consulta_docenter$"9Ótima" <- NA
+consulta_docenter$"9Ótima" <- ifelse(str_detect(consulta_docenter$`Funcionamento SIGAA`, 
                                                 "Ótima"), 1, 0)
-consulta_tecnicor$"9Boa" <- NA
-consulta_tecnicor$"9Boa" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
+consulta_docenter$"9Boa" <- NA
+consulta_docenter$"9Boa" <- ifelse(str_detect(consulta_docenter$`Funcionamento SIGAA`, 
                                               "Boa"), 1, 0)
 
-consulta_tecnicor$"9Não utilizei o local/serviço este ano." <- NA
-consulta_tecnicor$"9Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
+consulta_docenter$"9Não utilizei o local/serviço este ano." <- NA
+consulta_docenter$"9Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_docenter$`Funcionamento SIGAA`, 
                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
 
-consulta_tecnicor$"9Ruim" <- NA
-consulta_tecnicor$"9Ruim" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
+consulta_docenter$"9Ruim" <- NA
+consulta_docenter$"9Ruim" <- ifelse(str_detect(consulta_docenter$`Funcionamento SIGAA`, 
                                                "Ruim"), 1, 0)
 
-consulta_tecnicor$"9Péssima" <- NA
-consulta_tecnicor$"9Péssima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
+consulta_docenter$"9Péssima" <- NA
+consulta_docenter$"9Péssima" <- ifelse(str_detect(consulta_docenter$`Funcionamento SIGAA`, 
                                                   "Péssima"), 1, 0)
 
 
-quadrotecgestaor17 <- consulta_tecnicor %>% 
+quadrodocgestaor17 <- consulta_docenter %>% 
   mutate(Classe = "Funcionamento SIGAA")
 
-quadrotecgestaor17 <- quadrotecgestaor17%>%
+quadrodocgestaor17 <- quadrodocgestaor17%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`9Ótima`, na.rm = T)/length(`9Ótima`)),
              Boa = percent(sum(`9Boa`, na.rm = T)/length(`9Boa`)),
@@ -2893,22 +2893,22 @@ quadrotecgestaor17 <- quadrotecgestaor17%>%
              Ruim = percent(sum(`9Ruim`, na.rm = T)/length(`9Ruim`)),
              Péssima = percent(sum(`9Péssima`, na.rm = T)/length(`9Péssima`)))
 
-quadrotecgestaortotal <- rbind(quadrotecgestaor, quadrotecgestaor1)
-quadrotecgestaortotal1 <- rbind(quadrotecgestaortotal, quadrotecgestaor2)
-quadrotecgestaortotal2 <- rbind(quadrotecgestaortotal1, quadrotecgestaor3)
-quadrotecgestaortotal3 <- rbind(quadrotecgestaortotal2, quadrotecgestaor4)
-quadrotecgestaortotal4 <- rbind(quadrotecgestaortotal3, quadrotecgestaor5)
-quadrotecgestaortotal5 <- rbind(quadrotecgestaortotal4, quadrotecgestaor6)
-quadrotecgestaortotal6 <- rbind(quadrotecgestaortotal5, quadrotecgestaor7)
-quadrotecgestaortotal7 <- rbind(quadrotecgestaortotal6, quadrotecgestaor8)
-quadrotecgestaortotal8 <- rbind(quadrotecgestaortotal7, quadrotecgestaor9)
-quadrotecgestaortotal9 <- rbind(quadrotecgestaortotal8, quadrotecgestaor10)
-quadrotecgestaortotal10 <- rbind(quadrotecgestaortotal9, quadrotecgestaor11)
-quadrotecgestaortotal11 <- rbind(quadrotecgestaortotal10, quadrotecgestaor12)
-quadrotecgestaortotal12 <- rbind(quadrotecgestaortotal11, quadrotecgestaor13)
-quadrotecgestaortotal13 <- rbind(quadrotecgestaortotal12, quadrotecgestaor14)
-quadrotecgestaortotal14 <- rbind(quadrotecgestaortotal13, quadrotecgestaor15)
-quadrotecgestaortotal15 <- rbind(quadrotecgestaortotal14, quadrotecgestaor16)
-quadrotecgestaortotal16 <- rbind(quadrotecgestaortotal15, quadrotecgestaor17)
+quadrodocgestaortotal <- rbind(quadrodocgestaor, quadrodocgestaor1)
+quadrodocgestaortotal1 <- rbind(quadrodocgestaortotal1, quadrodocgestaor2)
+quadrodocgestaortotal2 <- rbind(quadrodocgestaortotal2, quadrodocgestaor3)
+quadrodocgestaortotal3 <- rbind(quadrodocgestaortotal3, quadrodocgestaor4)
+quadrodocgestaortotal4 <- rbind(quadrodocgestaortotal4, quadrodocgestaor5)
+quadrodocgestaortotal5 <- rbind(quadrodocgestaortotal5, quadrodocgestaor6)
+quadrodocgestaortotal6 <- rbind(quadrodocgestaortotal6, quadrodocgestaor7)
+quadrodocgestaortotal7 <- rbind(quadrodocgestaortotal7, quadrodocgestaor8)
+quadrodocgestaortotal8 <- rbind(quadrodocgestaortotal8, quadrodocgestaor9)
+quadrodocgestaortotal9 <- rbind(quadrodocgestaortotal9, quadrodocgestaor10)
+quadrodocgestaortotal10 <- rbind(quadrodocgestaortotal10, quadrodocgestaor11)
+quadrodocgestaortotal11 <- rbind(quadrodocgestaortotal11, quadrodocgestaor12)
+quadrodocgestaortotal12 <- rbind(quadrodocgestaortotal12, quadrodocgestaor13)
+quadrodocgestaortotal13 <- rbind(quadrodocgestaortotal13, quadrodocgestaor14)
+quadrodocgestaortotal14 <- rbind(quadrodocgestaortotal14, quadrodocgestaor15)
+quadrodocgestaortotal15 <- rbind(quadrodocgestaortotal15, quadrodocgestaor16)
+quadrodocgestaortotal16 <- rbind(quadrodocgestaortotal16, quadrodocgestaor17)
 
-quadrotecgestaortotal <- rbind(quadrotecgestaor, quadrotecgestaor1)
+quadrotecgestaortotal <- rbind(quadrodocgestaor, quadrodocgestaor1)
