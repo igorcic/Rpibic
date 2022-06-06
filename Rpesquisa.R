@@ -1691,7 +1691,7 @@ consulta_tecnicor$"CÓtima" <- NA
 consulta_tecnicor$"CÓtima" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Convivencia e alimentação (exceto RU)`, 
                                                  "Ótima"), 1, 0)
 consulta_tecnicor$"CBoa" <- NA
-consulta_tecnicor$"CBoa" <- ifelse(str_detect(consulta_tecnicor$`Condições de acessibilidade`, 
+consulta_tecnicor$"CBoa" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Convivencia e alimentação (exceto RU)`, 
                                                "Boa"), 1, 0)
 
 consulta_tecnicor$"CNão utilizei o local/serviço este ano." <- NA
