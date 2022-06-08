@@ -1,0 +1,441 @@
+---
+title: "Consulta à Comunidade Acadêmica UnB - FACE"
+author: Diretoria de Avaliação e Informações Gerenciais - DAI<br>Decanato de Planejamento,
+  Orçamento e Avaliação Institucional - DPO<br>Universidade de Brasília - UnB
+date: "Última atualização: `r format(Sys.Date(), '%d/%m/%Y')`"
+output:
+  bookdown::html_document2:
+    theme: readable
+    highlight: tango
+    df_print: kable
+    number_sections: false
+    includes:
+      before_body: footer.html
+      after_body: footer.html
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(kableExtra)
+opts_chunk$set(echo = F, warning = F, cache = F)
+options(knitr.kable.NA = "")
+```
+<br>
+
+<style> body {text-align: justify}</style>
+
+<br>
+
+# Introdução
+
+\newline
+A Comissão Própria de Avaliação da UnB lança anualmente a consulta à comunidade acadêmica, como forma de ouvir alunos, docentes e técnicos acerca dos mais variados assuntos que permeiam a Universidade. Dessa forma, a comunidade é questionada acerca da percepção em torno de políticas acadêmicas e de gestão, planejamento, avaliação e desenvolvimento institucional e infraestrura física. 
+\newline
+A CPA espera, a partir de ações como a da Consulta à Comunidade Acadêmica, ampliar cada vez mais o envolvimento da comunidade no processo de autoavaliação institucional e assim garantir que a avaliação seja um processo sistêmico e permanente na Instituição. 
+
+***
+
+# Metodologia
+
+
+\newline
+A Consulta à Comunidade Acadêmica é realizada anualmente, desde 2014. Em 2020, a pesquisa foi realizada por meio da plataforma questionarios.unb, os dados foram armazenados em servidor próprio da Universidade e tratados pela Diretoria de Avaliação e Informações Gerenciais (DAI), vinculada ao Decanato de Planejamento, Orçamento e Avaliação Institucional (DPO). A Consulta ficou aberta no período de outubro de 2020 a fevereiro de 2021.
+
+Os resultados da Consulta à Comunidade Acadêmica 2020 são apresentados no formato global para a UnB e segmentado por unidade. Os relatórios segmentados são elaborados atendendo o critério de, no mínimo, cinco respondentes por segmento, para evitar identificação dos respondentes. O segmento que não atenda esse critério é excluído do relatório.
+
+Este relatório apresenta os resultados da **FACE**.
+\newline
+\newline
+
+***
+
+# Resultados
+
+```{r}
+
+kable(quadro1,
+      caption = "Perfil dos respondentes da Consulta à Comunidade Acadêmica", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), 
+      align = "lrrr")  %>% 
+  row_spec(nrow(quadro1), bold = TRUE) %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F)
+
+```
+
+\newline
+
+```{r}
+
+kable(quadrotempo,
+      caption = "Tempo de trabalho na UnB", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "lrrr")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F)
+```
+
+\newline
+
+```{r}
+kable(quadrotempodi,
+      caption = "Tempo de estudo na UnB", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "lrrr")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F)
+```
+
+\newline
+\newline
+***
+
+
+# Plano de Desenvolvimento Institucional (PDI)
+À comunidade, questionou-se acerca do conhecimento sobre o Plano de Desenvolvimento Institucional (PDI) da UnB.
+
+\newline
+
+```{r fig.align="center"}
+
+figura1
+
+```
+\newline
+
+
+# Comissão Própria de Avaliação da UnB
+À comunidade, questionou-se acerca do conhecimento sobre a Comissão Própria de Avaliação (CPA) da UnB.
+\newline
+
+```{r fig.align="center"}
+
+figuracpa
+
+```
+\newline
+\newline
+
+***
+
+
+# Avaliação da gestão da UnB
+\newline
+À comunidade, solicitou-se que fossem avaliados alguns aspectos da Gestão da UnB, considerando a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente.
+\newline
+
+```{r}
+
+
+kable(quadrodisgestaototal4,
+      caption = "Avaliação da gestão da UnB pelos discentes", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "r") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+
+\newline
+
+```{r}
+
+kable(quadrodocgestaototal5,
+      caption = "Avaliação da gestão da UnB pelos docentes", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+
+\newline
+
+```{r}
+
+kable(quadrotecgestaototal5,
+      caption = "Avaliação da gestão da UnB pelos técnicos", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+
+
+\newline
+
+***
+
+
+# Meios de comunicação utilizados
+\newline
+À comunidade, solicitou-se que informasse os principais meios de comunicação utilizados.
+\newline
+
+```{r}
+
+kable(quadromeiosdis,
+      caption = "Meios de comunicação utilizados para obter informações da UnB pelos estudantes", format ="html",
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "lrrr")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F)
+```
+\newline
+```{r}
+
+kable(quadromeiosdoctec,
+      caption = "Meios de comunicação utilizados para obter informações da UnB por docentes e técnicos", format ="html",
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "lrrr")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F)
+```
+\newline
+\newline
+***
+
+# Avaliação do programa SimplificaUnB
+\newline
+A comunidade acadêmica também avaliou as mudanças implementadas pelo Programa Simplifica UnB, considerando a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente.
+\newline
+
+```{r}
+
+
+kable(quadrodissimplifica,
+      caption = "Avaliação do programa SimplificaUnB pelos discentes", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "r") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+
+\newline
+
+```{r}
+
+kable(quadrodocsimplifica,
+      caption = "Avaliação do programa SimplificaUnB pelos docentes", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+
+\newline
+
+```{r}
+
+kable(quadrotecsimplifica,
+      caption = "Avaliação do programa SimplificaUnB pelos técnicos", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+
+
+\newline
+\newline
+***
+
+# Ouvidoria
+\newline
+A comunidade avaliou os serviços prestados pela Ouvidoria.
+\newline
+
+```{r}
+
+kable(quadroouvidoria,
+      caption = "Utilização dos serviços prestados pela Ouvidoria da UnB", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "lrrr")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F)
+```
+
+\newline
+\newline
+***
+
+# Adequação das plataformas remotas
+\newline
+A comunidade avaliou a utilização de plataformas remotas para as atividades administrativas e acadêmicas no ano de 2020.
+\newline
+
+```{r}
+
+
+kable(quadrodisremota3,
+      caption = "Avaliação das plataformas remotas pelos discentes", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "r") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+
+\newline
+
+```{r}
+
+kable(quadrodocremota3,
+      caption = "Avaliação das plataformas remotas pelos docentes", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+
+\newline
+
+```{r}
+
+kable(quadrotecremota3,
+      caption = "Avaliação das plataformas remotas pelos técnicos", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+
+\newline
+\newline
+
+***
+
+# Avaliação das atividades 
+\newline
+A comunidade avaliou a contribuição das atividades para a formação do estudante.
+\newline
+
+```{r}
+
+
+kable(quadroatividades,
+      caption = "Avaliação da contribuição das atividades para a formação do estudante pelos estudantes", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "r") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+
+\newline
+
+```{r}
+
+kable(quadroatividadesdoc,
+      caption = "Avaliação da contribuição das atividades para a formação do estudante pelos docentes", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+
+\newline
+\newline
+***
+
+# Infraestrutura
+\newline
+Avaliação da Infraestrutura Física da UnB
+\newline
+```{r}
+kable(quadroinfra,
+      caption = "Infraestrutura avaliada pelos discentes", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+\newline
+```{r}
+kable(quadroinfradoc,
+      caption = "Infraestrutura avaliada pelos docentes", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+\newline
+```{r}
+kable(quadroinfratec,
+      caption = "Infraestrutura avaliada pelos técnicos", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+\newline
+\newline
+***
+
+# Produção acadêmica
+\newline
+A comunidade avaliou o estímulo à produção acadêmica na UnB.
+\newline
+```{r}
+kable(quadroproducao,
+      caption = "A UnB me estimula a produzir publicações científicas, didático-pedagógicas, tecnológicas, artísticas ou culturais", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive", "condensed"), full_width = F)
+```
+\newline
+\newline
+***
+
+# Ações de capacitação
+\newline
+Aos docentes e técnicos, questionou-se acerca da participação em ações de capacitação promovidas ou custeadas pela UnB
+\newline
+
+```{r fig.align="center"}
+
+figuracapacitacao
+
+```
+\newline
+```{r}
+kable(quadrocapacitacao2,
+      caption = "Por qual motivo você não participou?", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "lrrr")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F)
+```
+\newline
+\newline
+***
+
+
+# Aspectos prioritários
+\newline
+A comunidade foi convidada a eleger três aspectos prioritários para o funcionamento da UnB.
+\newline
+```{r}
+kable(quadroaspectos_di,
+      caption = "Aspectos prioritários apontados pelos discentes", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+\newline
+```{r}
+kable(quadroaspectos_doc,
+      caption = "Aspectos prioritários apontados pelos docentes", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+\newline
+```{r}
+kable(quadroaspectos_tec,
+      caption = "Aspectos prioritários apontados pelos técnicos", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
+\newline

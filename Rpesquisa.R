@@ -19,9 +19,9 @@ library('readr')
 
 # Localização do arquivo xlsx para leitura dos dados
 
-consulta_tecnico <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/TecnicoConsulta.xlsx")
-consulta_docente <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/DocenteConsulta.xlsx")
-consulta_aluno   <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/AlunosConsulta.xlsx")
+consulta_tecnico <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/Rpibic/TecnicoConsulta.xlsx")
+consulta_docente <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/Rpibic/DocenteConsulta.xlsx")
+consulta_aluno   <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/Rpibic/AlunosConsulta.xlsx")
 
 
 
