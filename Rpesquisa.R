@@ -51,7 +51,7 @@ rm(quadro1_al, quadro1_do, quadro1_te)
 # QUADROTEMPO ----------------------------------------------------------------
 
 quadro_do <- consulta_docente %>% filter(!is.na(`Há quanto tempo você trabalha na UnB?`)) %>% 
-  rename(Tempo = "Há quanto tempo você trabalha na UnB?") %>% 
+  rename(Tempo = `Há quanto tempo você trabalha na UnB?`) %>% 
   select(Tempo) %>% 
   mutate(Classe = "Docentes") 
 
@@ -1582,22 +1582,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Rede UnB Wireless`))
 
 consulta_tecnicor$"Ótima" <- NA
 consulta_tecnicor$"Ótima" <- ifelse(str_detect(consulta_tecnicor$`Rede UnB Wireless`, 
-                                                "Ótima"), 1, 0)
+                                               "Ótima"), 1, 0)
 consulta_tecnicor$"Boa" <- NA
 consulta_tecnicor$"Boa" <- ifelse(str_detect(consulta_tecnicor$`Rede UnB Wireless`, 
-                                              "Boa"), 1, 0)
+                                             "Boa"), 1, 0)
 
 consulta_tecnicor$"Não utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Rede UnB Wireless`, 
-                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"Ruim" <- NA
 consulta_tecnicor$"Ruim" <- ifelse(str_detect(consulta_tecnicor$`Rede UnB Wireless`, 
-                                               "Ruim"), 1, 0)
+                                              "Ruim"), 1, 0)
 
 consulta_tecnicor$"Péssima" <- NA
 consulta_tecnicor$"Péssima" <- ifelse(str_detect(consulta_tecnicor$`Rede UnB Wireless`, 
-                                                  "Péssima"), 1, 0)
+                                                 "Péssima"), 1, 0)
 
 
 quadrotecgestaor <- consulta_tecnicor %>% 
@@ -1617,22 +1617,22 @@ consulta_tecnicor<- consulta_tecnico %>% filter(!is.na(`Condições de acessibil
 
 consulta_tecnicor$"AÓtima" <- NA
 consulta_tecnicor$"AÓtima" <- ifelse(str_detect(consulta_tecnicor$`Condições de acessibilidade`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"ABoa" <- NA
 consulta_tecnicor$"ABoa" <- ifelse(str_detect(consulta_tecnicor$`Condições de acessibilidade`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"ANão utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"ANão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Condições de acessibilidade`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"ARuim" <- NA
 consulta_tecnicor$"ARuim" <- ifelse(str_detect(consulta_tecnicor$`Condições de acessibilidade`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"APéssima" <- NA
 consulta_tecnicor$"APéssima" <- ifelse(str_detect(consulta_tecnicor$`Condições de acessibilidade`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor1 <- consulta_tecnicor %>% 
@@ -1654,22 +1654,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Condições de gerais d
 
 consulta_tecnicor$"BÓtima" <- NA
 consulta_tecnicor$"BÓtima" <- ifelse(str_detect(consulta_tecnicor$`Condições de gerais de auditorio`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"BBoa" <- NA
 consulta_tecnicor$"BBoa" <- ifelse(str_detect(consulta_tecnicor$`Condições de acessibilidade`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"BNão utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"BNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Condições de gerais de auditorio`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"BRuim" <- NA
 consulta_tecnicor$"BRuim" <- ifelse(str_detect(consulta_tecnicor$`Condições de gerais de auditorio`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"BPéssima" <- NA
 consulta_tecnicor$"BPéssima" <- ifelse(str_detect(consulta_tecnicor$`Condições de gerais de auditorio`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor2 <- consulta_tecnicor %>% 
@@ -1689,22 +1689,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Espaço de Convivencia 
 
 consulta_tecnicor$"CÓtima" <- NA
 consulta_tecnicor$"CÓtima" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Convivencia e alimentação (exceto RU)`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"CBoa" <- NA
 consulta_tecnicor$"CBoa" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Convivencia e alimentação (exceto RU)`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"CNão utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"CNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Espaço de Convivencia e alimentação (exceto RU)`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"CRuim" <- NA
 consulta_tecnicor$"CRuim" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Convivencia e alimentação (exceto RU)`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"CPéssima" <- NA
 consulta_tecnicor$"CPéssima" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Convivencia e alimentação (exceto RU)`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor3 <- consulta_tecnicor %>% 
@@ -1725,22 +1725,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Espaço de Estudo da BC
 
 consulta_tecnicor$"DÓtima" <- NA
 consulta_tecnicor$"DÓtima" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Estudo da BCE`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"DBoa" <- NA
 consulta_tecnicor$"DBoa" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Estudo da BCE`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"DNão utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"DNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Espaço de Estudo da BCE`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"DRuim" <- NA
 consulta_tecnicor$"DRuim" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Estudo da BCE`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"DPéssima" <- NA
 consulta_tecnicor$"DPéssima" <- ifelse(str_detect(consulta_tecnicor$`Espaço de Estudo da BCE`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor4 <- consulta_tecnicor %>% 
@@ -1762,22 +1762,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Estacionamento`))
 
 consulta_tecnicor$"FÓtima" <- NA
 consulta_tecnicor$"FÓtima" <- ifelse(str_detect(consulta_tecnicor$`Estacionamento`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"FDBoa" <- NA
 consulta_tecnicor$"FBoa" <- ifelse(str_detect(consulta_tecnicor$`Estacionamento`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"FNão utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"FNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Estacionamento`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"FRuim" <- NA
 consulta_tecnicor$"FRuim" <- ifelse(str_detect(consulta_tecnicor$`Estacionamento`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"FPéssima" <- NA
 consulta_tecnicor$"FPéssima" <- ifelse(str_detect(consulta_tecnicor$`Estacionamento`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor6 <- consulta_tecnicor %>% 
@@ -1798,22 +1798,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Iluminação pública`)
 
 consulta_tecnicor$"GÓtima" <- NA
 consulta_tecnicor$"GÓtima" <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"GDBoa" <- NA
 consulta_tecnicor$"GBoa" <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"GNão utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"GNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"GRuim" <- NA
 consulta_tecnicor$"GRuim" <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"GPéssima" <- NA
 consulta_tecnicor$"GPéssima" <- ifelse(str_detect(consulta_tecnicor$`Iluminação pública`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor7 <- consulta_tecnicor %>% 
@@ -1833,22 +1833,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Instalações Sanitaria
 
 consulta_tecnicor$"HÓtima" <- NA
 consulta_tecnicor$"HÓtima" <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"HDBoa" <- NA
 consulta_tecnicor$"HBoa" <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"HNão utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"HNão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"HRuim" <- NA
 consulta_tecnicor$"HRuim" <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"HPéssima" <- NA
 consulta_tecnicor$"HPéssima" <- ifelse(str_detect(consulta_tecnicor$`Instalações Sanitarias`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrodisgestaor8 <- consulta_tecnicor %>% 
@@ -1868,22 +1868,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Restaurante Universitar
 
 consulta_tecnicor$"IÓtima" <- NA
 consulta_tecnicor$"IÓtima" <- ifelse(str_detect(consulta_tecnicor$`Restaurante Universitario`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"IBoa" <- NA
 consulta_tecnicor$"IBoa" <- ifelse(str_detect(consulta_tecnicor$`Restaurante Universitario`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"INão utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"INão utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Restaurante Universitario`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"IRuim" <- NA
 consulta_tecnicor$"IRuim" <- ifelse(str_detect(consulta_tecnicor$`Restaurante Universitario`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"IPéssima" <- NA
 consulta_tecnicor$"IPéssima" <- ifelse(str_detect(consulta_tecnicor$`Restaurante Universitario`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor9 <- consulta_tecnicor %>% 
@@ -1903,22 +1903,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Salas de aula`))
 
 consulta_tecnicor$"1Ótima" <- NA
 consulta_tecnicor$"1Ótima" <- ifelse(str_detect(consulta_tecnicor$`Salas de aula`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"1Boa" <- NA
 consulta_tecnicor$"1Boa" <- ifelse(str_detect(consulta_tecnicor$`Salas de aula`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"1Não utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"1Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Salas de aula`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"1Ruim" <- NA
 consulta_tecnicor$"1Ruim" <- ifelse(str_detect(consulta_tecnicor$`Salas de aula`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"1Péssima" <- NA
 consulta_tecnicor$"1Péssima" <- ifelse(str_detect(consulta_tecnicor$`Salas de aula`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor10 <- consulta_tecnicor %>% 
@@ -1938,22 +1938,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Sala dos Professores`))
 
 consulta_tecnicor$"2Ótima" <- NA
 consulta_tecnicor$"2Ótima" <- ifelse(str_detect(consulta_tecnicor$`Sala dos Professores`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"2Boa" <- NA
 consulta_tecnicor$"2Boa" <- ifelse(str_detect(consulta_tecnicor$`Sala dos Professores`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"2Não utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"2Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Sala dos Professores`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"2Ruim" <- NA
 consulta_tecnicor$"2Ruim" <- ifelse(str_detect(consulta_tecnicor$`Sala dos Professores`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"2Péssima" <- NA
 consulta_tecnicor$"2Péssima" <- ifelse(str_detect(consulta_tecnicor$`Sala dos Professores`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor11 <- consulta_tecnicor %>% 
@@ -1973,22 +1973,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Segurança do Campus`))
 
 consulta_tecnicor$"3Ótima" <- NA
 consulta_tecnicor$"3Ótima" <- ifelse(str_detect(consulta_tecnicor$`Segurança do Campus`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"3Boa" <- NA
 consulta_tecnicor$"3Boa" <- ifelse(str_detect(consulta_tecnicor$`Segurança do Campus`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"3Não utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"3Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Segurança do Campus`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"3Ruim" <- NA
 consulta_tecnicor$"3Ruim" <- ifelse(str_detect(consulta_tecnicor$`Segurança do Campus`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"3Péssima" <- NA
 consulta_tecnicor$"3Péssima" <- ifelse(str_detect(consulta_tecnicor$`Segurança do Campus`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor12 <- consulta_tecnicor %>% 
@@ -2010,22 +2010,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Suporte tecnologico par
 
 consulta_tecnicor$"4Ótima" <- NA
 consulta_tecnicor$"4Ótima" <- ifelse(str_detect(consulta_tecnicor$`Suporte tecnologico para administração`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"4Boa" <- NA
 consulta_tecnicor$"4Boa" <- ifelse(str_detect(consulta_tecnicor$`Suporte tecnologico para administração`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"4Não utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"4Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Suporte tecnologico para administração`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"4Ruim" <- NA
 consulta_tecnicor$"4Ruim" <- ifelse(str_detect(consulta_tecnicor$`Suporte tecnologico para administração`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"4Péssima" <- NA
 consulta_tecnicor$"4Péssima" <- ifelse(str_detect(consulta_tecnicor$`Suporte tecnologico para administração`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor13 <- consulta_tecnicor %>% 
@@ -2046,22 +2046,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Acervo Fisico BCE`))
 
 consulta_tecnicor$"5Ótima" <- NA
 consulta_tecnicor$"5Ótima" <- ifelse(str_detect(consulta_tecnicor$`Acervo Fisico BCE`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"5Boa" <- NA
 consulta_tecnicor$"5Boa" <- ifelse(str_detect(consulta_tecnicor$`Acervo Fisico BCE`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"5Não utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"5Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Acervo Fisico BCE`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"5Ruim" <- NA
 consulta_tecnicor$"5Ruim" <- ifelse(str_detect(consulta_tecnicor$`Acervo Fisico BCE`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"5Péssima" <- NA
 consulta_tecnicor$"5Péssima" <- ifelse(str_detect(consulta_tecnicor$`Acervo Fisico BCE`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor14 <- consulta_tecnicor %>% 
@@ -2082,22 +2082,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Acervo Virtual BCE`))
 
 consulta_tecnicor$"6Ótima" <- NA
 consulta_tecnicor$"6Ótima" <- ifelse(str_detect(consulta_tecnicor$`Acervo Virtual BCE`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"6Boa" <- NA
 consulta_tecnicor$"6Boa" <- ifelse(str_detect(consulta_tecnicor$`Acervo Virtual BCE`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"6Não utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"6Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Acervo Virtual BCE`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"6Ruim" <- NA
 consulta_tecnicor$"6Ruim" <- ifelse(str_detect(consulta_tecnicor$`Acervo Virtual BCE`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"6Péssima" <- NA
 consulta_tecnicor$"6Péssima" <- ifelse(str_detect(consulta_tecnicor$`Acervo Virtual BCE`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor14 <- consulta_tecnicor %>% 
@@ -2118,22 +2118,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Funcionamento Teams`))
 
 consulta_tecnicor$"7Ótima" <- NA
 consulta_tecnicor$"7Ótima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento Teams`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"7Boa" <- NA
 consulta_tecnicor$"7Boa" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento Teams`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"7Não utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"7Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Funcionamento Teams`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"7Ruim" <- NA
 consulta_tecnicor$"7Ruim" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento Teams`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"7Péssima" <- NA
 consulta_tecnicor$"7Péssima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento Teams`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor15 <- consulta_tecnicor %>% 
@@ -2154,22 +2154,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Funcionamento da Plataf
 
 consulta_tecnicor$"8Ótima" <- NA
 consulta_tecnicor$"8Ótima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"8Boa" <- NA
 consulta_tecnicor$"8Boa" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"8Não utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"8Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"8Ruim" <- NA
 consulta_tecnicor$"8Ruim" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"8Péssima" <- NA
 consulta_tecnicor$"8Péssima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento da Plataforma Institucional Aprender`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor16 <- consulta_tecnicor %>% 
@@ -2190,22 +2190,22 @@ consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Funcionamento SIGAA`))
 
 consulta_tecnicor$"9Ótima" <- NA
 consulta_tecnicor$"9Ótima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
-                                                 "Ótima"), 1, 0)
+                                                "Ótima"), 1, 0)
 consulta_tecnicor$"9Boa" <- NA
 consulta_tecnicor$"9Boa" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
-                                               "Boa"), 1, 0)
+                                              "Boa"), 1, 0)
 
 consulta_tecnicor$"9Não utilizei o local/serviço este ano." <- NA
 consulta_tecnicor$"9Não utilizei o local/serviço este ano." <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
-                                                                                  "Não utilizei o local/serviço este ano."), 1, 0)
+                                                                                 "Não utilizei o local/serviço este ano."), 1, 0)
 
 consulta_tecnicor$"9Ruim" <- NA
 consulta_tecnicor$"9Ruim" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
-                                                "Ruim"), 1, 0)
+                                               "Ruim"), 1, 0)
 
 consulta_tecnicor$"9Péssima" <- NA
 consulta_tecnicor$"9Péssima" <- ifelse(str_detect(consulta_tecnicor$`Funcionamento SIGAA`, 
-                                                   "Péssima"), 1, 0)
+                                                  "Péssima"), 1, 0)
 
 
 quadrotecgestaor17 <- consulta_tecnicor %>% 
