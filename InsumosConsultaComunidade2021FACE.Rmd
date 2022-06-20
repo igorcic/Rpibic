@@ -75,18 +75,7 @@ kable(quadrotempo,
   row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F)
 ```
 
-\newline
 
-```{r}
-kable(quadrotempodi,
-      caption = "Tempo de estudo na UnB", format = "html", 
-      escape = FALSE,   # considera o <br> uma quebra de linha
-      format.args = list(big.mark = "."), digits = 2, 
-      align = "lrrr")  %>% 
-  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F)
-```
-
-\newline
 \newline
 ***
 
