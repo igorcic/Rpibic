@@ -15,7 +15,7 @@ library('scales')
 library('tidyr')
 library('readr')
 
-
+## Recomeçar a parte de tecnio doscente e dicente 
 
 # Localização do arquivo xlsx para leitura dos dados
 
