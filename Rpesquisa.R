@@ -266,30 +266,30 @@ quadrodocgestaototal2 <- rbind(quadrodocgestaototal, quadrodocgestao3)
 # Pergunta 4
 
 
-consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`))
+consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`))
 
 consulta_docenteg$"1.4" <- NA
-consulta_docenteg$"1.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
+consulta_docenteg$"1.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
                                              "1"), 1, 0)
 consulta_docenteg$"2.4" <- NA
-consulta_docenteg$"2.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
+consulta_docenteg$"2.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
                                              "2"), 1, 0)
 consulta_docenteg$"3.4" <- NA
-consulta_docenteg$"3.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
+consulta_docenteg$"3.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
                                              "3"), 1, 0)
 consulta_docenteg$"4.4" <- NA
-consulta_docenteg$"4.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
+consulta_docenteg$"4.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
                                              "4"), 1, 0)
 consulta_docenteg$"5.4" <- NA
-consulta_docenteg$"5.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
+consulta_docenteg$"5.4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
                                              "5"), 1, 0)
 consulta_docenteg$"Não sei responder4" <- NA
-consulta_docenteg$"Não sei responder4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
+consulta_docenteg$"Não sei responder4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
                                                             "Não sei responder"), 1, 0)
 
 quadrodocgestao4 <- consulta_docenteg %>% 
   select("1.4":"Não sei responder4") %>% 
-  mutate(Classe = "Os canais de comunicação oficiais da UnB são confiáveis.")
+  mutate(Classe = "Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]")
 
 quadrodocgestao4 <- quadrodocgestao4%>% 
   group_by(Classe) %>% 
@@ -307,30 +307,30 @@ quadrodocgestaototal3 <- rbind(quadrodocgestaototal2, quadrodocgestao4)
 # pergunta 5
 
 
-consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`))
+consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`))
 
 consulta_docenteg$"1.5" <- NA
-consulta_docenteg$"1.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
+consulta_docenteg$"1.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                              "1"), 1, 0)
 consulta_docenteg$"2.5" <- NA
-consulta_docenteg$"2.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
+consulta_docenteg$"2.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                              "2"), 1, 0)
 consulta_docenteg$"3.5" <- NA
-consulta_docenteg$"3.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
+consulta_docenteg$"3.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                              "3"), 1, 0)
 consulta_docenteg$"4.5" <- NA
-consulta_docenteg$"4.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
+consulta_docenteg$"4.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                              "4"), 1, 0)
 consulta_docenteg$"5.5" <- NA
-consulta_docenteg$"5.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
+consulta_docenteg$"5.5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                              "5"), 1, 0)
 consulta_docenteg$"Não sei responder5" <- NA
-consulta_docenteg$"Não sei responder5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
+consulta_docenteg$"Não sei responder5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                                             "Não sei responder"), 1, 0)
 
 quadrodocgestao5 <- consulta_docenteg %>% 
   select("1.5":"Não sei responder5") %>% 
-  mutate(Classe = "Os programas de apoio aos estudantes funcionam de modo satisfatório.")
+  mutate(Classe = "Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]")
 
 quadrodocgestao5 <- quadrodocgestao5%>% 
   group_by(Classe) %>% 
