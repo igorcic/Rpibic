@@ -585,25 +585,25 @@ quadrotecgestao <- quadrotecgestao%>%
 
 # Pergunta 2
 
-consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`))
+consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`))
 
 consulta_tecnicog$"1.2" <- NA
-consulta_tecnicog$"1.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_tecnicog$"1.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "1"), 1, 0)
 consulta_tecnicog$"2.2" <- NA
-consulta_tecnicog$"2.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_tecnicog$"2.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "2"), 1, 0)
 consulta_tecnicog$"3.2" <- NA
-consulta_tecnicog$"3.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_tecnicog$"3.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "3"), 1, 0)
 consulta_tecnicog$"4.2" <- NA
-consulta_tecnicog$"4.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_tecnicog$"4.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "4"), 1, 0)
 consulta_tecnicog$"5.2" <- NA
-consulta_tecnicog$"5.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_tecnicog$"5.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "5"), 1, 0)
 consulta_tecnicog$"Não sei responder.2" <- NA
-consulta_tecnicog$"Não sei responder.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_tecnicog$"Não sei responder.2" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                                              "Não sei responder"), 1, 0)
 
 quadrotecgestao2 <- consulta_tecnicog %>% 
@@ -624,25 +624,25 @@ quadrotecgestaototal <- rbind(quadrotecgestao, quadrotecgestao2)
 
 # Pergunta 3
 
-consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`))
+consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`))
 
 consulta_tecnicog$"1.3" <- NA
-consulta_tecnicog$"1.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
+consulta_tecnicog$"1.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                              "1"), 1, 0)
 consulta_tecnicog$"2.3" <- NA
-consulta_tecnicog$"2.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
+consulta_tecnicog$"2.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                              "2"), 1, 0)
 consulta_tecnicog$"3.3" <- NA
-consulta_tecnicog$"3.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
+consulta_tecnicog$"3.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                              "3"), 1, 0)
 consulta_tecnicog$"4.3" <- NA
-consulta_tecnicog$"4.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
+consulta_tecnicog$"4.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                              "4"), 1, 0)
 consulta_tecnicog$"5.3" <- NA
-consulta_tecnicog$"5.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
+consulta_tecnicog$"5.3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                              "5"), 1, 0)
 consulta_tecnicog$"Não sei responder3" <- NA
-consulta_tecnicog$"Não sei responder3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
+consulta_tecnicog$"Não sei responder3" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                                             "Não sei responder"), 1, 0)
 
 
@@ -666,25 +666,25 @@ quadrotecgestaototal2 <- rbind(quadrotecgestaototal, quadrotecgestao3)
 # Pergunta 4
 
 
-consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`))
+consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`))
 
 consulta_tecnicog$"1.4" <- NA
-consulta_tecnicog$"1.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
+consulta_tecnicog$"1.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
                                              "1"), 1, 0)
 consulta_tecnicog$"2.4" <- NA
-consulta_tecnicog$"2.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
+consulta_tecnicog$"2.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
                                              "2"), 1, 0)
 consulta_tecnicog$"3.4" <- NA
-consulta_tecnicog$"3.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
+consulta_tecnicog$"3.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
                                              "3"), 1, 0)
 consulta_tecnicog$"4.4" <- NA
-consulta_tecnicog$"4.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
+consulta_tecnicog$"4.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
                                              "4"), 1, 0)
 consulta_tecnicog$"5.4" <- NA
-consulta_tecnicog$"5.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
+consulta_tecnicog$"5.4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
                                              "5"), 1, 0)
 consulta_tecnicog$"Não sei responder4" <- NA
-consulta_tecnicog$"Não sei responder4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
+consulta_tecnicog$"Não sei responder4" <- ifelse(str_detect(consulta_tecnicog$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]`, 
                                                             "Não sei responder"), 1, 0)
 
 quadrotecgestao4 <- consulta_tecnicog %>% 
@@ -705,25 +705,25 @@ quadrotecgestaototal3 <- rbind(quadrotecgestaototal2, quadrotecgestao4)
 # pergunta 5
 
 
-consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`))
+consulta_tecnicog <- consulta_tecnico %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`))
 
 consulta_tecnicog$"1.5" <- NA
-consulta_tecnicog$"1.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
+consulta_tecnicog$"1.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                              "1"), 1, 0)
 consulta_tecnicog$"2.5" <- NA
-consulta_tecnicog$"2.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
+consulta_tecnicog$"2.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                              "2"), 1, 0)
 consulta_tecnicog$"3.5" <- NA
-consulta_tecnicog$"3.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
+consulta_tecnicog$"3.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                              "3"), 1, 0)
 consulta_tecnicog$"4.5" <- NA
-consulta_tecnicog$"4.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
+consulta_tecnicog$"4.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                              "4"), 1, 0)
 consulta_tecnicog$"5.5" <- NA
-consulta_tecnicog$"5.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
+consulta_tecnicog$"5.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB: Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                              "5"), 1, 0)
 consulta_tecnicog$"Não sei responder5" <- NA
-consulta_tecnicog$"Não sei responder5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
+consulta_tecnicog$"Não sei responder5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                                             "Não sei responder"), 1, 0)
 
 quadrotecgestao5 <- consulta_tecnicog %>% 
