@@ -149,30 +149,30 @@ figurapdi<- figura1
 
 # pergunta 1
 
-consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`))
+consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`))
 
 consulta_docenteg$"1" <- NA
-consulta_docenteg$"1" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`, 
+consulta_docenteg$"1" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`, 
                                            "1"), 1, 0)
 consulta_docenteg$"2" <- NA
-consulta_docenteg$"2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`, 
+consulta_docenteg$"2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`, 
                                            "2"), 1, 0)
 consulta_docenteg$"3" <- NA
-consulta_docenteg$"3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`, 
+consulta_docenteg$"3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`, 
                                            "3"), 1, 0)
 consulta_docenteg$"4" <- NA
-consulta_docenteg$"4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`, 
+consulta_docenteg$"4" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`, 
                                            "4"), 1, 0)
 consulta_docenteg$"5" <- NA
-consulta_docenteg$"5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`, 
+consulta_docenteg$"5" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`, 
                                            "5"), 1, 0)
 consulta_docenteg$"Não sei responder" <- NA
-consulta_docenteg$"Não sei responder" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`, 
+consulta_docenteg$"Não sei responder" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]`, 
                                                            "Não sei responder"), 1, 0)
 
 quadrodocgestao <- consulta_docenteg %>% 
   select("1":"Não sei responder") %>% 
-  mutate(Classe = "A comunidade acadêmica é incentivada a participar da definição das políticas de gestão")
+  mutate(Classe = "Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]")
 
 
 quadrodocgestao <- quadrodocgestao%>% 
@@ -186,30 +186,30 @@ quadrodocgestao <- quadrodocgestao%>%
 
 # Pergunta 2
 
-consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`))
+consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`))
 
 consulta_docenteg$"1.2" <- NA
-consulta_docenteg$"1.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_docenteg$"1.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "1"), 1, 0)
 consulta_docenteg$"2.2" <- NA
-consulta_docenteg$"2.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_docenteg$"2.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "2"), 1, 0)
 consulta_docenteg$"3.2" <- NA
-consulta_docenteg$"3.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_docenteg$"3.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "3"), 1, 0)
 consulta_docenteg$"4.2" <- NA
-consulta_docenteg$"4.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_docenteg$"4.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "4"), 1, 0)
 consulta_docenteg$"5.2" <- NA
-consulta_docenteg$"5.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_docenteg$"5.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                              "5"), 1, 0)
 consulta_docenteg$"Não sei responder.2" <- NA
-consulta_docenteg$"Não sei responder.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
+consulta_docenteg$"Não sei responder.2" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]`, 
                                                              "Não sei responder"), 1, 0)
 
 quadrodocgestao2 <- consulta_docenteg %>% 
   select("1.2":"Não sei responder.2") %>% 
-  mutate(Classe = "As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ")
+  mutate(Classe = "Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]")
 
 quadrodocgestao2 <- quadrodocgestao2%>% 
   group_by(Classe) %>% 
@@ -225,30 +225,30 @@ quadrodocgestaototal <- rbind(quadrodocgestao, quadrodocgestao2)
 
 # Pergunta 3
 
-consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`))
+consulta_docenteg <- consulta_docente %>% filter(!is.na(`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`))
 
 consulta_docenteg$"1.3" <- NA
-consulta_docenteg$"1.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
+consulta_docenteg$"1.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                              "1"), 1, 0)
 consulta_docenteg$"2.3" <- NA
-consulta_docenteg$"2.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
+consulta_docenteg$"2.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                              "2"), 1, 0)
 consulta_docenteg$"3.3" <- NA
-consulta_docenteg$"3.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
+consulta_docenteg$"3.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                              "3"), 1, 0)
 consulta_docenteg$"4.3" <- NA
-consulta_docenteg$"4.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
+consulta_docenteg$"4.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                              "4"), 1, 0)
 consulta_docenteg$"5.3" <- NA
-consulta_docenteg$"5.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
+consulta_docenteg$"5.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                              "5"), 1, 0)
 consulta_docenteg$"Não sei responder3" <- NA
-consulta_docenteg$"Não sei responder3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
+consulta_docenteg$"Não sei responder3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                                             "Não sei responder"), 1, 0)
 
 quadrodocgestao3 <- consulta_docenteg %>% 
   select("1.3":"Não sei responder3") %>% 
-  mutate(Classe = "Os meios de comunicação da Instituição são eficazes")
+  mutate(Classe = "Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]")
 
 quadrodocgestao3 <- quadrodocgestao3%>% 
   group_by(Classe) %>% 
