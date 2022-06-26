@@ -128,7 +128,7 @@ kable(quadrodisgestaototal4,
 
 ```{r}
 
-kable(quadrodocgestaototal5,
+kable(quadrodocgestaototal4,
       caption = "Avaliação da gestão da UnB pelos docentes", format = "html", 
       escape = FALSE,   # considera o <br> uma quebra de linha
       format.args = list(big.mark = "."), digits = 2, 
@@ -140,7 +140,7 @@ kable(quadrodocgestaototal5,
 
 ```{r}
 
-kable(quadrotecgestaototal5,
+kable(quadrotecgestaototal4,
       caption = "Avaliação da gestão da UnB pelos técnicos", format = "html", 
       escape = FALSE,   # considera o <br> uma quebra de linha
       format.args = list(big.mark = "."), digits = 2, 
