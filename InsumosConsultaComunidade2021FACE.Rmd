@@ -173,51 +173,6 @@ kable(quadromeiosdoctecdis,
 \newline
 ***
 
-# Avaliação do programa SimplificaUnB
-\newline
-A comunidade acadêmica também avaliou as mudanças implementadas pelo Programa Simplifica UnB, considerando a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente.
-\newline
-
-```{r}
-
-
-kable(quadrodissimplifica,
-      caption = "Avaliação do programa SimplificaUnB pelos discentes", format = "html", 
-      escape = FALSE,   # considera o <br> uma quebra de linha
-      format.args = list(big.mark = "."), digits = 2, 
-      align = "r")  %>% 
-  row_spec(0, align = "r") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
-```
-
-\newline
-
-```{r}
-
-kable(quadrodocsimplifica,
-      caption = "Avaliação do programa SimplificaUnB pelos docentes", format = "html", 
-      escape = FALSE,   # considera o <br> uma quebra de linha
-      format.args = list(big.mark = "."), digits = 2, 
-      align = "r")  %>% 
-  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
-```
-
-\newline
-
-```{r}
-
-kable(quadrotecsimplifica,
-      caption = "Avaliação do programa SimplificaUnB pelos técnicos", format = "html", 
-      escape = FALSE,   # considera o <br> uma quebra de linha
-      format.args = list(big.mark = "."), digits = 2, 
-      align = "r")  %>% 
-  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
-```
-
-
-\newline
-\newline
-***
-
 # Ouvidoria
 \newline
 A comunidade avaliou os serviços prestados pela Ouvidoria.
