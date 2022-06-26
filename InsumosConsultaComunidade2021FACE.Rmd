@@ -161,23 +161,14 @@ kable(quadrotecgestaototal4,
 
 ```{r}
 
-kable(quadromeiosdis,
-      caption = "Meios de comunicação utilizados para obter informações da UnB pelos estudantes", format ="html",
-      escape = FALSE,   # considera o <br> uma quebra de linha
-      format.args = list(big.mark = "."), digits = 2, 
-      align = "lrrr")  %>% 
-  row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F)
-```
-\newline
-```{r}
-
-kable(quadromeiosdoctec,
+kable(quadromeiosdoctecdis,
       caption = "Meios de comunicação utilizados para obter informações da UnB por docentes e técnicos", format ="html",
       escape = FALSE,   # considera o <br> uma quebra de linha
       format.args = list(big.mark = "."), digits = 2, 
       align = "lrrr")  %>% 
   row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F)
 ```
+\newline
 \newline
 \newline
 ***
