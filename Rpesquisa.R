@@ -1,7 +1,7 @@
 ##################################################
 ###### Consulta à Comunidade Acadêmica 2021 ######
 ##################################################
-
+rm(list=ls())
 setwd("C:/Users/igorB/Desktop/ArquivosPesquisaUNB")
 options(OutDec = ",")
 install.packages("googlesheets")
@@ -243,7 +243,7 @@ consulta_docenteg$"5.3" <- NA
 consulta_docenteg$"5.3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                              "5"), 1, 0)
 consulta_docenteg$"Não sei responder3" <- NA
-consulta_docenteg$"Não sei responder3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
+consulta_docenteg$"Não sei responder3" <- ifelse(str_detect(consulta_docenteg$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]`, 
                                                             "Não sei responder"), 1, 0)
 
 quadrodocgestao3 <- consulta_docenteg %>% 
@@ -1077,10 +1077,10 @@ consulta_discenter$"FPéssima" <- ifelse(str_detect(consulta_discenter$`Estacion
                                                    "Péssima"), 1, 0)
 
 
-quadrodisgestaor6 <- consulta_discenter %>% 
+quadrodisgestaor5 <- consulta_discenter %>% 
   mutate(Classe = "Estacionamento")
 
-quadrodisgestaor6 <- quadrodisgestaor6%>%
+quadrodisgestaor5 <- quadrodisgestaor5%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`FÓtima`, na.rm = T)/length(`FÓtima`)),
              Boa = percent(sum(`FBoa`, na.rm = T)/length(`FBoa`)),
@@ -1113,10 +1113,10 @@ consulta_discenter$"GPéssima" <- ifelse(str_detect(consulta_discenter$`Ilumina�
                                                    "Péssima"), 1, 0)
 
 
-quadrodisgestaor7 <- consulta_discenter %>% 
+quadrodisgestaor6 <- consulta_discenter %>% 
   mutate(Classe = "Iluminação pública")
 
-quadrodisgestaor7 <- quadrodisgestaor7%>%
+quadrodisgestaor6 <- quadrodisgestaor6%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`GÓtima`, na.rm = T)/length(`GÓtima`)),
              Boa = percent(sum(`GBoa`, na.rm = T)/length(`GBoa`)),
@@ -1148,10 +1148,10 @@ consulta_discenter$"HPéssima" <- ifelse(str_detect(consulta_discenter$`Instala�
                                                    "Péssima"), 1, 0)
 
 
-quadrodisgestaor8 <- consulta_discenter %>% 
+quadrodisgestaor7 <- consulta_discenter %>% 
   mutate(Classe = "Instalações Sanitarias")
 
-quadrodisgestaor8 <- quadrodisgestaor8%>%
+quadrodisgestaor7 <- quadrodisgestaor7%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`HÓtima`, na.rm = T)/length(`HÓtima`)),
              Boa = percent(sum(`HBoa`, na.rm = T)/length(`HBoa`)),
@@ -1183,10 +1183,10 @@ consulta_discenter$"IPéssima" <- ifelse(str_detect(consulta_discenter$`Restaura
                                                    "Péssima"), 1, 0)
 
 
-quadrodisgestaor9 <- consulta_discenter %>% 
+quadrodisgestaor8 <- consulta_discenter %>% 
   mutate(Classe = "Restaurante Universitario")
 
-quadrodisgestaor9 <- quadrodisgestaor9%>%
+quadrodisgestaor8 <- quadrodisgestaor8%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`IÓtima`, na.rm = T)/length(`IÓtima`)),
              Boa = percent(sum(`IBoa`, na.rm = T)/length(`IBoa`)),
@@ -1218,10 +1218,10 @@ consulta_discenter$"1Péssima" <- ifelse(str_detect(consulta_discenter$`Salas de
                                                    "Péssima"), 1, 0)
 
 
-quadrodisgestaor10 <- consulta_discenter %>% 
+quadrodisgestaor9 <- consulta_discenter %>% 
   mutate(Classe = "Salas de aula")
 
-quadrodisgestaor10 <- quadrodisgestaor10%>%
+quadrodisgestaor9 <- quadrodisgestaor9%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`1Ótima`, na.rm = T)/length(`1Ótima`)),
              Boa = percent(sum(`1Boa`, na.rm = T)/length(`1Boa`)),
@@ -1253,10 +1253,10 @@ consulta_discenter$"2Péssima" <- ifelse(str_detect(consulta_discenter$`Sala dos
                                                    "Péssima"), 1, 0)
 
 
-quadrodisgestaor11 <- consulta_discenter %>% 
+quadrodisgestaor10 <- consulta_discenter %>% 
   mutate(Classe = "Sala dos Professores")
 
-quadrodisgestaor11 <- quadrodisgestaor11%>%
+quadrodisgestaor10 <- quadrodisgestaor10%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`2Ótima`, na.rm = T)/length(`2Ótima`)),
              Boa = percent(sum(`2Boa`, na.rm = T)/length(`2Boa`)),
@@ -1288,10 +1288,10 @@ consulta_discenter$"3Péssima" <- ifelse(str_detect(consulta_discenter$`Seguran�
                                                    "Péssima"), 1, 0)
 
 
-quadrodisgestaor12 <- consulta_discenter %>% 
+quadrodisgestaor11 <- consulta_discenter %>% 
   mutate(Classe = "Segurança do Campus")
 
-quadrodisgestaor12 <- quadrodisgestaor12%>%
+quadrodisgestaor11 <- quadrodisgestaor11%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`3Ótima`, na.rm = T)/length(`3Ótima`)),
              Boa = percent(sum(`3Boa`, na.rm = T)/length(`3Boa`)),
@@ -1431,10 +1431,10 @@ consulta_discenter$"6Péssima" <- ifelse(str_detect(consulta_discenter$`Acervo V
                                                    "Péssima"), 1, 0)
 
 
-quadrodisgestaor14 <- consulta_discenter %>% 
+quadrodisgestaor15 <- consulta_discenter %>% 
   mutate(Classe = "Acervo Virtual BCE")
 
-quadrodisgestaor14 <- quadrodisgestaor14%>%
+quadrodisgestaor15 <- quadrodisgestaor15%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`6Ótima`, na.rm = T)/length(`6Ótima`)),
              Boa = percent(sum(`6Boa`, na.rm = T)/length(`6Boa`)),
@@ -1467,10 +1467,10 @@ consulta_discenter$"7Péssima" <- ifelse(str_detect(consulta_discenter$`Funciona
                                                    "Péssima"), 1, 0)
 
 
-quadrodisgestaor15 <- consulta_discenter %>% 
+quadrodisgestaor16 <- consulta_discenter %>% 
   mutate(Classe = "Funcionamento Teams")
 
-quadrodisgestaor15 <- quadrodisgestaor15%>%
+quadrodisgestaor16 <- quadrodisgestaor16%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`7Ótima`, na.rm = T)/length(`7Ótima`)),
              Boa = percent(sum(`7Boa`, na.rm = T)/length(`7Boa`)),
@@ -1503,10 +1503,10 @@ consulta_discenter$"8Péssima" <- ifelse(str_detect(consulta_discenter$`Funciona
                                                    "Péssima"), 1, 0)
 
 
-quadrodisgestaor16 <- consulta_discenter %>% 
+quadrodisgestaor17 <- consulta_discenter %>% 
   mutate(Classe = "Funcionamento da Plataforma Institucional Aprender")
 
-quadrodisgestaor16 <- quadrodisgestaor16%>%
+quadrodisgestaor17 <- quadrodisgestaor17%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`8Ótima`, na.rm = T)/length(`8Ótima`)),
              Boa = percent(sum(`8Boa`, na.rm = T)/length(`8Boa`)),
@@ -1539,10 +1539,10 @@ consulta_discenter$"9Péssima" <- ifelse(str_detect(consulta_discenter$`Funciona
                                                    "Péssima"), 1, 0)
 
 
-quadrodisgestaor17 <- consulta_discenter %>% 
+quadrodisgestaor18 <- consulta_discenter %>% 
   mutate(Classe = "Funcionamento SIGAA")
 
-quadrodisgestaor17 <- quadrodisgestaor17%>%
+quadrodisgestaor18 <- quadrodisgestaor18%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`9Ótima`, na.rm = T)/length(`9Ótima`)),
              Boa = percent(sum(`9Boa`, na.rm = T)/length(`9Boa`)),
@@ -1568,7 +1568,7 @@ quadrodisgestaortotal14 <- rbind(quadrodisgestaortotal13, quadrodisgestaor15)
 quadrodisgestaortotal15 <- rbind(quadrodisgestaortotal14, quadrodisgestaor16)
 quadrodisgestaortotal16 <- rbind(quadrodisgestaortotal15, quadrodisgestaor17)
 
-quadrodisgestaortotal <- rbind(quadrodisgestaor, quadrodisgestaor1)
+quadrodisgestaortotal <- rbind(quadrodisgestaor, quadrodisgestaor16)
 
 
 
@@ -1646,7 +1646,7 @@ quadrotecgestaor1 <- quadrotecgestaor1%>%
              Ruim = percent(sum(`ARuim`, na.rm = T)/length(`ARuim`)),
              Péssima = percent(sum(`APéssima`, na.rm = T)/length(`APéssima`)))
 
-consulta_tecnico <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/TecnicoConsulta.xlsx")
+
 
 # tecnico Auditorio
 
@@ -1780,10 +1780,10 @@ consulta_tecnicor$"FPéssima" <- ifelse(str_detect(consulta_tecnicor$`Estacionam
                                                   "Péssima"), 1, 0)
 
 
-quadrotecgestaor6 <- consulta_tecnicor %>% 
+quadrotecgestaor5 <- consulta_tecnicor %>% 
   mutate(Classe = "Estacionamento")
 
-quadrotecgestaor6 <- quadrotecgestaor6%>%
+quadrotecgestaor5 <- quadrotecgestaor5%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`FÓtima`, na.rm = T)/length(`FÓtima`)),
              Boa = percent(sum(`FBoa`, na.rm = T)/length(`FBoa`)),
@@ -1816,10 +1816,10 @@ consulta_tecnicor$"GPéssima" <- ifelse(str_detect(consulta_tecnicor$`Iluminaç�
                                                   "Péssima"), 1, 0)
 
 
-quadrotecgestaor7 <- consulta_tecnicor %>% 
+quadrotecgestaor6 <- consulta_tecnicor %>% 
   mutate(Classe = "Iluminação pública")
 
-quadrotecgestaor7 <- quadrotecgestaor7%>%
+quadrotecgestaor6 <- quadrotecgestaor6%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`GÓtima`, na.rm = T)/length(`GÓtima`)),
              Boa = percent(sum(`GBoa`, na.rm = T)/length(`GBoa`)),
@@ -1851,10 +1851,10 @@ consulta_tecnicor$"HPéssima" <- ifelse(str_detect(consulta_tecnicor$`Instalaç�
                                                   "Péssima"), 1, 0)
 
 
-quadrodisgestaor8 <- consulta_tecnicor %>% 
+quadrotecgestaor7 <- consulta_tecnicor %>% 
   mutate(Classe = "Instalações Sanitarias")
 
-quadrotecgestaor8 <- quadrotecgestaor8%>%
+quadrotecgestaor7 <- quadrotecgestaor7%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`HÓtima`, na.rm = T)/length(`HÓtima`)),
              Boa = percent(sum(`HBoa`, na.rm = T)/length(`HBoa`)),
@@ -1886,10 +1886,10 @@ consulta_tecnicor$"IPéssima" <- ifelse(str_detect(consulta_tecnicor$`Restaurant
                                                   "Péssima"), 1, 0)
 
 
-quadrotecgestaor9 <- consulta_tecnicor %>% 
+quadrotecgestaor8 <- consulta_tecnicor %>% 
   mutate(Classe = "Restaurante Universitario")
 
-quadrotecgestaor9 <- quadrotecgestaor9%>%
+quadrotecgestaor8 <- quadrotecgestaor8%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`IÓtima`, na.rm = T)/length(`IÓtima`)),
              Boa = percent(sum(`IBoa`, na.rm = T)/length(`IBoa`)),
@@ -1921,10 +1921,10 @@ consulta_tecnicor$"1Péssima" <- ifelse(str_detect(consulta_tecnicor$`Salas de a
                                                   "Péssima"), 1, 0)
 
 
-quadrotecgestaor10 <- consulta_tecnicor %>% 
+quadrotecgestaor9 <- consulta_tecnicor %>% 
   mutate(Classe = "Salas de aula")
 
-quadrotecgestaor10 <- quadrotecgestaor10%>%
+quadrotecgestaor9 <- quadrotecgestaor9%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`1Ótima`, na.rm = T)/length(`1Ótima`)),
              Boa = percent(sum(`1Boa`, na.rm = T)/length(`1Boa`)),
@@ -1956,10 +1956,10 @@ consulta_tecnicor$"2Péssima" <- ifelse(str_detect(consulta_tecnicor$`Sala dos P
                                                   "Péssima"), 1, 0)
 
 
-quadrotecgestaor11 <- consulta_tecnicor %>% 
+quadrotecgestaor10 <- consulta_tecnicor %>% 
   mutate(Classe = "Sala dos Professores")
 
-quadrotecgestaor11 <- quadrotecgestaor11%>%
+quadrotecgestaor10 <- quadrotecgestaor10%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`2Ótima`, na.rm = T)/length(`2Ótima`)),
              Boa = percent(sum(`2Boa`, na.rm = T)/length(`2Boa`)),
@@ -1991,10 +1991,10 @@ consulta_tecnicor$"3Péssima" <- ifelse(str_detect(consulta_tecnicor$`Segurança
                                                   "Péssima"), 1, 0)
 
 
-quadrotecgestaor12 <- consulta_tecnicor %>% 
+quadrotecgestaor11 <- consulta_tecnicor %>% 
   mutate(Classe = "Segurança do Campus")
 
-quadrotecgestaor12 <- quadrotecgestaor12%>%
+quadrotecgestaor11 <- quadrotecgestaor11%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`3Ótima`, na.rm = T)/length(`3Ótima`)),
              Boa = percent(sum(`3Boa`, na.rm = T)/length(`3Boa`)),
@@ -2028,10 +2028,10 @@ consulta_tecnicor$"4Péssima" <- ifelse(str_detect(consulta_tecnicor$`Suporte te
                                                   "Péssima"), 1, 0)
 
 
-quadrotecgestaor13 <- consulta_tecnicor %>% 
+quadrotecgestaor12 <- consulta_tecnicor %>% 
   mutate(Classe = "Suporte tecnologico para administração")
 
-quadrotecgestaor13 <- quadrotecgestaor13%>%
+quadrotecgestaor12 <- quadrotecgestaor12%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`4Ótima`, na.rm = T)/length(`4Ótima`)),
              Boa = percent(sum(`4Boa`, na.rm = T)/length(`4Boa`)),
@@ -2064,10 +2064,10 @@ consulta_tecnicor$"5Péssima" <- ifelse(str_detect(consulta_tecnicor$`Acervo Fis
                                                   "Péssima"), 1, 0)
 
 
-quadrotecgestaor14 <- consulta_tecnicor %>% 
+quadrotecgestaor13 <- consulta_tecnicor %>% 
   mutate(Classe = "Acervo Fisico BCE")
 
-quadrotecgestaor14 <- quadrotecgestaor14%>%
+quadrotecgestaor13 <- quadrotecgestaor13%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`5Ótima`, na.rm = T)/length(`5Ótima`)),
              Boa = percent(sum(`5Boa`, na.rm = T)/length(`5Boa`)),
@@ -2184,7 +2184,7 @@ quadrotecgestaor16 <- quadrotecgestaor16%>%
              Péssima = percent(sum(`8Péssima`, na.rm = T)/length(`8Péssima`)))
 
 
-# Funcionamento SIGAA
+# Funcionamento SIGAA - Estamos aqui
 
 consulta_tecnicor <- consulta_tecnico %>% filter(!is.na(`Funcionamento SIGAA`))
 
@@ -2238,10 +2238,6 @@ quadrotecgestaortotal15 <- rbind(quadrotecgestaortotal14, quadrotecgestaor16)
 quadrotecgestaortotal16 <- rbind(quadrotecgestaortotal15, quadrotecgestaor17)
 
 quadrotecgestaortotal <- rbind(quadrotecgestaor, quadrotecgestaor1)
-
-
-rm(list=ls())
-consulta_aluno   <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/Rpibic/AlunosConsulta.xlsx")
 
 
 
@@ -2320,7 +2316,7 @@ quadrodocgestaor1 <- quadrodocgestaor1%>%
              Ruim = percent(sum(`ARuim`, na.rm = T)/length(`ARuim`)),
              Péssima = percent(sum(`APéssima`, na.rm = T)/length(`APéssima`)))
 
-consulta_tecnico <- read_excel("C:/Users/igorB/Desktop/ArquivosPesquisaUNB/TecnicoConsulta.xlsx")
+
 
 # docente Auditorio
 
@@ -2397,8 +2393,8 @@ quadrodocgestaor3 <- quadrodocgestaor3%>%
 
 consulta_docenter <- consulta_docente %>% filter(!is.na(`Espaço de Estudo da BCE`))
 
-consulta_docenter$"DÓtima" <- NA
-consulta_docenter$"DÓtima" <- ifelse(str_detect(consulta_docenter$`Espaço de Estudo da BCE`, 
+consulta_docenter$"1DÓtima" <- NA
+consulta_docenter$"1DÓtima" <- ifelse(str_detect(consulta_docenter$`Espaço de Estudo da BCE`, 
                                                 "Ótima"), 1, 0)
 consulta_docenter$"DBoa" <- NA
 consulta_docenter$"DBoa" <- ifelse(str_detect(consulta_docenter$`Espaço de Estudo da BCE`, 
@@ -2420,14 +2416,13 @@ consulta_docenter$"DPéssima" <- ifelse(str_detect(consulta_docenter$`Espaço de
 quadrodocgestaor4 <- consulta_docenter %>% 
   mutate(Classe = "Espaço de Estudo da BCE")
 
-quadrodocgestaor4 <- quadrotecgestaor4%>%
+quadrodocgestaor4 <- quadrodocgestaor4%>%
   group_by(Classe) %>% 
-  summarise(Ótima = percent(sum(`DÓtima`, na.rm = T)/length(`DÓtima`)),
+  summarise(Ótima = percent(sum(`1DÓtima`, na.rm = T)/length(`1DÓtima`)),
              Boa = percent(sum(`DBoa`, na.rm = T)/length(`DBoa`)),
              "Não utilizei o local/serviço este ano." = percent(sum(`DNão utilizei o local/serviço este ano.`, na.rm = T)/length(`DNão utilizei o local/serviço este ano.`)),
              Ruim = percent(sum(`DRuim`, na.rm = T)/length(`DRuim`)),
              Péssima = percent(sum(`DPéssima`, na.rm = T)/length(`DPéssima`)))
-
 
 
 # Estacionamento
@@ -2454,10 +2449,10 @@ consulta_docenter$"FPéssima" <- ifelse(str_detect(consulta_docenter$`Estacionam
                                                   "Péssima"), 1, 0)
 
 
-quadrodocgestaor6 <- consulta_docenter %>% 
+quadrodocgestaor5 <- consulta_docenter %>% 
   mutate(Classe = "Estacionamento")
 
-quadrodocgestaor6 <- quadrodocgestaor6%>%
+quadrodocgestaor5 <- quadrodocgestaor5%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`FÓtima`, na.rm = T)/length(`FÓtima`)),
              Boa = percent(sum(`FBoa`, na.rm = T)/length(`FBoa`)),
@@ -2490,10 +2485,10 @@ consulta_docenter$"GPéssima" <- ifelse(str_detect(consulta_docenter$`Iluminaç�
                                                   "Péssima"), 1, 0)
 
 
-quadrodocgestaor7 <- consulta_docenter %>% 
+quadrodocgestaor6 <- consulta_docenter %>% 
   mutate(Classe = "Iluminação pública")
 
-quadrodocgestaor7 <- quadrodocgestaor7%>%
+quadrodocgestaor6 <- quadrodocgestaor6%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`GÓtima`, na.rm = T)/length(`GÓtima`)),
              Boa = percent(sum(`GBoa`, na.rm = T)/length(`GBoa`)),
@@ -2525,10 +2520,10 @@ consulta_docenter$"HPéssima" <- ifelse(str_detect(consulta_docenter$`Instalaç�
                                                   "Péssima"), 1, 0)
 
 
-quadrodocgestaor8 <- consulta_docenter %>% 
+quadrodocgestaor7 <- consulta_docenter %>% 
   mutate(Classe = "Instalações Sanitarias")
 
-quadrodocgestaor8 <- quadrodocgestaor8%>%
+quadrodocgestaor7 <- quadrodocgestaor7%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`HÓtima`, na.rm = T)/length(`HÓtima`)),
              Boa = percent(sum(`HBoa`, na.rm = T)/length(`HBoa`)),
@@ -2560,10 +2555,10 @@ consulta_docenter$"IPéssima" <- ifelse(str_detect(consulta_docenter$`Restaurant
                                                   "Péssima"), 1, 0)
 
 
-quadrodocgestaor9 <- consulta_docenter %>% 
+quadrodocgestaor8 <- consulta_docenter %>% 
   mutate(Classe = "Restaurante Universitario")
 
-quadrodocgestaor9 <- quadrodocgestaor9%>%
+quadrodocgestaor8 <- quadrodocgestaor8%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`IÓtima`, na.rm = T)/length(`IÓtima`)),
              Boa = percent(sum(`IBoa`, na.rm = T)/length(`IBoa`)),
@@ -2595,10 +2590,10 @@ consulta_docenter$"1Péssima" <- ifelse(str_detect(consulta_docenter$`Salas de a
                                                   "Péssima"), 1, 0)
 
 
-quadrodocgestaor10 <- consulta_docenter %>% 
+quadrodocgestaor9 <- consulta_docenter %>% 
   mutate(Classe = "Salas de aula")
 
-quadrodocgestaor10 <- quadrodocgestaor10%>%
+quadrodocgestaor9 <- quadrodocgestaor9%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`1Ótima`, na.rm = T)/length(`1Ótima`)),
              Boa = percent(sum(`1Boa`, na.rm = T)/length(`1Boa`)),
@@ -2630,10 +2625,10 @@ consulta_docenter$"2Péssima" <- ifelse(str_detect(consulta_docenter$`Sala dos P
                                                   "Péssima"), 1, 0)
 
 
-quadrodocgestaor11 <- consulta_docenter %>% 
+quadrodocgestaor10 <- consulta_docenter %>% 
   mutate(Classe = "Sala dos Professores")
 
-quadrodocgestaor11 <- quadrodocgestaor11%>%
+quadrodocgestaor10 <- quadrodocgestaor10%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`2Ótima`, na.rm = T)/length(`2Ótima`)),
              Boa = percent(sum(`2Boa`, na.rm = T)/length(`2Boa`)),
@@ -2665,10 +2660,10 @@ consulta_docenter$"3Péssima" <- ifelse(str_detect(consulta_docenter$`Segurança
                                                   "Péssima"), 1, 0)
 
 
-quadrodocgestaor12 <- consulta_docenter %>% 
+quadrodocgestaor11 <- consulta_docenter %>% 
   mutate(Classe = "Segurança do Campus")
 
-quadrodocgestaor12 <- quadrodocgestaor12%>%
+quadrodocgestaor11 <- quadrodocgestaor11%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`3Ótima`, na.rm = T)/length(`3Ótima`)),
              Boa = percent(sum(`3Boa`, na.rm = T)/length(`3Boa`)),
@@ -2702,10 +2697,10 @@ consulta_docenter$"4Péssima" <- ifelse(str_detect(consulta_docenter$`Suporte te
                                                   "Péssima"), 1, 0)
 
 
-quadrodocgestaor13 <- consulta_docenter %>% 
+quadrodocgestaor12 <- consulta_docenter %>% 
   mutate(Classe = "Suporte tecnologico para administração")
 
-quadrodocgestaor13 <- quadrodocgestaor13%>%
+quadrodocgestaor12 <- quadrodocgestaor12%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`4Ótima`, na.rm = T)/length(`4Ótima`)),
              Boa = percent(sum(`4Boa`, na.rm = T)/length(`4Boa`)),
@@ -2738,10 +2733,10 @@ consulta_docenter$"5Péssima" <- ifelse(str_detect(consulta_docenter$`Acervo Fis
                                                   "Péssima"), 1, 0)
 
 
-quadrodocgestaor14 <- consulta_docenter %>% 
+quadrodocgestaor13 <- consulta_docenter %>% 
   mutate(Classe = "Acervo Fisico BCE")
 
-quadrodocgestaor14 <- quadrodocgestaor14%>%
+quadrodocgestaor13 <- quadrodocgestaor13%>%
   group_by(Classe) %>% 
   summarise(Ótima = percent(sum(`5Ótima`, na.rm = T)/length(`5Ótima`)),
              Boa = percent(sum(`5Boa`, na.rm = T)/length(`5Boa`)),
