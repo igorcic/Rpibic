@@ -571,7 +571,7 @@ consulta_tecnicog$"Não sei responder" <- ifelse(str_detect(consulta_tecnicog$`J
 
 quadrotecgestao <- consulta_tecnicog %>% 
   select("1":"Não sei responder") %>% 
-  mutate(Classe = "A comunidade acadêmica é incentivada a participar da definição das políticas de gestão")
+  mutate(Classe = "Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [A comunidade acadêmica é incentivada a participar da definição das políticas de gestão]")
 
 quadrotecgestao <- quadrotecgestao%>% 
   group_by(Classe) %>% 
@@ -608,7 +608,7 @@ consulta_tecnicog$"Não sei responder.2" <- ifelse(str_detect(consulta_tecnicog$
 
 quadrotecgestao2 <- consulta_tecnicog %>% 
   select("1.2":"Não sei responder.2") %>% 
-  mutate(Classe = "As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ")
+  mutate(Classe = "Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [As ações institucionais estão de acordo com o Plano de Desenvolvimento Institucional (PDI) da UnB ]")
 
 quadrotecgestao2 <- quadrotecgestao2%>% 
   group_by(Classe) %>% 
@@ -648,7 +648,7 @@ consulta_tecnicog$"Não sei responder3" <- ifelse(str_detect(consulta_tecnicog$`
 
 quadrotecgestao3 <- consulta_tecnicog %>% 
   select("1.3":"Não sei responder3") %>% 
-  mutate(Classe = "Os meios de comunicação da Instituição são eficazes")
+  mutate(Classe = "Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os meios de comunicação da Instituição são eficazes]")
 
 quadrotecgestao3 <- quadrotecgestao3%>% 
   group_by(Classe) %>% 
@@ -689,7 +689,7 @@ consulta_tecnicog$"Não sei responder4" <- ifelse(str_detect(consulta_tecnicog$`
 
 quadrotecgestao4 <- consulta_tecnicog %>% 
   select("1.4":"Não sei responder4") %>% 
-  mutate(Classe = "Os canais de comunicação oficiais da UnB são confiáveis.")
+  mutate(Classe = "Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os canais de comunicação oficiais da UnB são confiáveis.]")
 
 quadrotecgestao4 <- quadrotecgestao4%>% 
   group_by(Classe) %>% 
@@ -720,7 +720,7 @@ consulta_tecnicog$"4.5" <- NA
 consulta_tecnicog$"4.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                              "4"), 1, 0)
 consulta_tecnicog$"5.5" <- NA
-consulta_tecnicog$"5.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB: Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
+consulta_tecnicog$"5.5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
                                              "5"), 1, 0)
 consulta_tecnicog$"Não sei responder5" <- NA
 consulta_tecnicog$"Não sei responder5" <- ifelse(str_detect(consulta_tecnico$`Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]`, 
@@ -728,7 +728,7 @@ consulta_tecnicog$"Não sei responder5" <- ifelse(str_detect(consulta_tecnico$`J
 
 quadrotecgestao5 <- consulta_tecnicog %>% 
   select("1.5":"Não sei responder5") %>% 
-  mutate(Classe = "Os programas de apoio aos estudantes funcionam de modo satisfatório.")
+  mutate(Classe = "Julgue as assertivas relacionadas à Gestão da UnB:  Considere a escala de 1 a 5, onde 1 = Discordo Totalmente e 5 = Concordo Totalmente [Os programas de apoio aos estudantes funcionam de modo satisfatório.]")
 
 quadrotecgestao5 <- quadrotecgestao5%>% 
   group_by(Classe) %>% 
