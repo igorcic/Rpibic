@@ -52,7 +52,6 @@ Este relatório apresenta os resultados da **FACE**.
 # Resultados
 
 ```{r}
-
 kable(quadro1,
       caption = "Perfil dos respondentes da Consulta à Comunidade Acadêmica", format = "html", 
       escape = FALSE,   # considera o <br> uma quebra de linha
@@ -60,7 +59,6 @@ kable(quadro1,
       align = "lrrr")  %>% 
   row_spec(nrow(quadro1), bold = TRUE) %>% 
   row_spec(0, align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F)
-
 ```
 
 \newline
@@ -217,5 +215,24 @@ kable(quadrodocgestaortotal16,
 
 \newline
 \newline
+
+
+***
+
+# Avaliação Estudantil: Incentivo UNB
+\newline
+A Comunidade estudantil avaliou em 2021 se a unb incentiva a atividades academicas
+\newline
+
+```{r}
+
+
+kable(quadroAlunototal9,
+      caption = "Avaliação Estudantil: Incentivo UNB", format = "html", 
+      escape = FALSE,   # considera o <br> uma quebra de linha
+      format.args = list(big.mark = "."), digits = 2, 
+      align = "r")  %>% 
+  row_spec(0, align = "r") %>% kable_styling(bootstrap_options = c("striped", "hover", "responsive"), full_width = F, font_size = 14)
+```
 
 

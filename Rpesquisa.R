@@ -3292,3 +3292,145 @@ quadroaluno8 <- quadroaluno8%>%
             Discordo = percent(sum(`8Discordo`, na.rm = T)/length(`8Discordo`)),
             "Discordo Totalmente" = percent(sum(`8Discordo Totalmente`, na.rm = T)/length(`8Discordo Totalmente`)),
             "Não Sei" = percent(sum(`8Não Sei`, na.rm = T)/length(`8Não Sei`)))
+
+
+# Pergunta 10
+
+
+consulta_alunor <- consulta_aluno %>% filter(!is.na(`A Unb Incentiva  a participação de seminarios e congressos?`))
+
+consulta_alunor $"9Concordo Totalmente" <- NA
+consulta_alunor $"9Concordo Totalmente" <- ifelse(str_detect(consulta_alunor$`A Unb Incentiva  a participação de seminarios e congressos?`, 
+                                                             "Concordo Totalmente"), 1, 0)
+consulta_alunor $"9Concordo" <- NA
+consulta_alunor $"9Concordo" <- ifelse(str_detect(consulta_alunor$`A Unb Incentiva  a participação de seminarios e congressos?`, 
+                                                  "Concordo"), 1, 0)
+
+consulta_alunor $"9Discordo" <- NA
+consulta_alunor $"9Discordo" <- ifelse(str_detect(consulta_alunor$`A Unb Incentiva  a participação de seminarios e congressos?`, 
+                                                  "Discordo"), 1, 0)
+
+consulta_alunor $"9Discordo Totalmente" <- NA
+consulta_alunor $"9Discordo Totalmente" <- ifelse(str_detect(consulta_alunor$`A Unb Incentiva  a participação de seminarios e congressos?`, 
+                                                             "Discordo Totalmente"), 1, 0)
+
+consulta_alunor $"9Nem Concordo, Nem Discordo" <- NA
+consulta_alunor $"9Nem Concordo, Nem Discordo" <- ifelse(str_detect(consulta_alunor$`A Unb Incentiva  a participação de seminarios e congressos?`, 
+                                                                    "Nem Concordo, Nem Discordo"), 1, 0)
+
+consulta_alunor $"9Não Sei" <- NA
+consulta_alunor $"9Não Sei" <- ifelse(str_detect(consulta_alunor$`A Unb Incentiva  a participação de seminarios e congressos?`, 
+                                                 "Não Sei"), 1, 0)
+
+
+quadroaluno9 <- consulta_alunor %>% 
+  mutate(Classe = "A Unb Incentiva  a participação de seminarios e congressos?")
+
+quadroaluno9 <- quadroaluno9%>%
+  group_by(Classe) %>% 
+  summarise("Concordo Totalmente" = percent(sum(`9Concordo Totalmente`, na.rm = T)/length(`9Concordo Totalmente`)),
+            Concordo = percent(sum(`9Concordo`, na.rm = T)/length(`9Concordo`)),
+            "Nem Concordo, Nem Discordo" = percent(sum(`9Nem Concordo, Nem Discordo`, na.rm = T)/length(`9Nem Concordo, Nem Discordo`)),
+            Discordo = percent(sum(`9Discordo`, na.rm = T)/length(`9Discordo`)),
+            "Discordo Totalmente" = percent(sum(`9Discordo Totalmente`, na.rm = T)/length(`9Discordo Totalmente`)),
+            "Não Sei" = percent(sum(`9Não Sei`, na.rm = T)/length(`9Não Sei`)))
+
+# Pergunta 11
+
+
+consulta_alunor <- consulta_aluno %>% filter(!is.na(`A UNB incentiva os estudantes a participar de programas de mobilidade Nacional?`))
+
+consulta_alunor $"10Concordo Totalmente" <- NA
+consulta_alunor $"10Concordo Totalmente" <- ifelse(str_detect(consulta_alunor$`A UNB incentiva os estudantes a participar de programas de mobilidade Nacional?`, 
+                                                             "Concordo Totalmente"), 1, 0)
+consulta_alunor $"10Concordo" <- NA
+consulta_alunor $"10Concordo" <- ifelse(str_detect(consulta_alunor$`A UNB incentiva os estudantes a participar de programas de mobilidade Nacional?`, 
+                                                  "Concordo"), 1, 0)
+
+consulta_alunor $"10Discordo" <- NA
+consulta_alunor $"10Discordo" <- ifelse(str_detect(consulta_alunor$`A UNB incentiva os estudantes a participar de programas de mobilidade Nacional?`, 
+                                                  "Discordo"), 1, 0)
+
+consulta_alunor $"10Discordo Totalmente" <- NA
+consulta_alunor $"10Discordo Totalmente" <- ifelse(str_detect(consulta_alunor$`A UNB incentiva os estudantes a participar de programas de mobilidade Nacional?`, 
+                                                             "Discordo Totalmente"), 1, 0)
+
+consulta_alunor $"10Nem Concordo, Nem Discordo" <- NA
+consulta_alunor $"10Nem Concordo, Nem Discordo" <- ifelse(str_detect(consulta_alunor$`A UNB incentiva os estudantes a participar de programas de mobilidade Nacional?`, 
+                                                                    "Nem Concordo, Nem Discordo"), 1, 0)
+
+consulta_alunor $"10Não Sei" <- NA
+consulta_alunor $"10Não Sei" <- ifelse(str_detect(consulta_alunor$`A UNB incentiva os estudantes a participar de programas de mobilidade Nacional?`, 
+                                                 "Não Sei"), 1, 0)
+
+
+quadroaluno10 <- consulta_alunor %>% 
+  mutate(Classe = "A UNB incentiva os estudantes a participar de programas de mobilidade Nacional?")
+
+quadroaluno10 <- quadroaluno10%>%
+  group_by(Classe) %>% 
+  summarise("Concordo Totalmente" = percent(sum(`10Concordo Totalmente`, na.rm = T)/length(`10Concordo Totalmente`)),
+            Concordo = percent(sum(`10Concordo`, na.rm = T)/length(`10Concordo`)),
+            "Nem Concordo, Nem Discordo" = percent(sum(`10Nem Concordo, Nem Discordo`, na.rm = T)/length(`10Nem Concordo, Nem Discordo`)),
+            Discordo = percent(sum(`10Discordo`, na.rm = T)/length(`10Discordo`)),
+            "Discordo Totalmente" = percent(sum(`10Discordo Totalmente`, na.rm = T)/length(`10Discordo Totalmente`)),
+            "Não Sei" = percent(sum(`10Não Sei`, na.rm = T)/length(`10Não Sei`)))
+
+
+# Pergunta 12
+
+
+consulta_alunor <- consulta_aluno %>% filter(!is.na(`A UNB incentiva os estudantes a participar de programas de mobilidade Internacional?`))
+
+consulta_alunor $"11Concordo Totalmente" <- NA
+consulta_alunor $"11Concordo Totalmente" <- ifelse(str_detect(consulta_alunor$`A UNB incentiva os estudantes a participar de programas de mobilidade Internacional?`, 
+                                                              "Concordo Totalmente"), 1, 0)
+consulta_alunor $"11Concordo" <- NA
+consulta_alunor $"11Concordo" <- ifelse(str_detect(consulta_alunor$`A UNB incentiva os estudantes a participar de programas de mobilidade Internacional?`, 
+                                                   "Concordo"), 1, 0)
+
+consulta_alunor $"11Discordo" <- NA
+consulta_alunor $"11Discordo" <- ifelse(str_detect(consulta_alunor$`A UNB incentiva os estudantes a participar de programas de mobilidade Internacional?`, 
+                                                   "Discordo"), 1, 0)
+
+consulta_alunor $"11Discordo Totalmente" <- NA
+consulta_alunor $"11Discordo Totalmente" <- ifelse(str_detect(consulta_alunor$`A UNB incentiva os estudantes a participar de programas de mobilidade Internacional?`, 
+                                                              "Discordo Totalmente"), 1, 0)
+
+consulta_alunor $"11Nem Concordo, Nem Discordo" <- NA
+consulta_alunor $"11Nem Concordo, Nem Discordo" <- ifelse(str_detect(consulta_alunor$`A UNB incentiva os estudantes a participar de programas de mobilidade Internacional?`, 
+                                                                     "Nem Concordo, Nem Discordo"), 1, 0)
+
+consulta_alunor $"11Não Sei" <- NA
+consulta_alunor $"11Não Sei" <- ifelse(str_detect(consulta_alunor$`A UNB incentiva os estudantes a participar de programas de mobilidade Internacional?`, 
+                                                  "Não Sei"), 1, 0)
+
+
+quadroaluno11 <- consulta_alunor %>% 
+  mutate(Classe = "A UNB incentiva os estudantes a participar de programas de mobilidade Internacional?")
+
+quadroaluno11 <- quadroaluno11%>%
+  group_by(Classe) %>% 
+  summarise("Concordo Totalmente" = percent(sum(`11Concordo Totalmente`, na.rm = T)/length(`11Concordo Totalmente`)),
+            Concordo = percent(sum(`11Concordo`, na.rm = T)/length(`11Concordo`)),
+            "Nem Concordo, Nem Discordo" = percent(sum(`11Nem Concordo, Nem Discordo`, na.rm = T)/length(`11Nem Concordo, Nem Discordo`)),
+            Discordo = percent(sum(`11Discordo`, na.rm = T)/length(`11Discordo`)),
+            "Discordo Totalmente" = percent(sum(`11Discordo Totalmente`, na.rm = T)/length(`11Discordo Totalmente`)),
+            "Não Sei" = percent(sum(`11Não Sei`, na.rm = T)/length(`11Não Sei`)))
+
+
+
+
+quadroAlunototal <- rbind(quadroaluno1, quadroaluno2)
+quadroAlunototal1 <- rbind(quadroAlunototal, quadroaluno3)
+quadroAlunototal2 <- rbind(quadroAlunototal1, quadroaluno4)
+quadroAlunototal3 <- rbind(quadroAlunototal2, quadroaluno5)
+quadroAlunototal4 <- rbind(quadroAlunototal3, quadroaluno6)
+quadroAlunototal5 <- rbind(quadroAlunototal4, quadroaluno7)
+quadroAlunototal6 <- rbind(quadroAlunototal5, quadroaluno8)
+quadroAlunototal7 <- rbind(quadroAlunototal6, quadroaluno9)
+quadroAlunototal8 <- rbind(quadroAlunototal7, quadroaluno10)
+quadroAlunototal9 <- rbind(quadroAlunototal8, quadroaluno11)
+
+
+
